@@ -2,9 +2,15 @@ site_name: Programming and Software Notes
 
 nav:
 
-    - Home: 'index.md'
-    - MkDocs: 'mkdocs.md'
-
+    - Documentation:
+        - MkDocs: 'documentation/mkdocs.md'
+        - Doxygen: 'documentation/doxygen.md'
+    - GMT:
+        - GMT5: 'gmt/gmt5.md'
+        - GMT6: 'gmt/gmt6.md'
+        - pyGMT: 'gmt/pygmt.md'
+    - Seismology:
+        - Data requests: 'seismology/data_requests.md'
 
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML

@@ -171,6 +171,18 @@ Produces the following output:
 When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
+## Resources
+
+- [The best MkDocs plugins and customizations](https://chrieke.medium.com/the-best-mkdocs-plugins-and-customizations-fc820eb19759)
+- [Mermaid](https://mermaid-js.github.io/mermaid/#/) diagrams using text and code
+  ([GitHub](https://github.com/mermaid-js/mermaid))
+- [Material](https://squidfunk.github.io/mkdocs-material/) for MkDocs
+- [MkDocs is the Perfect Open Source Documentation Software](https://fosspost.org/mkdocs-perfect-open-source-documentation-software/)
+- MkDocs [Wiki](https://github.com/mkdocs/mkdocs/wiki)
+- MkDocs [GitBook theme](https://gitlab.com/lramage/mkdocs-gitbook-theme)
+- MkDocs [plugins](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins)
+- [mkdocstrings](https://github.com/mkdocstrings/mkdocstrings)
+
 
 
 
