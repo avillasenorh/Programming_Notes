@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>GMT5 - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "GMT5";
+    var mkdocs_page_input_path = "gmt/gmt5.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">GMT5</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#initial-configuration">Initial configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#specifying-line-sytle">Specifying line sytle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pstext-format">pstext format</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#psscale-format">psscale format</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#close-a-gmt-postscript-file">Close a GMT Postscript file</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set-label-with-decimal-degrees">Set label with decimal degrees</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#new-label-format">New label format</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#make-water-semitransparent">Make water semitransparent</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pens-transparency-etc-not-tested">Pens, transparency, etc (not tested!!!!)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#convert-shapefile-to-gmt">Convert shapefile to GMT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gmt2kml">gmt2kml</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>GMT &raquo;</li>
+        
+      
+    
+    <li>GMT5</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="gmt5">GMT5</h1>
+<p>Recipes for GMT5</p>
+<h2 id="initial-configuration">Initial configuration</h2>
+<pre><code>$ gmt defaults &gt; gmt.conf
+</code></pre>
+<p>Reduce fonts sizes (defaults too large)</p>
+<pre><code>#
+# FONT Parameters
+#
+FONT_ANNOT_PRIMARY             = 10p,Helvetica,black
+FONT_ANNOT_SECONDARY           = 12p,Helvetica,black
+FONT_LABEL                     = 14p,Helvetica,black
+FONT_LOGO                      = 8p,Helvetica,black
+FONT_TITLE                     = 14p,Helvetica,black
+</code></pre>
+<p>Set map frame to plain</p>
+<pre><code>MAP_FRAME_TYPE                 = plain
+</code></pre>
+<h2 id="specifying-line-sytle">Specifying line sytle</h2>
+<p>Line style is specified with the <code>-W</code> option:</p>
+<pre><code>    -Wwidth,color,style
+</code></pre>
+
+<p>Values of <code>width</code> can be: <code>thinnest</code> (0.25p), <code>thinner</code> (0.5p), <code>thin</code> (0.75p), or <code>thick</code> (1p).</p>
+<ul>
+<li>
+<p><code>color</code> can be specified with name or R/G/B</p>
+</li>
+<li>
+<p><code>style</code>:</p>
+<ul>
+<li><code>dotted</code> or <code>.</code></li>
+<li><code>dashed</code> or <code>-</code></li>
+<li><code>.-</code></li>
+<li><code>string:offset</code> (e.g. <code>4_8_5_8:2p</code>)</li>
+</ul>
+</li>
+</ul>
+<h2 id="pstext-format">pstext format</h2>
+<pre><code>$ gmt pstext -J -R -F+f12p,Helvetica,black+jLB -W1.5p -G255 -K -O
+</code></pre>
+<p>f: 12p font size
+   Helvetica font
+   black color
+j: theJustify LB (left bottom)</p>
+<p>a: angle</p>
+<p>-W1.5p = outline
+-Gwhite (255) = box background</p>
+<p>-D0.3/0.3  = add offset from x,y coordinates (e.g. lower left corner)</p>
+<h2 id="psscale-format">psscale format</h2>
+<pre><code>$ gmt psscale -Cvp.cpt -Dx8c/-1c+w12c/0.5c+jTC+h+e -Bx+l"label"
+</code></pre>
+<p>x8c/-1c = plot scale at fixed plot coordinates 8c/1c
+w12c/0.5c = scale size is 12c long by 0.5c wide
+jTC = justification is top-center
+h = plot a horizontal scale
+e = plot end triangles</p>
+<h2 id="close-a-gmt-postscript-file">Close a GMT Postscript file</h2>
+<pre><code>$ gmt psxy -R -J -T -O &gt;&gt; $psfile
+</code></pre>
+<h2 id="set-label-with-decimal-degrees">Set label with decimal degrees</h2>
+<pre><code>gmt set FORMAT_GEO_MAP             ddd.xF
+</code></pre>
+<h2 id="new-label-format">New label format</h2>
+<pre><code>-B[p|s][x|y|z][a|f|g]&lt;tick&gt;[m][l|p]
+-B[p|s][x|y|z][+l&lt;label&gt;][+p&lt;prefix&gt;][+u&lt;unit&gt;]
+-B[&lt;axes&gt;][+b][+g&lt;fill&gt;][+o&lt;lon&gt;/&lt;lat&gt;][+t&lt;title&gt;]
+</code></pre>
+<p>Examples:</p>
+<pre><code>-Bxa${xa}f${xt}g${xg} -Bya${ya}f${yt}g${yg}${axis} -BWeSn+t"${label}"
+
+-Bxa${xa}f${xt}g${xg}+l"x label" -Bya${ya}f${yt}g${yg}+l"y label" -BWeSn+t"${label}"
+</code></pre>
+<h2 id="make-water-semitransparent">Make water semitransparent</h2>
+<pre><code>gmt pscoast ... -S200 -t30
+</code></pre>
+<p>Then must convert to pdf in order to see transparency</p>
+<h2 id="pens-transparency-etc-not-tested">Pens, transparency, etc (not tested!!!!)</h2>
+<p>-W0.25p+s : interpolates curve with splines!</p>
+<p>-t : transparency for this layer (command?). Only visible in PDF format =&gt; use psconvert
+0 = opaque
+100 = fully transparent</p>
+<p>chech PS_TRANSPARENCY in gmt.def
+color or fill specifications may append @transparency to change the PDF transparency level</p>
+<h2 id="convert-shapefile-to-gmt">Convert shapefile to GMT</h2>
+<p>Directly:</p>
+<pre><code>$ org2ogr -f “GMT” output.gmt input.shp
+</code></pre>
+<p>In two steps (in case direct conversion gives an error, e.g. Vectors not supported)</p>
+<pre><code>$ ogr2ogr -f “KML” example.kml example.shp
+$ org2ogr -f “GMT” example.gmt example.kml
+</code></pre>
+<h2 id="gmt2kml">gmt2kml</h2>
+<p>Simple symbols:</p>
+<pre><code>awk '{print $3, $2}' stafile | \
+gmt gmt2kml -Gfred -Fs -I$icon -T"Title" &gt; stations.kml
+</code></pre>
+<p>Symbols with labels:</p>
+<pre><code>awk '{print $3, $2}' stafile | \
+gmt gmt2kml -Gfred -Fs -N- -I$icon -T"Title" &gt; stations.kml
+
+awk '{print $3, $2}' stafile | \
+gmt gmt2kml -Fs -Sc1.5 -Gfgreen -I$icon -N- -Sn0.8 -Gnpink -T"Title" &gt; stations.kml
+</code></pre>
+<p>-Fs -Sc1.5 -Gfgreen: plot symbol (x,y in file), size and fill</p>
+<p>-N- -Sn0.75 -Gngray: label in 3rd column, size (relative to 1), fill color</p>
+<p>-Gn- : turn off labels [works?]</p>
+<p>-Fs = symbol   : x y [label]</p>
+<p>-Fe = event    : x y [label] time</p>
+<p>-Ft = timespan : x y [label] tstart tstop/"NaN"</p>
+<p>-Fl = line</p>
+<p>-Fp = polygon</p>
+<p>-Fw = wiggle</p>
+<p>For stations/OBSs one could use -As0.0 to get altitude "Clamped to sea floor/ground" [works?]
+(see https://developers.google.com/kml/documentation/altitudemode)</p>
+<p>For <strong>Clamped to sea floor</strong> to work must change:</p>
+<pre><code>&lt;kml xmlns="http://www.opengis.net/kml/2.2"&gt;
+</code></pre>
+<p>with:</p>
+<pre><code>&lt;kml xmlns="http://www.opengis.net/kml/2.2"
+        xmlns:gx="http://www.google.com/kml/ext/2.2"&gt;
+</code></pre>
+<p>To get rid of subfolders in kml file, comment or delete everything between </Style> and first <Placemark>:</p>
+<pre><code>&lt;/Style&gt;
+  &lt;Folder&gt;
+    &lt;name&gt;stdin&lt;/name&gt;
+    &lt;Folder&gt;
+      &lt;name&gt;Point Set 0&lt;/name&gt;
+        &lt;Placemark&gt;
+</code></pre>
+
+<p>and also closing tags </Folder></p>
+<p>List of Google Maps icons:</p>
+<ul>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/triangle.png">triangle</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/donut.png">donut</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/square.png">square</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/open-diamond.png">open-diamond</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/polygon.png">polygon</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/star.png">star</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/target.png">target</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/volcano.png">volcano</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/earthquake.png">earthquake</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png">placemark_circle</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png">placemark_circle_highlight</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/placemark_square.png">placemark_square</a></li>
+<li><a href="http://maps.google.com/mapfiles/kml/shapes/placemark_square_highlight.png">placemark_square_highlight</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../gmt6/" class="btn btn-neutral float-right" title="GMT6">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../documentation/doxygen/" class="btn btn-neutral" title="Doxygen"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../documentation/doxygen/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../gmt6/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
