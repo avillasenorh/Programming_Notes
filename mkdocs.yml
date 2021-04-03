@@ -11,6 +11,20 @@ nav:
         - pyGMT: 'gmt/pygmt.md'
     - Seismology:
         - Data requests: 'seismology/data_requests.md'
+    - Tools:
+        - Docker: 'tools/docker.md'
+        - CMake: 'tools/cmake.md'
+        - tmux: 'tools/tmux.md'
+        - vim: 'tools/vim.md'
+    - Unix:
+        - Admin: 'unix/admin.md'
+        - Commands: 'unix/commands.md'
+        - Dotfiles: 'unix/dotfiles.md'
+        - Installation: 'unix/installation.md'
+    - macOS:
+        - Admin: 'macos/admin.md'
+        - Installation: 'macos/installation.md'
+        - Tips: 'macos/tips.md'
 
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
