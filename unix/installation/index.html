@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Installation - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Installation";
+    var mkdocs_page_input_path = "unix/installation.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Unix</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../commands/">Commands</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../dotfiles/">Dotfiles</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#generic">generic</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#overflow">overflow</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#cuda-11">CUDA 11</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xlr8">xlr8</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#install-nvidia-gpu-drivers">Install NVIDIA GPU drivers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-cuda-drivers-and-cuda-toolkit">Install CUDA drivers and CUDA Toolkit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-intel-compilers">Install Intel compilers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mpi">MPI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-pgi-compiler">Install PGI compiler</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-python">Install Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-github-for-git">Setup GitHub for git</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-locally-fftw">Install locally FFTW</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-packages-with-synaptic">Install packages with Synaptic</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">macOS</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/tips/">Tips</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Unix &raquo;</li>
+        
+      
+    
+    <li>Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="installation">Installation</h1>
+<h2 id="generic">generic</h2>
+<p>Install compilers and development tools:</p>
+<pre><code>$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get install build-essential
+$ sudo apt-get install gfortran (?)
+$ sudo apt-get install autotools-dev
+$ sudo apt-get install autoconf
+</code></pre>
+<p>Better use <code>apt</code>?</p>
+<h2 id="overflow">overflow</h2>
+<p>Intel compilers (and MPI?)</p>
+<p>MPI</p>
+<pre><code>$ sudo apt-get install openmpi-bin openmpi-common openmpi-doc libopenmpi-dev
+</code></pre>
+<p>Google Earth Pro</p>
+<p>To install <code>deb</code> package beter use <code>gdebi</code> instead of <code>$ sudo dpkg -i example.deb</code></p>
+<pre><code>$ sudo apt install gdebi-core # [ wget ] [If you don't have gdebi nor wget]
+$ wget https://dl.google.com/dl/earth/client/current/google-earth-pro-stable_current_amd64.deb
+$ sudo gdebi google-earth-pro-stable_current_amd64.deb 
+$ google-earth-pro
+</code></pre>
+<p>Paraview</p>
+<h3 id="cuda-11">CUDA 11</h3>
+<p><a href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">Installation Guide</a></p>
+<p><a href="https://docs.nvidia.com/cuda/cuda-quick-start-guide/index.html">CUDA Quick Start Guide</a></p>
+<p>Linux &gt; x86_64 &gt; Ubuntu &gt; 16.04 &gt; deb (local)</p>
+<pre><code class="console">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-ubuntu1604.pin
+sudo mv cuda-ubuntu1604.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda-repo-ubuntu1604-11-0-local_11.0.1-450.36.06-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1604-11-0-local_11.0.1-450.36.06-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu1604-11-0-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+</code></pre>
+
+<p>Linux &gt; x86_64 &gt; Ubuntu &gt; 18.04 &gt; deb (local)</p>
+<pre><code class="console">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda-repo-ubuntu1804-11-0-local_11.0.1-450.36.06-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu1804-11-0-local_11.0.1-450.36.06-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu1804-11-0-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+</code></pre>
+
+<p>Linux &gt; x86_64 &gt; Ubuntu &gt; 16.04 &gt; runfile</p>
+<pre><code class="console">wget http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda_11.0.1_450.36.06_linux.run
+sudo sh cuda_11.0.1_450.36.06_linux.run
+</code></pre>
+
+<p>Linux &gt; x86_64 &gt; Ubuntu &gt; 18.04 &gt; runfile</p>
+<pre><code class="console">wget http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda_11.0.1_450.36.06_linux.run
+sudo sh cuda_11.0.1_450.36.06_linux.run
+</code></pre>
+
+<h2 id="xlr8">xlr8</h2>
+<pre><code>$ sudo synaptic
+</code></pre>
+<p>gv
+gfortran
+gmt (including all coastlines)</p>
+<pre><code class="console">$ sudo addgroup --gid 1001 seismo
+Adding group `seismo' (GID 1001) ...
+Done.
+</code></pre>
+
+<pre><code class="console">$ sudo adduser --uid 1001 --ingroup seismo antonio
+Adding user `antonio' ...
+Adding new user `antonio' (1001) with group `seismo' ...
+Creating home directory `/home/antonio' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+Changing the user information for antonio
+Enter the new value, or press ENTER for the default
+    Full Name []: Antonio Villasenor
+    Room Number []: 313
+    Work Phone []: 934095410
+    Home Phone []:
+    Other []:
+</code></pre>
+
+<h3 id="install-nvidia-gpu-drivers">Install NVIDIA GPU drivers</h3>
+<p>[Installation of GPU driver was done by Anima]
+Instructions <a href="http://www.nvidia.com/download/driverResults.aspx/118962/en-us">here</a></p>
+<p>Most current driver at 2017-09-15: nvidia-diag-driver-local-repo-ubuntu1604-384.66_1.0-1_amd64.deb</p>
+<pre><code>$ sudo dpkg -i nvidia-diag-driver-local-repo-ubuntu1604-384.66_1.0-1_amd64.deb
+$ sudo apt-get update
+$ apt-get install cuda-drivers
+</code></pre>
+<p>[reboot]</p>
+<p>Find out driver version:</p>
+<pre><code class="console">$ nvidia-smi
+Wed Oct 10 15:08:28 2018
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 410.48                 Driver Version: 410.48                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla P100-PCIE...  Off  | 00000000:81:00.0 Off |                    0 |
+| N/A   32C    P0    28W / 250W |      0MiB / 12198MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre>
+
+<h3 id="install-cuda-drivers-and-cuda-toolkit">Install CUDA drivers and CUDA Toolkit</h3>
+<p>[Checks in http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html]</p>
+<pre><code>$ sudo dpkg -i cuda-repo-ubuntu1604-8-0-local-ga2_8.0.61-1_amd64.deb
+$ sudo apt-get update
+$ sudo apt-get install cuda
+</code></pre>
+<p>Install CUDA 9.0</p>
+<pre><code>$ sudo dpkg -i cuda-repo-ubuntu1604-9-0-local_9.0.176-1_amd64.deb
+$ sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
+$ sudo apt-get update           # if you do this it installs latest cuda
+$ sudo apt-get install cuda
+</code></pre>
+<p>[gives may warnings, including system not bootable!!??]</p>
+<p>Try again usin runfile:</p>
+<pre><code>$ sudo sh cuda_9.0.176_384.81_linux.run
+</code></pre>
+<p>Check CUDA version:</p>
+<pre><code class="console">$ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2018 NVIDIA Corporation
+Built on Sat_Aug_25_21:08:01_CDT_2018
+Cuda compilation tools, release 10.0, V10.0.130
+</code></pre>
+
+<p>Changing symbolic link to /usr/local/cuda:</p>
+<pre><code class="console">antonio@xlr8 ~ $ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2017 NVIDIA Corporation
+Built on Fri_Sep__1_21:08:03_CDT_2017
+Cuda compilation tools, release 9.0, V9.0.176
+</code></pre>
+
+<h3 id="install-intel-compilers">Install Intel compilers</h3>
+<p>$ ./install_GUI.sh (not as sudo, it will ask later for password)
+[install it as trial!]
+[options: disable IA32 - if not 32-bit libraries error, and compiler does not install]</p>
+<h3 id="mpi">MPI</h3>
+<p>OpenMPI:
+synaptic -&gt; openmpi-bin libopenmpi-dev (selecting the second one also selects the first one)</p>
+<p>Intel:
+$ tar xvzf l_mpi_2017.2.174.tgz
+$ cd l_mpi_2017.2.174.tgz
+$ sudo ./install.sh
+[enter defaults]
+Install location: /opt/intel/parallel_studio_xe_2017.2.050</p>
+<h3 id="install-pgi-compiler">Install PGI compiler</h3>
+<p>$ tar xvzf pgilinux-2017-175-x86_64.tar.gz
+$ sudo ./install</p>
+<p>[installs PGI CUDA but not MPI]</p>
+<p>$ cd /opt/pgi
+[rename or delete license.dat]
+[copy license.dat provided by CSIC]</p>
+<p>Edit .bashrc</p>
+<p>export PGI=/opt/pgi;
+export PATH=/opt/pgi/linux86-64/17.5/bin:$PATH;
+export MANPATH=$MANPATH:/opt/pgi/linux86-64/17.5/man;
+export LM_LICENSE_FILE=$LM_LICENSE_FILE:/opt/pgi/license.dat;</p>
+<p>Command pgi_license_tool can manage licenses</p>
+<p>$ sudo ln -s /lib64/ld-linux-x86-64.so.2 /lib64/ld-lsb-x86-64.so.3
+$ pgi_license_tool [option 4 = do nothing ]</p>
+<h3 id="install-python">Install Python</h3>
+<p>Install python 3.5 with last installer that came with 3.5 by default (Anaconda3-4.2.0)</p>
+<p>$ bash Anaconda3-4.2.0-Linux-x86_64.sh</p>
+<p>$ conda update conda
+$ conda update anaconda
+$ conda install accelerate</p>
+<h3 id="setup-github-for-git">Setup GitHub for git</h3>
+<pre><code class="console">$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/antonio/.ssh/id_rsa):
+Created directory '/home/antonio/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/antonio/.ssh/id_rsa.
+Your public key has been saved in /home/antonio/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:abLlSOEd7acuBNIeH0JokgLIZwkcyMQYNKNke4ll2Ns antonio@xlr8
+The key's randomart image is:
++---[RSA 2048]----+
+|#@=+..           |
+|O*X=+ .  .       |
+|.+o=oo. . .      |
+|  ...E=o.+       |
+|     o+=S.. .    |
+|     ..Bo  o     |
+|      o.. .      |
+|        ..       |
+|         ..      |
++----[SHA256]-----+
+</code></pre>
+
+<p>NO PASSPHRASE!!!!</p>
+<pre><code>$ cat ~/.ssh/id_rsa.pub
+</code></pre>
+<p>[go to Bitbucket web page, Settings &gt; "SSH keys &gt; Add Key" and add public key]</p>
+<p>To check that it worked:</p>
+<pre><code class="console">$ ssh -T git@bitbucket.org
+The authenticity of host 'bitbucket.org (104.192.143.2)' can't be established.
+RSA key fingerprint is SHA256:zzXQOXSRBEiUtuE8AikJYKwbHaxvSc0ojez9YXaGp1A.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'bitbucket.org,104.192.143.2' (RSA) to the list of known hosts.
+logged in as avillasenorh.
+</code></pre>
+
+<p>You can use git or hg to connect to Bitbucket. Shell access is disabled.</p>
+<pre><code>$ cd
+$ mkdir bin scripts devel
+$ cd devel
+$ git clone git@bitbucket.org:avillasenorh/noise-processing.git
+$ git clone git@bitbucket.org:avillasenorh/psim-tools.git
+$ git clone git@bitbucket.org:avillasenorh/let.git
+</code></pre>
+<h3 id="install-locally-fftw">Install locally FFTW</h3>
+<pre><code>$ cd
+$ mkdir -p lib/fftw
+</code></pre>
+<p>[download fftw-3.3.6-pl2.tar.gz]</p>
+<pre><code class="console">$ cd
+$ cd src
+$ tar xvzf .../fftw-3.3.6-pl2.tar.gz
+$ cd fftw-3.3.6-pl2
+$ ./configure --prefix=/home/antonio/lib/fftw
+$ make
+$ make check
+(basic tests passed)
+$ make install
+.
+.
+.
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/antonio/lib/fftw/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+.
+.
+.
+</code></pre>
+
+<h3 id="install-packages-with-synaptic">Install packages with Synaptic</h3>
+<ul>
+<li>gcc/gfortran</li>
+<li>gv</li>
+<li>GMT5</li>
+<li>libncurses-dev for CPS</li>
+<li>zlib for mseed2sac</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../macos/admin/" class="btn btn-neutral float-right" title="Admin">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dotfiles/" class="btn btn-neutral" title="Dotfiles"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../dotfiles/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../macos/admin/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

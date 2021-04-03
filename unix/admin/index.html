@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>pyGMT - Programming and Software Notes</title>
+  <title>Admin - Programming and Software Notes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "pyGMT";
-    var mkdocs_page_input_path = "gmt/pygmt.md";
+    var mkdocs_page_name = "Admin";
+    var mkdocs_page_input_path = "unix/admin.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -55,20 +55,12 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">GMT</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../gmt5/">GMT5</a>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../gmt6/">GMT6</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">pyGMT</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#common-usage">Common usage</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#pass-arguments-to-a-figure-method">Pass arguments to a Figure method</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#modules-not-available-in-pygmt">Modules not available in pyGMT:</a>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Seismology</span></p>
@@ -88,14 +80,24 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Unix</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Admin</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#ssh-keys">SSH keys</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mysql">MySQL</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#better-linux-tools-for-sysadmin">Better Linux tools for sysadmin</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#update-gcc">Update GCC</a>
+    </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../commands/">Commands</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../dotfiles/">Dotfiles</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">macOS</span></p>
@@ -128,11 +130,11 @@
     
       
         
-          <li>GMT &raquo;</li>
+          <li>Unix &raquo;</li>
         
       
     
-    <li>pyGMT</li>
+    <li>Admin</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -143,65 +145,107 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="pygmt">pyGMT</h1>
-<h2 id="common-usage">Common usage</h2>
-<pre><code class="python">import pygmt
+                <h1 id="admin">Admin</h1>
+<p>Umount a non-responsive NFS file system:</p>
+<pre><code>$ sudo umount -f -l /filesystem
+</code></pre>
+<p>Ubuntu commands for creating and deleting users</p>
+<pre><code>$ sudo addgroup --gid 1001 seismo
+$ sudo addgroup --gid 3850 sismi
 
-fig = pygmt.Figure()
+$ sudo adduser --uid 3801 --ingroup sismi --shell /bin/tcsh jdiaz
+$ sudo adduser --uid 3807 --ingroup sismi mario (bash shell)
 
-fig.coast(region='g', projection='R20/8i', shorelines=True,
-          water='ligthblue', land='gray', frame=True, resolution='i')
-
-fig.show()                                   # for notebooks
-fig.show(method='external')                  # output in Preview
+$ sudo adduser --home /data9/INPUT input (non-standard home directory)
+</code></pre>
+<p>Remove an user and all its files (Ubuntu)</p>
+<pre><code>$ sudo deluser --remove-all-files user &amp; (can take some time, so better send to background)
+</code></pre>
+<p>Get IPs and MAC addresses in a local network</p>
+<pre><code>$ ifconfig | grep broadcast | arp -a
+</code></pre>
+<h2 id="ssh-keys">SSH keys</h2>
+<p>Install a public key to login remotely</p>
+<pre><code class="console">$ ssh-keygen -b 4096 -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/antonio/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/antonio/.ssh/id_rsa.
+Your public key has been saved in /Users/antonio/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:Lfbjv4MWIq0MRc7nkL8KYcIGLiEEYyfuTD3NuzkV9Uk antonio@passavol2.cmima.csic.es
+The key's randomart image is:
++---[RSA 4096]----+
+|++ .     . E     |
+|+.+ o . . o .    |
+|+o o * o   o     |
+|*+  . B o.       |
+|.++ oo BS .      |
+|.. o..=.=o.      |
+|    .* o ooo     |
+|     .+ ..o..    |
+|      .. ...oo   |
++----[SHA256]-----+
 </code></pre>
 
-<p>How to set plotting region:</p>
-<pre><code class="python">region = [45, 55, 135, 145]     # rectangular region
-region = 'g'                    # globe
-region = 'EG'                   # country (Egypt)
+<pre><code class="console">$ ssh-copy-id antonio@edge3.ictja.csic.es
+/opt/local/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/Users/antonio/.ssh/id_rsa.pub&quot;
+The authenticity of host 'edge3.ictja.csic.es (193.144.102.105)' can't be established.
+ECDSA key fingerprint is SHA256:eMm9bMReccDbOesNDlt9Lf6VMYuv1XlccefWC8zynaA.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/opt/local/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/opt/local/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+antonio@edge3.ictja.csic.es's password:
+
+Number of key(s) added:        1
+
+Now try logging into the machine, with:   &quot;ssh 'antonio@edge3.ictja.csic.es'&quot;
+and check to make sure that only the key(s) you wanted were added.
 </code></pre>
 
-<pre><code class="python">fig.plot(x=, y=, style='a0.2i', color='red', pen='black', label=f'red')
-
-frame=True
-frame=0        # also False?
-frame='a5f1'
+<h2 id="mysql">MySQL</h2>
+<p>Install MySQL from command line (not tested)</p>
+<pre><code>$ sudo apt-get -y install mysql-server mysql-client
+$ sudo mysql_secure_installation
+</code></pre>
+<p>(Probably this does not install "dev" package with include and libraries for MySQL)</p>
+<p>Setup password for mysql root</p>
+<pre><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root_password';
+</code></pre>
+<h2 id="better-linux-tools-for-sysadmin">Better Linux tools for sysadmin</h2>
+<pre><code>htop/atop &gt; top
+ss &gt; netstat
+ip &gt; ifconfig
+dig &gt; nslookup
+mtr &gt; ping+traceroute
+collectl &gt; sar
 </code></pre>
 
-<p>If the data are labelled:</p>
-<pre><code>fig.legend()       # plots a legend similar to Matplotlib
+<h2 id="update-gcc">Update GCC</h2>
+<p>Default version of gcc/g++ in xlr8 (Ubuntu 14.04 LTS) is 5.4.0</p>
+<p>Need at least version 7 to compile Mirmex</p>
+<p>To fix some problems with corrupted packages:</p>
+<pre><code>$ sudo rm -vf /var/lib/apt/lists/*
+$ sudo apt-get update
 </code></pre>
-<h2 id="pass-arguments-to-a-figure-method">Pass arguments to a Figure method</h2>
-<pre><code class="python">KWARGS = dict(grid='@earth_relief_10m', region='g', projection='R-130/5i', frame=0, )
+<p>(still gives an error about Google Earth, but the rest seems to work fine)</p>
+<pre><code class="console">$ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 
-fig = pygmt.Figure()
-fig.grdimage(**KWARGS)
+$ sudo apt-get update
 
-fig.grdimage(shading=True, **KWARGS)
-</code></pre>
+$ sudo apt install gcc-7 g++-7
 
-<p><code>grdimage</code> can also use an object to plot (not necessarily a file name):</p>
-<pre><code class="python">import xarray as xr
-data = xr.DataArray(....)
-
-fig.grdimage(data, fname=True, ..., cmap='inferno', Q=True) # Q=True in NaN make it transparent
-
-fig.colorbar(frame='+l&quot;velocity&quot;')
+$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 \
+ --slave /usr/bin/g++ g++ /usr/bin/g++-7 \
+ --slave /usr/bin/gcov gcov /usr/bin/gcov-7
 </code></pre>
 
-<h2 id="modules-not-available-in-pygmt">Modules not available in pyGMT:</h2>
-<pre><code class="python">with pygmt.clib.Session() as session:
-    session.call_module('meca', f'all the options here')
+<p>(Modified from https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/):</p>
+<pre><code class="console">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
 </code></pre>
 
-<p>there is a trick to create a temporary file, use it and delete it.</p>
-<pre><code class="python">with pygmt.helpers.GMTTempFile() as temp_file:
-    with open(temp_file.name, 'w') as f:
-        f.write('vaules')
-    with pygmt.clib....
-        uset temp_file.name in arguments to session.call_module(....)
-</code></pre>
+<p>WARNING!!!: gfortran not updated to version 7!!!</p>
               
             </div>
           </div>
@@ -209,10 +253,10 @@ fig.colorbar(frame='+l&quot;velocity&quot;')
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../seismology/data_requests/" class="btn btn-neutral float-right" title="Data requests">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../commands/" class="btn btn-neutral float-right" title="Commands">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../gmt6/" class="btn btn-neutral" title="GMT6"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../tools/vim/" class="btn btn-neutral" title="vim"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -238,10 +282,10 @@ fig.colorbar(frame='+l&quot;velocity&quot;')
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../gmt6/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../tools/vim/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../seismology/data_requests/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../commands/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
