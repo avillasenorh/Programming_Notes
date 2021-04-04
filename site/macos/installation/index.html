@@ -67,12 +67,18 @@
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/seisan/">SEISAN</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
+                    </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Tools</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
                     </li>
@@ -104,10 +110,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#install-applications">Install Applications</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#git-completionprompt">git completion/prompt</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#macports">MacPorts</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#gmt">GMT</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#cc-and-fortran">C/C++ and Fortran</a>
@@ -120,17 +122,19 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#julia">Julia</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#separately">Separately</a>
+    <li class="toctree-l2"><a class="reference internal" href="#python-and-obspy">Python and Obspy</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#git_1">Git</a>
+    <li class="toctree-l2"><a class="reference internal" href="#p">P</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resilio-sync-httpswwwresiliocomindividuals">Resilio Sync        https://www.resilio.com/individuals/</a>
+    <li class="toctree-l2"><a class="reference internal" href="#cps">CPS</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#specific-for-macbook-air">Specific for MacBook Air</a>
+    <li class="toctree-l2"><a class="reference internal" href="#seisan">SEISAN</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#specific-for-imac-pro">Specific for iMac Pro</a>
+    <li class="toctree-l2"><a class="reference internal" href="#mstools">mstools</a>
     </li>
     </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../macports/">MacPorts</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a>
                     </li>
@@ -179,24 +183,42 @@
 </li>
 <li>
 <p>Change preferences</p>
-<p>Dock &gt; Position on screen: Left
-Dock &gt; Minimize windows into application icon 
-Mouse &gt; Secondary click (Click on right side)
-Siri &gt; Do not show in menu bar
-Language &amp; Region &gt; Advanced: change decimal character to "."</p>
-<p>Finder &gt; Preferences &gt; Advanced &gt; Show all filename extensions
-Finder &gt; Preferences &gt; Advanced &gt; Do not show warning changing extensions
-Finder &gt; Preferences &gt; Advanced &gt; Keep folders on top when sorting by name</p>
-<p>Finder &gt; Preferences &gt; Show Hard disks (add HDD to sidebar and hide Hard disks again)
-Finder &gt; Preferences &gt; Do not show CDs, DVDs, and iPods
-Finder &gt; Preferences &gt; New Finder window show: Desktop
-Finder &gt; Preferences &gt; Sidebar: remove not used</p>
-<p>Safari &gt; View &gt; Show Favorites Bar
-Safari &gt; Preferences &gt; New windows open with: Top Sites (populate top sites)
-Safari &gt; Preferences &gt; Top Sites show: 6 sites
-Safari &gt; Preferences &gt; File download location: Desktop
-Safari &gt; Preferences &gt; uncheck "Open safe files after downloading"</p>
+<ul>
+<li>Dock &gt; Position on screen: Left</li>
+<li>Dock &gt; Minimize windows into application icon </li>
+<li>Mouse &gt; Secondary click (Click on right side)</li>
+<li>Siri &gt; Do not show in menu bar</li>
+<li>
+<p>Language &amp; Region &gt; Advanced: change decimal character to "."</p>
+</li>
+<li>
+<p>Finder &gt; Preferences &gt; Advanced &gt; Show all filename extensions</p>
+</li>
+<li>Finder &gt; Preferences &gt; Advanced &gt; Do not show warning changing extensions</li>
+<li>
+<p>Finder &gt; Preferences &gt; Advanced &gt; Keep folders on top when sorting by name</p>
+</li>
+<li>
+<p>Finder &gt; Preferences &gt; Show Hard disks (add HDD to sidebar and hide Hard disks again)</p>
+</li>
+<li>Finder &gt; Preferences &gt; Do not show CDs, DVDs, and iPods</li>
+<li>Finder &gt; Preferences &gt; New Finder window show: Desktop</li>
+<li>
+<p>Finder &gt; Preferences &gt; Sidebar: remove not used</p>
+</li>
+<li>
+<p>Safari &gt; View &gt; Show Favorites Bar</p>
+</li>
+<li>Safari &gt; Preferences &gt; New windows open with: Top Sites (populate top sites)</li>
+<li>Safari &gt; Preferences &gt; Top Sites show: 6 sites</li>
+<li>Safari &gt; Preferences &gt; File download location: Desktop</li>
+<li>
+<p>Safari &gt; Preferences &gt; uncheck "Open safe files after downloading"</p>
+</li>
+<li>
 <p>TextEdit &gt; Format &gt; Make Plain Text</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Remove from Dock unwanted applications</p>
@@ -207,26 +229,86 @@ Safari &gt; Preferences &gt; uncheck "Open safe files after downloading"</p>
 </ul>
 <p>Cmd + Shift + 5 &gt; Options &gt; Show Floating Thumbnail (uncheck)</p>
 <ul>
-<li>
-<p>Change shell to bash:</p>
-<p>$ chsh -s /bin/bash 
-$ export BASH_SILENCE_DEPRECATION_WARNING=1</p>
-</li>
-<li>
-<p>Setup Mail</p>
-</li>
+<li>Change shell to bash:</li>
+</ul>
+<pre><code class="console">$ chsh -s /bin/bash 
+$ export BASH_SILENCE_DEPRECATION_WARNING=1
+</code></pre>
+
+<ul>
+<li>Setup Mail</li>
 </ul>
 <h2 id="install-xcode-from-app-store">Install Xcode from App Store</h2>
 <p>Launch Xcode and install components
 Launch Terminal and type:</p>
-<pre><code>$ xcode-select --install         [agree to license]
-
+<pre><code>$ xcode-select --install         # agree to license
 $ gcc --version
 </code></pre>
 <h2 id="from-app-store">From App Store</h2>
-<p>The Unarchiver
-Pocket
-Keynote</p>
+<p>Applications in iMac Pro</p>
+<p>[ Remove Garage Band and iMovie ]</p>
+<ul>
+<li>Adobe Reader</li>
+<li>Anaconda</li>
+<li>Autofirma</li>
+<li>DjView</li>
+<li>Dropbox</li>
+<li>Google Chrome</li>
+<li>Google Earth Pro</li>
+<li>iTerm2</li>
+<li>Keynote, Numbers, Pages</li>
+<li>Macports</li>
+<li>Mendeley</li>
+<li>Microsoft Excel, PowerPoint, Word</li>
+<li>OneDrive</li>
+<li>Papers</li>
+<li>Paraview</li>
+<li>Spotify</li>
+<li>The Unarchiver</li>
+<li>VirtualBox</li>
+<li>Xcode</li>
+</ul>
+<p>Additional Applications in MacBook Air</p>
+<ul>
+<li>Brave Browser</li>
+<li>jAmaSeis</li>
+<li>Julia (alternative installation?)</li>
+<li>Mathpix</li>
+<li>Pocket</li>
+<li>qBitorrent</li>
+<li>QGIS3</li>
+<li>Scratch Desktop</li>
+<li>Simple Comic</li>
+<li>VLC</li>
+</ul>
+<p>Other software</p>
+<ul>
+<li>XQuartz</li>
+<li>GCC compilers</li>
+<li>Macports<ul>
+<li>gv</li>
+<li>gmt5</li>
+<li>coreutils (check that includes gawk)</li>
+<li>a2ps</li>
+<li>ImageMagick</li>
+<li>GraphicsMagick</li>
+<li>feh</li>
+<li>wget</li>
+<li>inetutils (ftp, telnet)</li>
+<li>openssh</li>
+<li>ffmepg
+[+ libgfortran3 ]
+[+ openmpi ]</li>
+</ul>
+</li>
+</ul>
+<p>Seismology</p>
+<ul>
+<li>SAC</li>
+<li>SEISAN</li>
+<li>mstools</li>
+<li>ObsPy</li>
+</ul>
 <h2 id="install-xquartz">Install XQuartz</h2>
 <p>https://www.xquartz.org</p>
 <p>[Restart]</p>
@@ -239,22 +321,68 @@ Preferences &gt; Profiles &gt; Window: 132 x 60</p>
 <p>Dropbox         https://www.dropbox.com/install [ DropboxInstaller.dmg ]</p>
 <p>Office 365</p>
 <p>[ remove unused apps: OneNote, ... ]</p>
-<p>Firefox         https://www.mozilla.org/en-US/firefox/new/
-Google Earth Pro    https://www.google.com/earth/versions/#earth-pro
-Acrobat, Illustrator    https://www.adobe.com/es/
-VLC         https://www.videolan.org/vlc/index.html  [ Microsoft_Office_16.33.20011301_Installer.pkg ]
-DjView          http://djvu.sourceforge.net/djview4.html [ DjVuLibre-3.5.27+DjView-4.10.6-qt57c-intel64.dmg ]
-Spotify         https://www.spotify.com/es/download/mac [ SpotifyInstaller.zip ]
-VirtualBox      https://www.virtualbox.org
-Vagrant         https://www.vagrantup.com
-Docker Desktop      https://hub.docker.com/?overlay=onboarding [ Docker.dmg ]</p>
-<p>Papers          papers_3423_587.dmg + P3-ADUN-IWEF-EFUS-UPIN
-Mendeley Desktop    https://www.mendeley.com/download-desktop/
-[ install plugin for Word ]</p>
-<p>MacTeX          https://tug.org/mactex/mactex-download.html 
-TeXstudio       https://www.texstudio.org
-[Mathpix Snipping Tool  https://mathpix.com/#downloads ]</p>
-<h2 id="git-completionprompt">git completion/prompt</h2>
+<ul>
+<li><a href="https://qgis.org/en/site/forusers/download.html">QGIS</a></li>
+<li><a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a></li>
+<li><a href="https://www.google.com/earth/versions/#earth-pro">Google Earth Pro</a></li>
+<li><a href="https://www.videolan.org/vlc/index.html">VLC</a>  [ Microsoft_Office_16.33.20011301_Installer.pkg ]</li>
+<li><a href="http://djvu.sourceforge.net/djview4.html">DjView</a> [ DjVuLibre-3.5.27+DjView-4.10.6-qt57c-intel64.dmg ]</li>
+<li><a href="https://www.spotify.com/es/download/mac">Spotify</a> [ SpotifyInstaller.zip ]</li>
+<li><a href="https://www.virtualbox.org">VirtualBox</a></li>
+<li><a href="https://www.vagrantup.com">Vagrant</a></li>
+<li>
+<p><a href="https://hub.docker.com/?overlay=onboarding">Docker Desktop</a> [ Docker.dmg ]</p>
+</li>
+<li>
+<p>Papers            papers_3423_587.dmg + P3-ADUN-IWEF-EFUS-UPIN</p>
+</li>
+<li>
+<p><a href="https://www.mendeley.com/download-desktop/">Mendeley Desktop</a> [ install plugin for Word ]</p>
+</li>
+<li>
+<p><a href="https://tug.org/mactex/mactex-download.html">MacTeX</a></p>
+</li>
+<li><a href="https://www.texstudio.org">TeXstudio</a></li>
+<li><a href="https://mathpix.com/#downloads">Mathpix Snipping Tool</a></li>
+</ul>
+<p>Brave           https://brave.com
+qBittorrent
+jAmaSeis
+Simple Comic
+Scratch Desktop</p>
+<h2 id="gmt">GMT</h2>
+<p>If GMT installation with MacPorts fails, GMT can also be installed as an app with a dmg file</p>
+<p>To run GMT from the command line (not using the app):</p>
+<p>Add the following environmental variables:</p>
+<pre><code>export GMTHOME=/Applications/GMT-6.0.0.app/Contents/Resources
+export PROJ_LIB=$GMTHOME/share/proj6
+export MAGICK_CONFIGURE_PATH=$GMTHOME/lib/GraphicsMagick-1.3.33/config
+</code></pre>
+<p>Add <code>${GMTHOME}/bin</code> to <code>$PATH</code></p>
+<h2 id="cc-and-fortran">C/C++ and Fortran</h2>
+<p>http://hpc.sourceforge.net</p>
+<pre><code>$ sudo tar xvzf gcc-X.X-bin.tar.gz -C /.
+</code></pre>
+<p>For the compiler to find the system headers on Catalina, you may have to specify an additional include path:
+-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include</p>
+<h2 id="java">Java</h2>
+<p>Install Java SE (standard Edition) JDK:</p>
+<p>https://www.oracle.com/java/technologies/javase-downloads.html
+jdk-14.0.2_osx-x64_bin.dmg</p>
+<h2 id="git">Git</h2>
+<p>https://www.git-scm.com
+Download pkg from https://git-scm.com and install</p>
+<pre><code class="console">$ git config --global user.name &quot;Antonio Villasenor&quot;
+$ git config --global user.email &quot;antonio.villasenor@csic.es&quot;
+$ git config --global color.ui true
+
+$ ssh-keygen -b 4096 -t rsa
+[default location, no passphrase]
+
+$ cat ~/.ssh/id_rsa.pub | pbcopy   [ copy key to clipboard ]
+</code></pre>
+
+<p>git completion/prompt</p>
 <pre><code class="console">source ~/.git-completion.bash
 
 # colors!
@@ -270,85 +398,6 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1=&quot;$cyan\u@pcanto$green\$(__git_ps1)$blue \W $ $reset&quot;
 </code></pre>
 
-<p>vimrc</p>
-<p>set nocompatible
-syntax on
-set shiftwidth=4
-set tabstop=4</p>
-<p>QGIS</p>
-<p>https://qgis.org/en/site/forusers/download.html</p>
-<ul>
-<li>Check system version of Python</li>
-</ul>
-<h2 id="macports">MacPorts</h2>
-<p>https://www.macports.org</p>
-<pre><code class="console">$ sudo port install gv
-$ sudo port install wget
-$ sudo port install curl
-$ sudo port install coreutils
-
-[ Installation instructions for GMT 6:
-https://github.com/GenericMappingTools/gmt/blob/master/INSTALL.md ]
-
-$ sudo port install gdal +hdf5 +netcdf +openjpeg  [ + indicates a variant ]
-$ sudo port install gmt6 [ +fftw3 +openmp ]
-
-$ sudo port install ImageMagick
-$ sudo port install GraphicsMagick [ same as graphicsmagick? ]
-$ sudo port install ffmpeg
-
-$ sudo port install a2ps
-$ sudo port install feh
-
-$ sudo port install openfortivpn
-$ sudo port install openssh +ssh-copy-id
-$ sudo port install inetutils (ftp, telnet)
-
-$ sudo port install tmux
-$ sudo port install htop
-
-$ sudo port install cmake
-
-[ openmpi ?]
-
-To install camfort (finally did not work)
-
-$ sudo port install gsl
-$ sudo port install z3
-$ sudo port install flint
-$ sudo port install cabal
-</code></pre>
-
-<h2 id="gmt">GMT</h2>
-<p>If GMT installation with MacPorts fails, GMT can also be installed as an app with a dmg file</p>
-<p>To run GMT from the command line (not using the app):</p>
-<p>Add the following environmental variables:</p>
-<pre><code>export GMTHOME=/Applications/GMT-6.0.0.app/Contents/Resources
-export PROJ_LIB=$GMTHOME/share/proj6
-export MAGICK_CONFIGURE_PATH=$GMTHOME/lib/GraphicsMagick-1.3.33/config
-</code></pre>
-<p>Add ${GMTHOME}/bin to $PATH</p>
-<h2 id="cc-and-fortran">C/C++ and Fortran</h2>
-<p>http://hpc.sourceforge.net</p>
-<p>$ sudo tar xvzf gcc-X.X-bin.tar.gz -C /.</p>
-<p>For the compiler to find the system headers on Catalina, you may have to specify an additional include path:
--I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include</p>
-<h2 id="java">Java</h2>
-<p>Install Java SE (standard Edition) JDK:</p>
-<p>https://www.oracle.com/java/technologies/javase-downloads.html
-jdk-14.0.2_osx-x64_bin.dmg</p>
-<h2 id="git">Git</h2>
-<p>https://www.git-scm.com</p>
-<pre><code class="console">$ git config --global user.name &quot;Antonio Villasenor&quot;
-$ git config --global user.email &quot;antonio.villasenor@csic.es&quot;
-$ git config --global color.ui true
-
-$ ssh-keygen -b 4096 -t rsa
-[default location, no passphrase]
-
-$ cat ~/.ssh/id_rsa.pub | pbcopy   [ copy key to clipboard ]
-</code></pre>
-
 <p>Login to Bitbucket and add key</p>
 <pre><code class="console">$ cd
 $ mkdir devel
@@ -361,6 +410,25 @@ $ git clone git@bitbucket.org:avillasenorh/gtomo.git
 </code></pre>
 
 <p>Login to GitHub and add key</p>
+<p>[create .gitignore]</p>
+<pre><code>$ git config --global core.excludesfile ~/.gitignore
+$ ssh-keygen [ -b 4096 -t rsa ]
+$ eval "$(ssh-agent -s)"
+$ ssh-add  ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub | pbcopy
+</code></pre>
+<p>Login to BitBucket (https://bitbucket.org/account/signin/)
+Preferences &gt; BitBucket settings &gt; SSH keys &gt; Add Key
+Description: Mac
+Paste Key: cmd + V</p>
+<pre><code>$ cd
+$ mkdir devel
+$ cd devel
+$ git clone git@bitbucket.org:avillasenorh/noise-processing.git
+$ git clone git@bitbucket.org:avillasenorh/psim-tools.git
+$ git clone git@bitbucket.org:avillasenorh/let.git
+$ git clone git@bitbucket.org:avillasenorh/gtomo.git
+</code></pre>
 <h2 id="python">Python</h2>
 <p>Install Anaconda distribution</p>
 <ul>
@@ -431,50 +499,7 @@ to be replaced with Intel builds, if available. Rather specify "-c intel --no-up
 <pre><code>$ sudo ln -s /Applications/JuliaPro-1.0.5-2.app/Contents/Resources/julia/Contents/Resources/julia/bin/julia \
              /usr/local/bin/julia
 </code></pre>
-<h2 id="separately">Separately</h2>
-<h2 id="git_1">Git</h2>
-<p>https://www.git-scm.com</p>
-<p>Download pkg from https://git-scm.com and install</p>
-<p>$ git config --global user.name "Antonio Villasenor"
-$ git config --global user.email "antonio.villasenor@csic.es"
-$ git config --global color.ui true</p>
-<p>[create .gitignore]
-$ git config --global core.excludesfile ~/.gitignore</p>
-<p>$ ssh-keygen [ -b 4096 -t rsa ]
-$ eval "$(ssh-agent -s)"
-$ ssh-add  ~/.ssh/id_rsa
-$ cat ~/.ssh/id_rsa.pub | pbcopy</p>
-<p>Login to BitBucket (https://bitbucket.org/account/signin/)
-Preferences &gt; BitBucket settings &gt; SSH keys &gt; Add Key
-Description: Mac
-Paste Key: cmd + V</p>
-<p>$ cd
-$ mkdir devel
-$ cd devel
-$ git clone git@bitbucket.org:avillasenorh/noise-processing.git
-$ git clone git@bitbucket.org:avillasenorh/psim-tools.git
-$ git clone git@bitbucket.org:avillasenorh/let.git
-$ git clone git@bitbucket.org:avillasenorh/gtomo.git</p>
-<h2 id="resilio-sync-httpswwwresiliocomindividuals">Resilio Sync        https://www.resilio.com/individuals/</h2>
-<ul>
-<li>Install software</li>
-<li>Copy folder(s) (to avoid long synchronization): ~/Documents</li>
-<li>Click on "+"  &gt; Enter a key or link (and then select destination folder: ~/Documents)</li>
-</ul>
-<p>~/Documents
-ANIB7WI7XRN7FQYUDS37CFFA7U6S2ZHDC</p>
-<h2 id="specific-for-macbook-air">Specific for MacBook Air</h2>
-<p>Brave           https://brave.com
-qBittorrent
-jAmaSeis
-Simple Comic
-Scratch Desktop</p>
-<p>WD MyCloud NAS:</p>
-<p>Finder &gt; Connect to server (cmd + k)
-smb://wdmycloud</p>
-<h2 id="specific-for-imac-pro">Specific for iMac Pro</h2>
-<p>WimiDisk</p>
-<h1 id="python-and-obspy">Python and Obspy</h1>
+<h2 id="python-and-obspy">Python and Obspy</h2>
 <p>$ conda create -n obspy python=3.7
 $ conda activate obspy
 (obspy)$ conda install -c conda-forge obspy
@@ -483,24 +508,8 @@ $ conda activate obspy
 (obspy)$ conda update -c conda-forge obspy</p>
 <p>$ conda create -n mlcourse python=3.7 anaconda
 $ conda activate mlcourse</p>
-<h1 id="python-36-for-qgis-not-needed-for-new-qgis">Python 3.6 for QGIS (not needed for new QGIS!!!)</h1>
-<p>System Python is 2.7:
-$ /usr/bin/python --version
-Python 2.7.10</p>
-<p>QGIS 3 requieres 3.6 (no 3.5 or 3.7)</p>
-<p>Dowload from Python web page (https://www.python.org/downloads/)
-the 3.6 installer (python-3.6.8-macosx10.9.pkg)</p>
-<p>Installs executables in /usr/local/bin
-with links to /Library/Frameworks/Python.framework/Versions/3.6/bin</p>
-<p>/usr/local/bin/python3@ -&gt; ../../../Library/Frameworks/Python.framework/Versions/3.6/bin/python3
-/usr/local/bin/pip3@ -&gt; ../../../Library/Frameworks/Python.framework/Versions/3.6/bin/pip3</p>
-<p>QGIS 3 (3.4.4-Madeira) installer (QGIS-macOS-3.4.4-2) recognizes this intallation
-and installs all additional packages</p>
-<h1 id="git_2">Git</h1>
-<p>Use git-2.20.1-intel-universal-mavericks.dmg</p>
-<h1 id="to-do">TO-DO</h1>
-<p>P
-_</p>
+<h2 id="p">P</h2>
+<p>_</p>
 <ol>
 <li>Create .Prc in home directory:</li>
 </ol>
@@ -528,12 +537,13 @@ $ ./Setup OSX40
 $ ./C &gt; compile.log 2&gt;&amp;1 &amp;
 $ tail -f compile.log</p>
 <h2 id="seisan">SEISAN</h2>
-<p>$ cd /
+<pre><code>$ cd /
 $ sudo mkdir seismo
 $ sudo chown antonio:staff seismo
 $ cd seismo
 $ tar xvzf ..../seisan_macosx_v11.0.tar.gz
-$ cd COM</p>
+$ cd COM
+</code></pre>
 <p>[edit SEISAN.bash]
 export SEISARCH="macosx"
 export SEISAN_TOP="/seismo"
@@ -561,7 +571,7 @@ $ ./compile_all.sh &gt; compile.log 2&gt;&amp;1</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tips/" class="btn btn-neutral float-right" title="Tips">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../macports/" class="btn btn-neutral float-right" title="MacPorts">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../admin/" class="btn btn-neutral" title="Admin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -593,7 +603,7 @@ $ ./compile_all.sh &gt; compile.log 2&gt;&amp;1</p>
         <span><a href="../admin/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../tips/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../macports/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

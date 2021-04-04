@@ -67,12 +67,18 @@
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/seisan/">SEISAN</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
+                    </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Tools</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
                     </li>
@@ -96,8 +102,12 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../macports/">MacPorts</a>
+                    </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Tips</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#screen-capture">Screen capture</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#safari">Safari</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#word">Word</a>
@@ -111,6 +121,32 @@
     <li class="toctree-l2"><a class="reference internal" href="#google-earth">Google Earth</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#misc-commands">Misc commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shortcuts">Shortcuts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setup-a-shortcut-for-launchpad">Setup a shortcut for Launchpad</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#spotlight">SPOTLIGHT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#text">TEXT</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#safari_1">SAFARI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#application-shortcuts">Application shortcuts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#for-work">For work</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#for-home">For Home</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#command-line-preferences">Command-line preferences</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#searchable-pdf-ocr">Searchable PDF - OCR</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#convert-eps-to-png">Convert EPS to PNG</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-tips">More tips</a>
     </li>
     </ul>
                     </li>
@@ -154,6 +190,15 @@
                 <h1 id="tips">Tips</h1>
 <p>Reset iCloud bookmarks:</p>
 <p>http://sheepsystems.com/discuss/YaBB.pl?num=1327319559/0#0</p>
+<h2 id="screen-capture">Screen capture</h2>
+<p><code>cmd + SHIFT + 3</code>           : capture entire desktop to file</p>
+<p><code>cmd + ctrl + SHIFT + 3</code>        : copy entire desktop to clipboard</p>
+<p><code>cmd + SHIFT + 4 , selection</code>   : capture selection</p>
+<p><code>cmd + SHIFT + 4 , space bar</code>   : capture selected window</p>
+<p>Change the Default Screen Shot Image Type:</p>
+<pre><code>defaults write com.apple.screencapture type jpg &amp;&amp; killall SystemUIServer
+defaults write com.apple.screencapture type png &amp;&amp; killall SystemUIServer
+</code></pre>
 <h2 id="safari">Safari</h2>
 <p>Save Web Pages as PDF files (Mac, iPad and iPhone)
 javascript:pdf_url=location.href;location.href='http://pdfmyurl.com?url='+escape(pdf_url)</p>
@@ -261,6 +306,206 @@ $ killall Finder
 <p>Always Show the User Library Folder:</p>
 <pre><code>$ chflags nohidden ~/Library/
 </code></pre>
+<h2 id="shortcuts">Shortcuts</h2>
+<p>cmd + tab       toggle between applications
+cmd + ` (backtick)  toggle between windows of same application<br />
+cmd + shift + H     Finder goes to home directory</p>
+<p>select elements in same folder ; cmd + ctrl + N ; creates a new folder and moves selected elements </p>
+<p>Delete key (delete following character): fn + backspace or ctrl + D
+Delete word:                           <br />
+Delete paragraph</p>
+<p>ctrl + alt + backspace: delete previous word
+cmd + backspace: delete until beginning of line</p>
+<p>(dock) - show all windows</p>
+<h2 id="setup-a-shortcut-for-launchpad">Setup a shortcut for Launchpad</h2>
+<p>System Preferences &gt; Keyboard &gt; Keyboard shortcuts &gt; Launchpad &amp; Dock
+(double click and hit enter in "Show Launchpad" and introduce new shortcut, e.g. alt + cmd + l)</p>
+<h2 id="spotlight">SPOTLIGHT</h2>
+<p>cmd + Space         open/close Spotlight search field
+cmd + alt + Space       open/open  Spotlight window (Finder)</p>
+<p>click opens document
+while preview press cmd key to see path, text, etc.
+cmd + alt shows path
+cmd + click opens finder window pointing to document</p>
+<p>on popover preview you can "pre listen", FaceTime, email, ...</p>
+<p>you can drag an element of the search to the Desktop or to an Application</p>
+<p>cmd + alt + drag creates a link in the destination folder</p>
+<p>cmd + ctrl + F = search "filename contains"</p>
+<h2 id="text">TEXT</h2>
+<p>cmd + up    inicio del documento
+cmd + down  final del documento</p>
+<p>cmd + left  inicio de línea
+cmd + right final de línea</p>
+<p>alt + left  inicio de palabra
+alt + right final de palabra</p>
+<h2 id="safari_1">SAFARI</h2>
+<p>cmd + L     selects url (useful to delete it or copy it)
+cmd + alt + F   move input to search field
+cmd + alt + 2   show history</p>
+<p>space bar   scroll down
+shift + space   scroll up</p>
+<p>cmd + click     open link in new tab of foreground
+cmd + shift + click open link in new tab on background</p>
+<p>cmd + shift + left/right    move between tabs</p>
+<p>cmd + I         mail entire web page
+cmd + shift + I     mail link to web page</p>
+<p>cmd + shift + D     add page to reading list
+shift + click       add link to reading list (no need to open page)
+cmd + shift + L     open reading list</p>
+<p>Look for more by checking the menus on Safari</p>
+<h2 id="application-shortcuts">Application shortcuts</h2>
+<p>Create shortcuts for specific applications:</p>
+<p>System preferences | Keyboard | Keyboard shortcuts | Application shortcuts</p>
+<p>SPACES/DESKTOPS</p>
+<p>(fn +) F8           shows/hides all Spaces/Desktops</p>
+<p>(fn +) F11          shows/hides Desktop</p>
+<p>ctrl + arrow            changes Space
+ctrl + 1            changes to Space 1</p>
+<p>cmd + shift + 3         captures entire screen to png file
+cmd + shift + 4         captures selected area to png file
+cmd + shift + 4 Spacebar    captures selected Application window</p>
+<p>(cmd + ctrl + ...       copies capture to clipborad)        </p>
+<p>Do not work (in Lion)</p>
+<p>(fn +) F9           shows/hides all Applications in current Space (also minimized)
+                if pressed after (fn +) F8 shows all Applications in all Spaces
+(fn +) F10          shows/hides all windows of current Application</p>
+<p>2 fingers up/down       scroll
+2 fingers left/right        back/next in Safari (behavior in other apps?)
+                (both work with one finger in Magic Mouse)</p>
+<p>3 fingers up/down       opens/closes Mission Control (same as clicking Mission Control on the Dock)
+                (does not work on Magic Mouse)
+3 fingers right/left        changes between full screen apps and the Desktop(s)
+                (two fingers on the Magic Mouse)</p>
+<p>Default font in Word: Cambria
+Change default:</p>
+<p>Formato &gt; Fuente &gt; Predeterminar    (then click "OK")
+Format &gt; Font &gt; Set Default</p>
+<p>Add line numbers for manuscript:</p>
+<p>Formato &gt; Diseño de documento | Diseño | Números de línea | Agregar numeración de línea | Continuo</p>
+<p>Default fone in TextEdit: Monaco</p>
+<h2 id="for-work">For work</h2>
+<p>Java (not installed by default)</p>
+<p>Office, Adobe CSS5.X, Adobe Acrobat 10, EndNote</p>
+<p>Papers2</p>
+<p>Vdl, Unarchiver
+iTerm2</p>
+<h2 id="for-home">For Home</h2>
+<p>Handbrake:      rip DVDs/CDs
+Calibre:        eBooks</p>
+<h2 id="settings">Settings</h2>
+<p>Import Gmail calendars in iCal
+Firefox Sync
+Enable home sharing (?) 
+Mail?</p>
+<h2 id="command-line-preferences">Command-line preferences</h2>
+<p>Change capture file format from png to jpg:</p>
+<pre><code>$ defaults write com.apple.screencapture type jpg
+$ killall SystemUIServer
+</code></pre>
+<p>Disable all animations:</p>
+<pre><code>$ defaults write com.apple.finder DisableAllAnimations -bool true
+</code></pre>
+<p>Disable widgets:</p>
+<pre><code>$ defaults write com.apple.dashboard mcx-disabled -boolean YES
+$ killall Dock
+</code></pre>
+<p>Display iTunes tracks in the Dock</p>
+<pre><code>$ defaults write com.apple.dock itunes-notifications -bool TRUE ; killall Dock
+</code></pre>
+<p>Add recent items stack:</p>
+<pre><code>$ defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }' ; killall Dock
+</code></pre>
+<p>Run maintenance scripts:</p>
+<pre><code class="console">$ ls -la /var/log/*.out
+-rw-r--r--  1 root  wheel  366451 Jul 10 11:34 /var/log/daily.out
+-rw-r--r--  1 root  wheel    1832 Jul 10 11:34 /var/log/monthly.out
+-rw-r--r--  1 root  wheel    3814 Jul 10 11:34 /var/log/weekly.out
+$ sudo periodic daily weekly monthly
+</code></pre>
+
+<h2 id="searchable-pdf-ocr">Searchable PDF - OCR</h2>
+<p>Scanners: Fujitsu ScanSnap S1300 (includes software Abbyy FineReader)
+          Epson WorkForce Pro    (")</p>
+<p>Abbyy FineReader
+DevonThink Pro Office - includes PDF manager
+PDFpen</p>
+<p>Prizmo for iPhone</p>
+<h2 id="convert-eps-to-png">Convert EPS to PNG</h2>
+<pre><code class="console">
+# EPSTOPNG
+
+#####
+#    convert  ImageMagick
+#    gm convert GraphicsMagick
+#
+#    this script will convert an EPS to a PNG with 150 dots/inch ~ 90 dots/cm which is OK
+#    for PowerPoint
+#  
+#    The background is forced to be white and the transparency removed
+#####
+
+
+EPS=$1
+BASE=`basename ${EPS} .eps`
+#gm convert -trim -density 150x150 -resize 1000x1000 -verbose ${BASE}.eps ${BASE}.png
+convert -trim -density 150x150 -resize 1000x1000 -background white -alpha remove -verbose ${BASE}.eps ${BASE}.png
+
+
+
+
+# EPSTOPNG30
+
+#####
+#    convert  ImageMagick
+#    gm convert GraphicsMagick
+#
+#    this script will convert an EPS to a PNG with 300 dots/inch ~ 120 dots/cm which is OK
+#    for PowerPoint
+#  
+#    The background is forced to be white and the transparency removed
+#####
+
+
+EPS=$1
+BASE=`basename ${EPS} .eps`
+#gm convert -trim -density 300x300 -resize 2000x2000 -verbose ${BASE}.eps ${BASE}.png
+convert -trim -density 300x300 -resize 2000x2000 -background white -alpha remove -verbose ${BASE}.eps ${BASE}.png
+
+
+
+# EPSTOPNGWHITE
+
+EPS=$1
+BASE=`basename ${EPS} .eps`
+convert -trim ${EPS} -background white -alpha remove -alpha off ${BASE}.png
+</code></pre>
+
+<h2 id="more-tips">More tips</h2>
+<ul>
+<li>FileVault encripts data</li>
+<li>Verify and repair disk permissions</li>
+<li>
+<p>Disk utility can create partitions</p>
+</li>
+<li>
+<p>Textedit opens rtf, Word (doc/docx) and OpenOffice documents
+  Can create pdf directly (Export as PDF)
+  Can toggle between rtf and txt
+  Can create tables and lists</p>
+</li>
+<li>
+<p>VoiceOver install additional voices!!!</p>
+</li>
+<li>
+<p>Preview can export to PDF
+  Can add annotations to PDF
+  Can add signature to PDF
+  Can convert color to B/W
+  Can make screen capture
+  Select images and convert them to same height and width (Tools &gt; Adjust Size)
+  Can edit images, crop</p>
+</li>
+</ul>
               
             </div>
           </div>
@@ -269,7 +514,7 @@ $ killall Finder
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../macports/" class="btn btn-neutral" title="MacPorts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -295,7 +540,7 @@ $ killall Finder
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../macports/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
