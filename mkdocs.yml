@@ -11,9 +11,12 @@ nav:
         - pyGMT: 'gmt/pygmt.md'
     - Seismology:
         - Data requests: 'seismology/data_requests.md'
+        - SEISAN: 'seismology/seisan.md'
+        - ObsPy: 'seismology/obspy.md'
     - Tools:
         - Docker: 'tools/docker.md'
         - CMake: 'tools/cmake.md'
+        - Git: 'tools/git.md'
         - tmux: 'tools/tmux.md'
         - vim: 'tools/vim.md'
     - Unix:
@@ -24,6 +27,7 @@ nav:
     - macOS:
         - Admin: 'macos/admin.md'
         - Installation: 'macos/installation.md'
+        - MacPorts: 'macos/macports.md'
         - Tips: 'macos/tips.md'
 
 extra_javascript:

@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>GMT6 - Programming and Software Notes</title>
+  <title>Tips - Programming and Software Notes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "GMT6";
-    var mkdocs_page_input_path = "gmt/gmt6.md";
+    var mkdocs_page_name = "Tips";
+    var mkdocs_page_input_path = "macos/tips.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -55,26 +55,12 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">GMT</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../gmt5/">GMT5</a>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">GMT6</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#differences-to-previous-versions">Differences to previous versions</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#initial-configuration">initial configuration</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#earth-relief-grids">Earth Relief Grids</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#file-formats">File Formats</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#grid-files">Grid files</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../pygmt/">pyGMT</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Seismology</span></p>
@@ -105,12 +91,28 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">macOS</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../macos/admin/">Admin</a>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../macos/installation/">Installation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../macos/tips/">Tips</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Tips</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#safari">Safari</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#word">Word</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mail">Mail</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#command-line-tools-to-free-space">Command line tools to free space</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dropbox">Dropbox</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#google-earth">Google Earth</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#misc-commands">Misc commands</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -134,11 +136,11 @@
     
       
         
-          <li>GMT &raquo;</li>
+          <li>macOS &raquo;</li>
         
       
     
-    <li>GMT6</li>
+    <li>Tips</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -149,54 +151,116 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="gmt6">GMT6</h1>
-<h2 id="differences-to-previous-versions">Differences to previous versions</h2>
+                <h1 id="tips">Tips</h1>
+<p>Reset iCloud bookmarks:</p>
+<p>http://sheepsystems.com/discuss/YaBB.pl?num=1327319559/0#0</p>
+<h2 id="safari">Safari</h2>
+<p>Save Web Pages as PDF files (Mac, iPad and iPhone)
+javascript:pdf_url=location.href;location.href='http://pdfmyurl.com?url='+escape(pdf_url)</p>
+<h2 id="word">Word</h2>
+<p>Default font in Word: Cambria
+Change default:</p>
+<p>Formato &gt; Fuente &gt; Predeterminar    (then click "OK")
+Format &gt; Font &gt; Set Default</p>
+<p>Add line numbers for manuscript:</p>
+<p>Formato &gt; Diseño de documento | Diseño | Números de línea | Agregar numeración de línea | Continuo</p>
+<p>Default fone in TextEdit: Monaco</p>
+<h2 id="mail">Mail</h2>
+<p>Signature with font/images in Mail:</p>
+<p>create with TextEdit an rtf file using fonts, etc
+copy signature from TextEdit and paste it in Mail &gt; Preferences &gt; Signatures</p>
+<p>Capture signature with Preview</p>
+<p>Preferences &gt; Signatures (take picture with camera)</p>
+<p>To add signature:</p>
+<p>Use Preview. Annotations toolbar &gt; Signature button (click and drag for signature size and location)</p>
+<p>Customize folder (or file) icon:</p>
 <ul>
-<li>Modern mode</li>
-<li>Default: use <code>.nc</code> extension for netCDF grids instead of old-style native grid format <code>.grd</code></li>
+<li>Copy image for icon in clipboard (from preview, photoshop, ...)</li>
+<li>Open "Get Info"</li>
+<li>Select small icon on top (not large one in preview)</li>
+<li>Paste image</li>
 </ul>
-<h2 id="initial-configuration">initial configuration</h2>
-<pre><code>$ gmt defaults -D &gt; ~/gmt.conf
+<p>To delete, select again small icon and hit delete.</p>
+<p>Do not show updates to new operating system:</p>
+<pre><code>$ sudo softwareupdate --ignore "macOS Catalina"
+$ defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 # this eliminates red circle in Dock icon
+$ killAll Dock
 </code></pre>
-<p>Reduce fonts sizes (defaults too large)</p>
-<pre><code>#
-# FONT Parameters
-#
-FONT_ANNOT_PRIMARY             = 10p,Helvetica,black
-FONT_ANNOT_SECONDARY           = 12p,Helvetica,black
-FONT_LABEL                     = 14p,Helvetica,black
-FONT_TITLE                     = 14p,Helvetica,black
+<p>To reset</p>
+<p>$ sudo softwareupdate --reset-ignored</p>
+<h2 id="command-line-tools-to-free-space">Command line tools to free space</h2>
+<p>Docker:</p>
+<pre><code>$ docker system prune --all
 </code></pre>
-<p>Set map frame to plain</p>
-<pre><code>MAP_FRAME_TYPE                 = plain
+<p>Conda:</p>
+<pre><code>$ conda clean --all
 </code></pre>
-<h2 id="earth-relief-grids">Earth Relief Grids</h2>
-<p>GMT6 global earth relief grids
-<a href="https://docs.generic-mapping-tools.org/latest/datasets/remote-data.html#global-earth-relief-grids">page</a>.</p>
-<p>To extract topography/bathymetry of a region:</p>
-<pre><code>$ gmt grdcut @earth_relief_rru -Rlon1/lon2/lat1/lat2 -Goutput.nc
+<p>Git:</p>
+<pre><code>$ git gc --aggressive --prune=now
 </code></pre>
-<p>u = s for seconds, m for minutes, d for degrees</p>
+<p>Homebrew:</p>
+<pre><code>$ brew cleanup -s
+</code></pre>
+<p>Mac/Linux Cache Folder:</p>
+<pre><code>$ rm -r ~/.cache
+</code></pre>
+<p>Create space in a Time Machine disk that is almost full:</p>
+<pre><code class="console">$ sudo tmutil delete /Volumes/Time\ Machine\ Backups/Backups.backupdb/Antonio’s\ iMac/2016-0?-*
+Password:
+Deleting: /Volumes/Time Machine Backups/Backups.backupdb/Antonio’s iMac/2016-01-07-125646
+.
+.
+.
+</code></pre>
+
+<p>Set file as template:</p>
+<p>Get Info &gt; Stationery </p>
+<p>Clicking on file duplicates it.</p>
+<p>Versions in TextEdit:</p>
+<p>File &gt; Revert Document... &gt; Browse versions</p>
+<p>Setup a shortcut for Launchpad</p>
+<p>System Preferences &gt; Keyboard &gt; Keyboard shortcuts &gt; Launchpad &amp; Dock
+(double click and hit enter in "Show Launchpad" and introduce new shortcut, e.g. alt + cmd + l)</p>
+<h2 id="dropbox">Dropbox</h2>
 <ul>
-<li>01s = SRTM1S (30 m)</li>
-<li>03s = SRTM3S (90 m)</li>
-<li>15s = SRTM15+V2 (Tozer et al., Earth Space Sci., 2019) (~450 m)</li>
+<li>Make soft links to Dropbox folders:</li>
 </ul>
-<p>The rest are downsampled versions of 15s</p>
+<p>% ln -s ~/Dropbox/Documentos ~/Documentos</p>
 <ul>
-<li>30s =  ~ 1 km</li>
-<li>1m = 1.8 km</li>
+<li>
+<p>Text notes</p>
+</li>
+<li>
+<p>Copy DNI, passport, etc. Folder "Travel" with travel documents</p>
+</li>
+<li>
+<p>Contacts(?): ~/Library/Application Support/Address Book</p>
+</li>
+<li>
+<p>Folder with photos (shared with family's iPad)</p>
+</li>
 </ul>
-<p>With grids &gt;= 15s the global file is downloaded to <code>~/.gmt/server</code>.
-With grids 03s and 01s, only the tiles inside the region are donwloaded.</p>
-<p>To delete all the data in <code>~/.gmt/server</code>:</p>
-<pre><code>$ gmt clear data
+<h2 id="google-earth">Google Earth</h2>
+<p>To fix error "Unable to contact the login server"</p>
+<pre><code class="console">$ rm -rf ~/Library/Caches/Google\ Earth
+$ rm -rf ~/Library/Caches/com.Google.GoogleEarth*
+$ rm -f ~/Library/Preferences/com.google.GoogleEarth*
+$ rm -f ~/Library/Preferences/com.google.GECommonSettings.plist
 </code></pre>
-<p>All global grids are gridline-registered except the 15s that is pixel-registered (check!!)</p>
-<h2 id="file-formats">File Formats</h2>
-<p>GMT6 file formats <a href="http://gmt.soest.hawaii.edu/doc/latest/GMT_Docs.html#app-file-formats">page</a>.</p>
-<h3 id="grid-files">Grid files</h3>
-<p>Default = netCDF (.nc extension)</p>
+
+<h2 id="misc-commands">Misc commands</h2>
+<p>To create the locate database (/var/db/locate.database)
+run the following command: </p>
+<pre><code>$ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+</code></pre>
+<p>Needed another command to update it regularly??</p>
+<p>Remove duplicate entries from "Open with" menu</p>
+<pre><code>$ /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user
+$ killall Finder
+</code></pre>
+<p>Always Show the User Library Folder:</p>
+<pre><code>$ chflags nohidden ~/Library/
+</code></pre>
               
             </div>
           </div>
@@ -204,10 +268,8 @@ With grids 03s and 01s, only the tiles inside the region are donwloaded.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../pygmt/" class="btn btn-neutral float-right" title="pyGMT">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../gmt5/" class="btn btn-neutral" title="GMT5"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -233,10 +295,8 @@ With grids 03s and 01s, only the tiles inside the region are donwloaded.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../gmt5/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../pygmt/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
