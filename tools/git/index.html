@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Git - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git";
+    var mkdocs_page_input_path = "tools/git.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/seisan/">SEISAN</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Git</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tmux/">tmux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../vim/">vim</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Unix</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">macOS</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/macports/">MacPorts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/tips/">Tips</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tools &raquo;</li>
+        
+      
+    
+    <li>Git</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="git">Git</h1>
+<p>Includes <code>git</code>, <code>GitHub</code>, <code>GitLab</code>, and <code>BitBucket</code>.</p>
+<h1 id="initialization">Initialization</h1>
+<blockquote>
+<p>git config --global user.name "Antonio Villasenor"
+git config --global user.email "antonio@ictja.csic.es"
+git config --global color.ui true</p>
+</blockquote>
+<h1 id="global-gitignore-in-addition-to-gitignore-in-each-repository">Global .gitignore (in addition to .gitignore in each repository)</h1>
+<p>% vi ~/.gitignore</p>
+<p>% git config --global core.excludesfile ~/.gitignore</p>
+<h1 id="configure-bitbucket">Configure BitBucket</h1>
+<p>Generate SSH key
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/antonio/.ssh/id_rsa):
+Created directory '/Users/antonio/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/antonio/.ssh/id_rsa.
+Your public key has been saved in /Users/antonio/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:bBA2MN254rYO1BEorwBHzpvW8OxjxnIKFH7AKX4vL8k antonio@dhcp195.ictja.csic.es
+The key's randomart image is:
++---[RSA 2048]----+
+| .. o+=. .       |
+|oo+ .o.+o        |
+|o*+o  o  .       |
+|= oB...+.        |
+| =++=...S        |
+|..++. o.         |
+|. o.Xo .         |
+| . Eoo.          |
+|  . .o.          |
++----[SHA256]-----+
+$ ls ~/.ssh
+id_rsa      id_rsa.pub</p>
+<p>Preferences &gt; BitBucket settings &gt; SSH keys &gt; Add Key</p>
+<h1 id="create-a-repository-with-existing-source-code-in-a-new-repository-directory">Create a repository with existing source code in a new repository directory</h1>
+<ul>
+<li>
+<p>Go to GitHub web page and create the repository with a README.md and a .gitignore</p>
+</li>
+<li>
+<p>Go to ~/devel and clone the repository</p>
+</li>
+</ul>
+<p>% cd ~/devel
+% git clone https://github.com/avillasenorh/repository</p>
+<p>This will create a directory called “repository” with README.md, .gitignore, and .git directory</p>
+<ul>
+<li>Copy source code to repository directory</li>
+</ul>
+<p>% cd repository
+% cp -r source_directory/* .</p>
+<p>% git add -A
+% git status
+% git commit -m “Initial commit of source code”         # local commit
+% git push                                              # send to remote repository (GitHub or Bitbucket)</p>
+<h1 id="create-a-repository-with-existing-source-code-in-existing-source-directory">Create a repository with existing source code in existing source directory</h1>
+<p>create a directory called first_repo and make it a repository</p>
+<p>to send it to GitHub:</p>
+<p>$ git remote add origin https://github.com/gforsyth/first_repo.git
+$ git push -u origin master</p>
+<h1 id="installationconfiguration-2015-02-20">Installation/configuration 2015-02-20</h1>
+<p>Install Git
+git-2.2.1-intel-universal-mavericks.dmg
+change path to include /usr/local/git/bin
+change path for applications not from command line:
+% setup git PATH for non-terminal programs.sh
+(creates ~/.MacOSX/environment.plist)</p>
+<blockquote>
+<p>git config --global user.name "Antonio Villasenor"
+git config --global user.email "antonio@ictja.csic.es"
+git config --global color.ui true</p>
+</blockquote>
+<p>Install GitHub
+GitHub for Mac 199.zip (unzip and move GitHub.app to Applications folder)
+Open GitHub and login
+Install GitHub command line tools</p>
+<blockquote>
+<p>git config --global credential.helper osxkeychain</p>
+</blockquote>
+<p>This causes GitHub to send an email with SSH key:</p>
+<p>The following SSH key was added to your account:</p>
+<p>GitHub for Mac - Antonio’s iMac
+b1:9e:c4:80:5b:d0:b7:1d:b4:ba:ac:6b:3a:7f:7d:b3</p>
+<p>If you believe this key was added in error, you can remove the key and disable
+access at the following location:</p>
+<p>https://github.com/settings/ssh</p>
+<p>Now for example from GitHub application I can clone a repository existing in GitHub to my local disk 
+(in directory ~/devel)</p>
+<p>How to work with Git/GitHub:</p>
+<blockquote>
+<p>git add .
+git commit -m "First commit of let-utils repository"
+[master (root-commit) 038747f] First commit of let-utils repository
+ 1 file changed, 177 insertions(+)
+ create mode 100644 init1d.c</p>
+</blockquote>
+<p>git clone https://github.com/avillasenorh/github-test.git
+cd github-test/
+cp ~/src/util_LET/init1d.c .</p>
+<p>vi README.md
+git commit
+git add -A
+git commit -m "First commit from local directory"
+git push</p>
+<h1 id="installationconfiguration-2014-12-23">Installation/configuration 2014-12-23</h1>
+<p>MacBook Pro 15" Retina
+OS X 10.9.5 (Mavericks)</p>
+<p>Old version of Git already available:</p>
+<blockquote>
+<p>which git
+/usr/bin/git
+git --version
+git version 1.9.3 (Apple Git-50)</p>
+</blockquote>
+<p>Download installer from http://git-scm.com/download/mac
+git-2.2.1-intel-universal-mavericks.dmg</p>
+<p>Add /usr/local/git/bin to $PATH in .cshrc</p>
+<blockquote>
+<p>which git
+/usr/local/git/bin/git
+git --version
+git version 2.2.1</p>
+<p>git config --global user.name "Antonio Villasenor"
+git config --global user.email "antonio@ictja.csic.es"
+git config --global color.ui true</p>
+</blockquote>
+<p>Setup a GitHub account with same email address</p>
+<p>Account:</p>
+<p>avillasenorh + str1...</p>
+<p>2 email addresses: avillasenorh@yahoo.es (used to create account)
+                   antonio@ictja.csic.es (changed to be the primary one)</p>
+<p>ssh-keygen -t rsa -C 'antonio@ictja.csic.es'
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/antonio/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/antonio/.ssh/id_rsa.
+Your public key has been saved in /Users/antonio/.ssh/id_rsa.pub.
+The key fingerprint is:
+3a:09:93:48:38:96:38:41:56:1d:62:7b:a3:c9:90:4a antonio@ictja.csic.es
+The key's randomart image is:
++--[ RSA 2048]----+
+|oo.+...          |
+|oo+ o.           |
+|=E.. o           |
+|++o.+..          |
+|. .++   S        |
+|     o o         |
+|      +          |
+|       .         |
+|                 |
++-----------------+</p>
+<p>(passphrase was str1...)</p>
+<blockquote>
+<p>bash
+$ eval "$(ssh-agent -s)"
+Agent pid 35117</p>
+</blockquote>
+<p>$ssh-add ~/.ssh/id_rsa
+Enter passphrase for /Users/antonio/.ssh/id_rsa:
+Identity added: /Users/antonio/.ssh/id_rsa (/Users/antonio/.ssh/id_rsa)</p>
+<p>$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/GGxSgtpR0fBbdvS1HmcORLRxP7For1aDK9hC5CyDNu4nks348ndbMr/Hs4Ita3iK4xt+T+6u7qQg+1BJhDSk3x1kk+54Cx3S9RHuf3bsi339YllZ487SMTI3bQUgRmObkEgtFiQZwmZR47259WkEI0uUNWNHkI98PKKJzcu7fWP32m2qoaTGVuJdh0pjTiLxu9q/LB+SxpPbKfTImjt8ejcmIosaINlaET4JwukKY3HPK0ddBCRU46/tsUdXehV3ZRxSZICWJDrpjHlLh0L92WAF0OBdnoeYhvB9CH9PUHyPCxhRUInZoBSO50l6kWHZhCKrEiWXY2kyhxs9eU3b antonio@ictja.csic.es</p>
+<p>$ cat ~/.ssh/id_rsa.pub | pbcopy</p>
+<p>Now go to GitHub web page and login to your account (avillasenorh)
+Go to Personal Settings page &gt; SSH keys
+Add SSH key
+Enter a title: "Antonio's MacBook Pro"
+Paste clipboard (ssh key copied to clipboard using pbcopy) in "Key"
+Click on "Add key"</p>
+<p>To test that process worked, go back to terminal and type:</p>
+<p>$ ssh -T git@github.com
+Warning: Permanently added the RSA host key for IP address '192.30.252.129' to the list of known hosts.
+Hi avillasenorh! You've successfully authenticated, but GitHub does not provide shell access.</p>
+<p>===========================================================================================</p>
+<p>Connecting over HTTPS:</p>
+<p>Cache GitHub password in Git</p>
+<p>===========================================================================================
+GitHub token</p>
+<p>38035823017d17a645c40719317de1f8456d31ed</p>
+<blockquote>
+<p>git add .
+git commit -m "First commit of let-utils repository"
+[master (root-commit) 038747f] First commit of let-utils repository
+ 1 file changed, 177 insertions(+)
+ create mode 100644 init1d.c</p>
+</blockquote>
+<p>75  16:14   git clone https://github.com/avillasenorh/github-test.git
+    76  16:14   ls
+    77  16:14   cd github-test/
+    78  16:14   ls
+    79  16:14   git commit
+    80  16:14   h
+    81  16:14   cp ~/src/util_LET/init1d.c .
+    82  16:14   ls
+    83  16:14   vi README.md
+    84  16:15   git commit
+    85  16:15   git add -A
+    86  16:15   git commit
+    87  16:15   git commit
+    88  16:16   git commit -m "First commit from local directory"
+    89  16:18   git push</p>
+<h1 id="macbook-air">MacBook Air</h1>
+<p>which git
+/usr/bin/git
+32 pcanto:/Users/antonio &gt; git --version
+git version 1.9.3 (Apple Git-50)
+33 pcanto:/Users/antonio &gt; vi .cshrc
+34 pcanto:/Users/antonio &gt; source !$
+source .cshrc
+35 pcanto:/Users/antonio &gt; git --version
+git version 2.2.1
+36 pcanto:/Users/antonio &gt; git config --global user.name "Antonio Villasenor"
+37 pcanto:/Users/antonio &gt; git config --global user.email "antonio@ictja.csic.es"
+38 pcanto:/Users/antonio &gt; git config --global color.ui true
+39 pcanto:/Users/antonio &gt; ssh-keygen -t rsa -C 'antonio@ictja.csic.es'
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/antonio/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/antonio/.ssh/id_rsa.
+Your public key has been saved in /Users/antonio/.ssh/id_rsa.pub.
+The key fingerprint is:
+b2:28:07:13:37:ef:89:85:3d:e0:2e:a9:f8:0f:f5:16 antonio@ictja.csic.es
+The key's randomart image is:
++--[ RSA 2048]----+
+|                 |
+|                 |
+|  . +            |
+|   + *           |
+|  o + E S        |
+|   * * *         |
+|  = = *          |
+|.. = .           |
+|o....            |
++-----------------+</p>
+<p>bash
+bash-3.2$ eval "$(ssh-agent -s)"
+Agent pid 79771
+bash-3.2$ ssh-add ~/.ssh/id_rsa
+Enter passphrase for /Users/antonio/.ssh/id_rsa:
+Identity added: /Users/antonio/.ssh/id_rsa (/Users/antonio/.ssh/id_rsa)
+bash-3.2$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDxHl7QJo7Hj6dtjOZW9rjVKx0NG15Bt2bt4Wc1s6T9OqbxRX6wWTeZ6Y5zmAVFteqQksggXiB405LVajmLvyYRicM8x9BtrL0NgirRtSSS+DqoAteg6cBmPXBDKEV7D1Huj01Abbnpoc3MKSkjtUpgo5lvcGbRfVsjkLomth8xbGY62LPrVeHuhPB6dwhnu/lNECYUQsa2ivTmPQoWlkpB1UcktpZvWzBoU4jXSl1DGiP5qkCvBMIbOWn8/x8YTjk/3RKBdyrB3FKQpd1loixuiserwppovnAOXdq5/sBpaJnRAsi9bqPsm17jJr4JBPcj2mfvnnlPF/L4uaNAL8ex antonio@ictja.csic.es
+bash-3.2$ cat ~/.ssh/id_rsa.pub | pbcopy
+bash-3.2$ ssh -T git@github.com
+The authenticity of host 'github.com (192.30.252.130)' can't be established.
+RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.252.130' (RSA) to the list of known hosts.
+Hi avillasenorh! You've successfully authenticated, but GitHub does not provide shell access.</p>
+<p>=========================================================================</p>
+<p>OLD INSTALLATION</p>
+<h1 id="gitgithub">Git/GitHub</h1>
+<p>https://help.github.com/articles/set-up-git</p>
+<p>Download and Install Git
+git-1.8.1.3-intel-universal-snow-leopard</p>
+<p>Username and email:</p>
+<p>% git config --global user.name avillasenorh
+% git config --global user.email avillasenorh@yahoo.es</p>
+<p>Password caching:</p>
+<p>% git credential-osxkeychain
+git: 'credential-osxkeychain' is not a git command. See 'git --help'.
+% curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+% chmod u+x git-credential-osxkeychain
+% sudo mv git-credential-osxkeychain /usr/bin
+% git config --global credential.helper osxkeychain
+% git credential-osxkeychain
+Usage: git credential-osxkeychain <get|store|erase></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tmux/" class="btn btn-neutral float-right" title="tmux">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../cmake/" class="btn btn-neutral" title="CMake"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../cmake/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tmux/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

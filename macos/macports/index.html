@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>MacPorts - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MacPorts";
+    var mkdocs_page_input_path = "macos/macports.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/seisan/">SEISAN</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Unix</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">macOS</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">MacPorts</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>macOS &raquo;</li>
+        
+      
+    
+    <li>MacPorts</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="macports">MacPorts</h1>
+<p>https://www.macports.org</p>
+<pre><code>$ sudo port [-v] selfupdate [verbose]
+$ sudo port upgrade outdated
+$ sudo port rev-upgrade [if something goes wrong]
+</code></pre>
+<p>Other macports commands:</p>
+<pre><code>$ port version
+$ port installed
+$ port search --name --glob "gmt*"
+$ port search --name --line --glob "gmt*" [better output]
+
+$ port info gmt5
+</code></pre>
+<h1 id="installed-ports">Installed ports:</h1>
+<ul>
+<li>a2ps</li>
+<li>coreutils</li>
+<li>feh</li>
+<li>ffmepg</li>
+<li>gmt6 (gdal, gshhg-gmt, netcdf)</li>
+<li>gv</li>
+<li>GraphicsMagick</li>
+<li>htop</li>
+<li>inetutils</li>
+<li>openmpi</li>
+<li>openssh</li>
+<li>tmux</li>
+<li>wget</li>
+</ul>
+<pre><code class="console">$ sudo port install gv
+$ sudo port install wget
+$ sudo port install curl
+$ sudo port install coreutils
+
+[ Installation instructions for GMT 6:
+https://github.com/GenericMappingTools/gmt/blob/master/INSTALL.md ]
+
+$ sudo port install gdal +hdf5 +netcdf +openjpeg  [ + indicates a variant ]
+$ sudo port install gmt6 [ +fftw3 +openmp ]
+
+$ sudo port install ImageMagick
+$ sudo port install GraphicsMagick [ same as graphicsmagick? ]
+$ sudo port install ffmpeg
+
+$ sudo port install a2ps
+$ sudo port install feh
+
+$ sudo port install openfortivpn
+$ sudo port install openssh +ssh-copy-id
+$ sudo port install inetutils (ftp, telnet)
+
+$ sudo port install tmux
+$ sudo port install htop
+
+$ sudo port install cmake
+
+[ openmpi ?]
+
+To install camfort (finally did not work)
+
+$ sudo port install gsl
+$ sudo port install z3
+$ sudo port install flint
+$ sudo port install cabal
+</code></pre>
+
+<pre><code>gv:
+
+  libidn has the following notes:
+    Please be aware that GNU libidn2 is the successor of GNU libidn. It comes with IDNA 2008
+    and TR46 implementations and also provides a compatibility layer for GNU libidn.
+
+openssh:
+
+  openssh has the following notes:
+    Apple's keychain integration and launchd changes are now included by default, not just with the gsskex variant.
+    The parameters were changed from -m/-M to -A/-K in accordance with Apple's changes, because upstream started using the former switches themselves recently.
+
+    A startup item has been generated that will aid in starting openssh with launchd. It is disabled by default. Execute the following command to start it, and to cause it to launch at startup:
+
+        sudo port load openssh
+
+
+wget:
+
+  libpsl has the following notes:
+    libpsl API documentation is provided by the port 'libpsl-docs'.
+  wget has the following notes:
+    To customize wget, you can copy /opt/local/etc/wgetrc.sample to /opt/local/etc/wgetrc and then make changes.
+
+gdal:
+
+  bash-completion has the following notes:
+    To use bash_completion, add the following lines at the end of your .bash_profile:
+      if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+          . /opt/local/etc/profile.d/bash_completion.sh
+      fi
+
+    The port bash-completion &gt;=2.0 requires bash &gt;=4.1; please make sure
+    you are using /opt/local/bin/bash by changing the preferences of your
+    terminal accordingly. If your version of bash is too old, the script
+    above will not modify your shell environment and no extended completion
+    will be available.
+  hdf5 has the following notes:
+    Mac users may need to set the environment variable &quot;HDF5_USE_FILE_LOCKING&quot; to the five-character string &quot;FALSE&quot; when accessing network mounted files.  This is an application run-time setting, not a configure or build
+    setting.  Otherwise errors such as &quot;unable to open file&quot; or &quot;HDF5 error&quot; may be  encountered.
+  netcdf has the following notes:
+    As of version 4.2 c++ and fortran interfaces are separate ports, netcdf-cxx and netcdf-fortran, respectively.
+
+coreutils:
+
+  coreutils has the following notes:
+    The tools provided by GNU coreutils are prefixed with the character 'g' by default to distinguish them from the BSD commands.
+    For example, cp becomes gcp and ls becomes gls.
+
+    If you want to use the GNU tools by default, add this directory to the front of your PATH environment variable:
+        /opt/local/libexec/gnubin/
+
+ImageMagick:
+
+  python37 has the following notes:
+    To make this the default Python or Python 3 (i.e., the version run by the 'python' or 'python3' commands), run one or both of:
+
+        sudo port select --set python python37
+        sudo port select --set python3 python37
+
+
+ffmpeg:
+
+  ffmpeg has the following notes:
+    *******
+    ******* This build of ffmpeg includes GPLed code and
+    ******* is therefore licensed under GPL v2 or later.
+    *******
+    ******* The following modules are GPLed:
+    *******
+    *******      postproc
+    *******      libx264
+    *******      libx265
+    *******      libxvid
+    *******
+    ******* To include all nonfree, GPLed and LGPL code use variant +nonfree.
+    ******* To remove nonfree and GPLed code leaving only LGPL code remove the
+    ******* +gpl2 variant.
+    *******
+  python27 has the following notes:
+    To make this the default Python or Python 2 (i.e., the version run by the 'python' or 'python2' commands), run one or both of:
+
+        sudo port select --set python python27
+        sudo port select --set python2 python27
+
+openssh:
+
+  openssh has the following notes:
+    Apple's keychain integration and launchd changes are now included by default, not just with the gsskex variant.
+    The parameters were changed from -m/-M to -A/-K in accordance with Apple's changes, because upstream started using the former switches themselves
+    recently.
+
+    A startup item has been generated that will aid in starting openssh with launchd. It is disabled by default. Execute the following command to start it,
+    and to cause it to launch at startup:
+
+        sudo port load openssh
+
+inetutils:
+
+  inetutils has the following notes:
+    All clients are now installed with the &quot;g&quot; prefix.
+
+tmux:
+
+    If you want integration with system pasteboard consider installing port tmux-pasteboard as well
+
+openmpi:
+
+---&gt;  Some of the ports you installed have notes:
+  openmpi-default has the following notes:
+    The mpicc wrapper (and friends) are installed as:
+
+      /opt/local/bin/mpicc-openmpi-mp (likewise mpicxx, ...)
+
+    To make openmpi-default's wrappers the default (what you get when
+    you execute 'mpicc' etc.) please run:
+
+      sudo port select --set mpi openmpi-mp-fortran
+
+OpenCoarrays:
+
+failed!!
+
+$ sudo port clean OpenCoarrays
+
+$ sudo port install graphviz
+
+$ sudo port install openmpi
+
+---&gt;  Some of the ports you installed have notes:
+  openmpi-default has the following notes:
+    The mpicc wrapper (and friends) are installed as:
+
+      /opt/local/bin/mpicc-openmpi-mp (likewise mpicxx, ...)
+
+    To make openmpi-default's wrappers the default (what you get when
+    you execute 'mpicc' etc.) please run:
+
+      sudo port select --set mpi openmpi-mp-fortran
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tips/" class="btn btn-neutral float-right" title="Tips">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../tips/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

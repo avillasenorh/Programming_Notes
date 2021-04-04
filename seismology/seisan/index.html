@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>SEISAN - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SEISAN";
+    var mkdocs_page_input_path = "seismology/seisan.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../data_requests/">Data requests</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">SEISAN</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#seisan-directories">SEISAN directories</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#seisan-installation-on-linux">SEISAN installation on Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-of-seisan-100-in-linux">Installation of SEISAN 10.0 in Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#seisan-for-dehdasht">SEISAN for Dehdasht</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../obspy/">ObsPy</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Unix</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">macOS</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/macports/">MacPorts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/tips/">Tips</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Seismology &raquo;</li>
+        
+      
+    
+    <li>SEISAN</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="seisan">SEISAN</h1>
+<h2 id="seisan-directories">SEISAN directories</h2>
+<pre><code>COM     Shell and bat scripts to define variables
+INC     Include files
+INF     Documentation (pdf files)
+ISO     ?? (macro files)
+LIB     Libraries (and its source code)
+PIC     Pictures (used?)
+PRO     Executables and source code
+SUP     Supplementary programs (dataselect and SE)
+TMP     empty
+
+CAL     Instrument responses
+DAT     Parameter files
+REA     Phase data
+WAV     Waveform data
+
+WOR
+</code></pre>
+
+<h2 id="seisan-installation-on-linux">SEISAN installation on Linux</h2>
+<p>SEISAN 10.5 Installation on xlr8 (Ubuntu 16.04 LTS)</p>
+<ol>
+<li>Edit SEISAN.bash and add it to .bashrc</li>
+</ol>
+<pre><code>$ source .bashrc # for changes to take place
+</code></pre>
+
+<ol>
+<li>Compile libraries</li>
+</ol>
+<pre><code>$ cd $SEISAN_TOP
+$ cd LIB
+$ make clean
+$ make all &gt; make.log 2&gt;&amp;1
+</code></pre>
+
+<ol>
+<li>Compile programs</li>
+</ol>
+<pre><code>$ pr
+$ make clean
+$ make all &gt; make.log 2&gt;&amp;1
+</code></pre>
+
+<ol>
+<li>Re-create IASP91 tables</li>
+</ol>
+<pre><code>$ wo
+$ remodl
+$ setbrn
+$ cp IASP91_linux.* ../DAT/.
+</code></pre>
+
+<ol>
+<li>Run test events</li>
+</ol>
+<pre><code>$ eev 199606 
+</code></pre>
+
+<h2 id="installation-of-seisan-100-in-linux">Installation of SEISAN 10.0 in Linux</h2>
+<ol>
+<li>Edit /data/seismo/COM/SEISAN.csh</li>
+</ol>
+<p>SEISAN_TOP</p>
+<p>comment PITSA variables
+comment LD_LIBRARY_PATH
+comment path (add $SEISAN_TOP/PRO in .cshrc)</p>
+<ol>
+<li>Go to $SEISAN_TOP/LIB and edit Makefile</li>
+</ol>
+<p>Eliminate  -fbounds-check option</p>
+<pre><code>fc_gfortran  = gfortran -g -c -I../INC -fdollar-ok -fno-automatic -o $@
+#fc_gfortran  = gfortran -g -c -I../INC -fdollar-ok -fbounds-check -fno-automatic -o $@
+</code></pre>
+
+<p>% make clean</p>
+<ol>
+<li>Go to $SEISAN_TOP/PRO and edit Makefile</li>
+</ol>
+<p>Eliminate  -fbounds-check option</p>
+<pre><code>fc_gfortran = gfortran -g -I../INC -fdollar-ok -fno-automatic -o $@
+#fc_gfortran = gfortran -g -I../INC -fdollar-ok -fbounds-check -fno-automatic -o $@
+</code></pre>
+
+<p>Change INSTALL_PRO_PATH (needed?)
+INSTALL_PRO_PATH = /data/seismo/PRO</p>
+<p>% make clean
+% make all &gt;&amp;! log &amp;
+% tail -f log</p>
+<ol>
+<li>Install Seisan Explorer</li>
+</ol>
+<p>Install qt4-make qt4-dev-tools with Synaptic</p>
+<p>% cp $SEISAN_TOP/LIB/seisan.a linux/.</p>
+<p>% qmake se.pro (creates Makefile)</p>
+<p>% make &gt;&amp;! log &amp;
+[does not work!!]</p>
+<h2 id="seisan-for-dehdasht">SEISAN for Dehdasht</h2>
+<p>SEISAN for processing DehDasth data</p>
+<ol>
+<li>
+<p>Set continuous data in arclink directory structure</p>
+</li>
+<li>
+<p>Get station coordinates and format them in HYP format:</p>
+</li>
+</ol>
+<pre><code>  D0063045.23N 5028.63E   0   (not processed!!!)
+  D0293043.69N 5033.91E 754
+  D0493047.22N 5032.94E 828
+  D0553042.69N 5038.32E 848
+  D0693053.64N 5029.77E 963
+  D0733050.46N 5033.17E 905
+  D0783046.53N 5037.44E 806
+  D0813044.18N 5040.46E 814
+  D0913047.31N 5038.41E 847
+  D0953055.27N 5031.62E 875
+  D0983052.78N 5034.19E 941
+  D1043048.01N 5039.30E 852
+  D1073045.66N 5041.85E 827
+</code></pre>
+
+<ol>
+<li>Edit configuration files STATION0.HYP, SEISAN.DEF, MULPLT.DEF</li>
+</ol>
+<p>IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+<p>When editing SEISAN.DEF and MULPLT.DEF use <strong>FLOATING POINT</strong> values, <strong>NO</strong> integer values.
+Most of the errors are caused by using integer values instead of floating point values.
+If something does not work, check this first!!!
+Write values starting at column 41</p>
+<p>3.1. STATION0.HYP</p>
+<p>change station list</p>
+<p>change 1D velocity model (once one is available)</p>
+<p>3.2. SEISAN.DEF</p>
+<p>Define the location of the arclink directory and all the stations/channels</p>
+<pre><code>ARC_ARCHIVE                             /scratch/DehDasht
+ARC_CHAN                                D006 HHEDD
+ARC_CHAN                                D006 HHNDD
+ARC_CHAN                                D006 HHZDD
+ARC_CHAN                                D029 HHEDD
+...
+ARC_DURATION                            300.0
+</code></pre>
+
+<p>Set cursor to cross-hair:</p>
+<pre><code>CURSOR             0: default, 1: cross 2.
+</code></pre>
+
+<p>Set map default dimensions and plot stations</p>
+<pre><code>MAP_LAT_BORDER     dist from center       2.0
+MAP_LON_BORDER          &quot;                 2.0
+EPIMAP_STATIONS    plot stations        1.
+</code></pre>
+
+<p>3.3. MULPLT.DEF</p>
+<p>Set keys for assigning weights (depends on keyboard!!!)</p>
+<pre><code>PHASE WEIGHT KEY                        =         0
+PHASE WEIGHT KEY                        !         1
+PHASE WEIGHT KEY                        &quot;         2
+PHASE WEIGHT KEY                        %         3
+PHASE WEIGHT KEY                        $         4
+</code></pre>
+
+<p>(weight 3 assigned pressing SHIFT + 5 !!!)</p>
+<p>Sort seismograms by distance:</p>
+<pre><code>NSORT_DISTANCE     0: no sort, min ph.  1.
+</code></pre>
+
+<p>Change number of channels per screen when doing manual picking</p>
+<pre><code>NCHAN PER SCREEN   # chan pr screen     3.
+</code></pre>
+
+<ol>
+<li>Visually inspect continuous data</li>
+</ol>
+<p>First un-comment <code>NCHAN PER SCREEN</code> in <code>MULPLT.DEF</code></p>
+<pre><code class="console">$ mulplt
+  Filename, number, filenr.lis (all)
+  Continuous SEISAN data base: cont
+  Large SEED volume: conts
+  Archive: arc
+  Make a choice
+arc
+ Give start time, yyyymmddhhmmss
+20160822
+ Interval in min
+15
+
+[ select ALL with cursor ]
+
+  Plot options: Interactive picking          Return
+                Multi trace plot on screen, def (0)
+                Multi trace plot on screen      (1)
+                Multi trace plot on screen+laser(2)
+                Multi trace plot on laser       (3)
+                Continuoues on screen           (4)
+                Continuoues on screen + laser   (5)
+                Continuoues on laser            (6)
+                Stop                            (q)
+0
+  Low and high cut for filter, return for no filter
+3 15
+
+[ press &quot;f&quot; no move to next screen; click to zoom; &quot;p&quot; to save segment ]
+
+
+ ENTER EVENT TYPE L,R OR D
+ Second. optional character for event ID (e.g. E)
+ Third optional character for model ID (e.g. J) L
+  Give operator code (max 4 char)
+avh
+  Give 2-5 letter data base, ,, for local dir, return for default base
+,,
+ Output channels on screen: s
+ No output, just register:  n
+ No output, just ARC line:  a
+ Output all channels:   enter
+
+a
+
+ S-file name:   22-0100-10L.S201608
+ GO AHEAD (Y/N)
+y
+
+  Continue plot(y/n=default)
+y
+</code></pre>
+
+<p>Other parameters</p>
+<pre><code>GMAP_ICON_MSIZE                         3.0 (so events with M=0 are visible)
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../obspy/" class="btn btn-neutral float-right" title="ObsPy">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../data_requests/" class="btn btn-neutral" title="Data requests"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../data_requests/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../obspy/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

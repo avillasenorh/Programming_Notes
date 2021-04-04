@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>ObsPy - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ObsPy";
+    var mkdocs_page_input_path = "seismology/obspy.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../data_requests/">Data requests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../seisan/">SEISAN</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">ObsPy</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-and-updates-of-conda-pip-etc">Installation and updates of conda, pip, etc</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-of-obspy">Installation of ObsPy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#check-if-filedirectory-exists">Check if file/directory exists</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#write-to-stdout-and-stderr">Write to stdout and stderr</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#read-a-text-file-in-python-see-python-cookbook-page-141">Read a text file in Python (see Python Cookbook, page 141)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#formatted-print">Formatted print</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-an-external-command-in-python">Run an external command in Python</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#making-day-plots">Making day plots</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#checking-for-data-availability-using-obspy-scan">Checking for data availability using obspy-scan</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Unix</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">macOS</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/macports/">MacPorts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/tips/">Tips</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Seismology &raquo;</li>
+        
+      
+    
+    <li>ObsPy</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="obspy">ObsPy</h1>
+<p>Notes on using ObsPy</p>
+<h2 id="installation-and-updates-of-conda-pip-etc">Installation and updates of conda, pip, etc</h2>
+<pre><code>$ conda update conda
+$ conda update anaconda
+
+$ pip install --upgrade pip
+</code></pre>
+<h2 id="installation-of-obspy">Installation of ObsPy</h2>
+<p>Suggested approach, using an environment for obspy</p>
+<pre><code>$ conda create -n obspy python=3.5 anaconda
+$ source activate obspy
+$ (obspy) conda install -c conda-forge obspy
+$ (obspy) conda update -c conda-forge obspy
+$ (obspy) obspy-runtests
+</code></pre>
+<p>Another approach, adding conda-forge to list of channels </p>
+<pre><code>$ conda config --add channels conda-forge
+$ conda config --add channels obspy
+$ conda install obspy
+$ conda update obspy
+$ obspy-runtests
+</code></pre>
+<p>Other packages installed (using conda, pip, or others)</p>
+<pre><code>$ pip install eqcorrscan
+</code></pre>
+<p>Other packages to install</p>
+<p>To fix this error while running obspy-runtests:</p>
+<p>OSError: Unable to open boundary dataset file. Only the 'crude' and  'low',
+resolution datasets are installed by default.
+If you are requesting an, 'intermediate', 'high' or 'full'
+resolution dataset, you may need to download and install those
+files separately with
+<code>conda install -c conda-forge basemap-data-hires</code>.</p>
+<p>$ conda install -c conda-forge mtspec
+The following NEW packages will be INSTALLED:</p>
+<pre><code>libgfortran: 3.0.0-0      conda-forge
+mtspec:      0.3.2-py35_1 conda-forge
+</code></pre>
+<p>Other packages installed in obspy environment:</p>
+<pre><code>$ cd LOKI-LOCATOR
+$ mk_anaconda.sh
+$ python installation.py install
+
+$ cd LatLongUTMconversion_python3/
+$ python setup.py install
+</code></pre>
+<h2 id="check-if-filedirectory-exists">Check if file/directory exists</h2>
+<pre><code class="python">import os
+os.path.isfile(&quot;file&quot;)                      # True for regular file, False for directory!
+os.path.isdir(&quot;directory&quot;)
+os.path.exists(&quot;file_or_directory&quot;)         # True for existing file or directory
+</code></pre>
+
+<h2 id="write-to-stdout-and-stderr">Write to stdout and stderr</h2>
+<pre><code class="python">sys.stdout.write(&quot;message\n&quot;)
+sys.stderr.write(&quot;error\n&quot;)
+</code></pre>
+
+<h2 id="read-a-text-file-in-python-see-python-cookbook-page-141">Read a text file in Python (see Python Cookbook, page 141)</h2>
+<p>Read the entire file as a single string</p>
+<pre><code class="python">with open('somefile.txt', 'rt') as f:
+    data = f.read()
+</code></pre>
+
+<p>Iterate over the lines of the file</p>
+<pre><code class="python">with open('somefile.txt', 'rt') as f:
+    for line in f:
+</code></pre>
+
+<ul>
+<li>to split line in columns:</li>
+</ul>
+<pre><code class="python">columns = line.split()
+</code></pre>
+
+<h2 id="formatted-print">Formatted print</h2>
+<p>Comprehensive documentation and examples in:
+https://pyformat.info</p>
+<pre><code class="python">print('format string'.format(variable1, variable2, variable3, ...))
+
+example of format string:
+
+print('{0:6} {1:03d} {2:07.4f}'.format('PAB', 5, 3.4))
+PAB    005 03.4000
+</code></pre>
+
+<h2 id="run-an-external-command-in-python">Run an external command in Python</h2>
+<pre><code class="python">import subprocess
+
+subprocess.call('ls')
+
+subprocess.call(['ls', '-l']) -&gt; writes to stdout
+
+output_str = subprocess.check_output(['ls', '-l']) -&gt; writes to string &quot;output_str&quot;
+</code></pre>
+
+<p>Options of subprocess.call:
+    stdin=None   -&gt; redirects input from a file or an open pipe
+    stdout=None  -&gt; redirects output to a file
+    stderr=None
+    shell=False  -&gt; sends command to the UNIX shell (to use shell shortcuts and optimizations, e.g. wildcards)
+                    then string is only one: 'ls *.py'</p>
+<h2 id="making-day-plots">Making day plots</h2>
+<pre><code class="python">from obspy import read
+from obspy.core import UTCDateTime  (if you are going to operate with time strings)
+
+st = read(&quot;DD.D006..HHZ.D.2016.234&quot;)
+st.plot(type=&quot;dayplot&quot;, outfile=&quot;DD.D006..HHZ.D.2016.234.raw.png&quot;)
+
+st.filter(&quot;bandpass&quot;, freqmin=3, freqmax=15, corners=3)
+st.plot(type=&quot;dayplot&quot;, outfile=&quot;DD.D006..HHZ.D.2016.235.filtered.png&quot;)
+
+
+st.plot(type=&quot;dayplot&quot;, outfile=&quot;DD.D044..HHZ.D.2016.267.filtered.png&quot;,
+starttime=UTCDateTime(&quot;2016-09-23T07:00:00.0Z&quot;),                    # set start time (exclude installation)
+show_y_UTC_label=False,                             # eliminate ugly &quot;local time&quot; label
+size=(2000,1200),                               # doubles the size of &quot;dayplot&quot; plot
+vertical_scaling_range=5.0E2)                           # clip largest signal
+</code></pre>
+
+<p>More options in:
+http://docs.obspy.org/packages/autogen/obspy.core.stream.Stream.plot.html#obspy.core.stream.Stream.plot</p>
+<h2 id="checking-for-data-availability-using-obspy-scan">Checking for data availability using obspy-scan</h2>
+<pre><code>$ obspy-scan path = scan contents of all  files in directory "path" and generates an interactive plot
+
+$ obspy-scan --no-x 2016/DD/*/*Z.D
+</code></pre>
+<ul>
+<li>produces an interactive plot only for vertical components</li>
+<li>
+<p>does not plot an x for the start time of each data file</p>
+<p>$ obspy-scan --no-x --print-gaps -o 2016.pdf 2016 &gt; 2016.gaps</p>
+</li>
+<li>
+<p>produces a pdf file instead of an interactive plot</p>
+</li>
+<li>writes gaps to stdout</li>
+<li>does not plot an x for the start time of each data file</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../tools/docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../seisan/" class="btn btn-neutral" title="SEISAN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../seisan/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../tools/docker/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
