@@ -76,6 +76,8 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Docker</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#x-windows-applications-in-docker">X-windows applications in Docker</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../cmake/">CMake</a>
@@ -301,6 +303,28 @@ alpine                    latest              965ea09ff2eb        4 weeks ago   
 golang                    1.11-alpine         e116d2efa2ab        3 months ago         312MB
 
 $ docker container run -d --name web1 --publish 8080:8080 test:latest
+</code></pre>
+<h2 id="x-windows-applications-in-docker">X-windows applications in Docker</h2>
+<p>Example of how to create an image with <code>Firefox</code> and send the display to
+macOS host running X-windows:</p>
+<p><code>Dockerfile</code>:</p>
+<pre><code>FROM ubuntu:latest
+RUN apt-get update &amp;&amp; \
+    apt-get install firefox -y
+CMD /usr/bin/firefox
+</code></pre>
+
+<p>To create the Docker image named <code>myfirefox</code> from the <code>Dockerfile</code>, go to the
+directory of the <code>Dockerfile</code> and type:</p>
+<pre><code class="console">$ docker build -t myfirefox .
+</code></pre>
+
+<p>Set "Allow connections from network clients" in <code>XQuartz</code> Preferences (Security tab):</p>
+<p><img alt="X11_preferences" src="../X11_Preferences.png" /></p>
+<p>(Probably you need to logout and login again to activate changes)</p>
+<p>How to run:</p>
+<pre><code class="console">$ xhost + 127.0.0.1         # authorize connetions only from localhost (also known as loopback address)
+$ docker run --rm -d -e DISPLAY=host.docker.internal:0 myfirefox
 </code></pre>
               
             </div>
