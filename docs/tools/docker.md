@@ -169,4 +169,39 @@ EXAMPLE
 
     $ docker container run -d --name web1 --publish 8080:8080 test:latest
 
+## X-windows applications in Docker
+
+Example of how to create an image with `Firefox` and send the display to
+macOS host running X-windows:
+
+`Dockerfile`:
+
+```
+FROM ubuntu:latest
+RUN apt-get update && \
+    apt-get install firefox -y
+CMD /usr/bin/firefox
+```
+
+To create the Docker image named `myfirefox` from the `Dockerfile`, go to the
+directory of the `Dockerfile` and type:
+
+```console
+$ docker build -t myfirefox .
+```
+
+
+Set "Allow connections from network clients" in `XQuartz` Preferences (Security tab):
+
+![X11_preferences](X11_Preferences.png)
+
+(Probably you need to logout and login again to activate changes)
+
+How to run:
+
+```console
+$ xhost + 127.0.0.1         # authorize connetions only from localhost (also known as loopback address)
+$ docker run --rm -d -e DISPLAY=host.docker.internal:0 myfirefox
+```
+
 
