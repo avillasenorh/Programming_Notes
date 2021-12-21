@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -172,6 +171,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -231,10 +231,9 @@
 <ul>
 <li>Change shell to bash:</li>
 </ul>
-<pre><code class="console">$ chsh -s /bin/bash 
+<pre><code class="language-console">$ chsh -s /bin/bash 
 $ export BASH_SILENCE_DEPRECATION_WARNING=1
 </code></pre>
-
 <ul>
 <li>Setup Mail</li>
 </ul>
@@ -372,7 +371,7 @@ jdk-14.0.2_osx-x64_bin.dmg</p>
 <h2 id="git">Git</h2>
 <p>https://www.git-scm.com
 Download pkg from https://git-scm.com and install</p>
-<pre><code class="console">$ git config --global user.name &quot;Antonio Villasenor&quot;
+<pre><code class="language-console">$ git config --global user.name &quot;Antonio Villasenor&quot;
 $ git config --global user.email &quot;antonio.villasenor@csic.es&quot;
 $ git config --global color.ui true
 
@@ -381,9 +380,8 @@ $ ssh-keygen -b 4096 -t rsa
 
 $ cat ~/.ssh/id_rsa.pub | pbcopy   [ copy key to clipboard ]
 </code></pre>
-
 <p>git completion/prompt</p>
-<pre><code class="console">source ~/.git-completion.bash
+<pre><code class="language-console">source ~/.git-completion.bash
 
 # colors!
 red=&quot;\[\033[0;31m\]&quot;
@@ -397,9 +395,8 @@ source ~/.git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1=&quot;$cyan\u@pcanto$green\$(__git_ps1)$blue \W $ $reset&quot;
 </code></pre>
-
 <p>Login to Bitbucket and add key</p>
-<pre><code class="console">$ cd
+<pre><code class="language-console">$ cd
 $ mkdir devel
 $ cd devel
 
@@ -408,7 +405,6 @@ $ git clone git@bitbucket.org:avillasenorh/psim-tools.git
 $ git clone git@bitbucket.org:avillasenorh/noise-processing.git
 $ git clone git@bitbucket.org:avillasenorh/gtomo.git
 </code></pre>
-
 <p>Login to GitHub and add key</p>
 <p>[create .gitignore]</p>
 <pre><code>$ git config --global core.excludesfile ~/.gitignore
@@ -441,7 +437,6 @@ $ conda install -c conda-forge obspy
 
 [ $ conda install -c conda-forge cartopy ]
 </code></pre>
-
 <ul>
 <li>TensorFlow 2</li>
 </ul>
@@ -453,7 +448,6 @@ $  pip -V     [ warning: TensorFlow 2 packages require pip version &gt; 19.0 ]
 $  pip install tensorflow
 $  pip install keras
 </code></pre>
-
 <p>If you later want to install ObsPy for DL picker:</p>
 <pre><code>$  conda list hdf5  [ installed ]
 $  conda list h5py  [ installed ]
@@ -466,13 +460,12 @@ $  conda install pydot
 
 $  conda install -c conda-forge obspy
 </code></pre>
-
 <ul>
 <li>Intel distribution for Python (IDP)</li>
 </ul>
 <p>Do not do "conda config --add channels intel" because this will cause all your Continuum packages
 to be replaced with Intel builds, if available. Rather specify "-c intel --no-update-deps" [last option deprecated?]</p>
-<pre><code class="console">$ conda create -n idp intelpython3_full python=3 -c intel
+<pre><code class="language-console">$ conda create -n idp intelpython3_full python=3 -c intel
 
   INSTALLED PACKAGE OF SCIKIT-LEARN CAN BE ACCELERATED USING DAAL4PY. 
   PLEASE SET 'USE_DAAL4PY_SKLEARN' ENVIRONMENT VARIABLE TO 'YES' TO ENABLE THE ACCELERATION. 
@@ -480,7 +473,6 @@ to be replaced with Intel builds, if available. Rather specify "-c intel --no-up
 
       $ USE_DAAL4PY_SKLEARN=YES
 </code></pre>
-
 <h2 id="julia">Julia</h2>
 <p>Version installed: Long-term support (LTS) release: v1.0.5 (Sep 9, 2019)</p>
 <ul>
@@ -493,7 +485,6 @@ to be replaced with Intel builds, if available. Rather specify "-c intel --no-up
 </ul>
 <pre><code>$ ln -s /Applications/Julia-&lt;version&gt;.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
 </code></pre>
-
 <p>Or install Julia Pro (comes with Juno IDE)</p>
 <p>JuliaPro-1.0.5-2_build-54.pkg</p>
 <pre><code>$ sudo ln -s /Applications/JuliaPro-1.0.5-2.app/Contents/Resources/julia/Contents/Resources/julia/bin/julia \
@@ -597,17 +588,18 @@ $ ./compile_all.sh &gt; compile.log 2&gt;&amp;1</p>
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../admin/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../macports/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../admin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../macports/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>

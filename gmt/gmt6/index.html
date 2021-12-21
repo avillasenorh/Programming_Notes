@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -64,7 +63,17 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#initial-configuration">initial configuration</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#subplots">subplots</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-region-from-a-netcdf-grid-file">Get region from a netCDF grid file</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#color-palette">Color palette</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#earth-relief-grids">Earth Relief Grids</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ilumination-for-earth-relief-grids">Ilumination for Earth Relief Grids</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#options-for-grdcontour">Options for grdcontour</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#file-formats">File Formats</a>
         <ul>
@@ -154,6 +163,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -178,6 +188,32 @@ FONT_TITLE                     = 14p,Helvetica,black
 <p>Set map frame to plain</p>
 <pre><code>MAP_FRAME_TYPE                 = plain
 </code></pre>
+<h2 id="subplots">subplots</h2>
+<pre><code>gmt set GMT_COMPATIBILITY 6
+gmt set FORMAT_GEO_MAP ddd.x
+
+plot_size=&quot;?&quot;
+
+gmt begin location ps
+
+   gmt subplot begin 3x1 -Ff16c/25c -A
+
+      gmt coast -JM${plot_size} -R... -Bx... -By... -BWeSn -Df ...
+
+      gmt coast -JM${plot_size} -R... -Bx... -By... -BWeSn -Df ... -c
+
+      gmt coast -JM${plot_size} -R... -Bx... -By... -BWeSn -Df ... -c
+
+   gmt subplot end
+
+gmt end show
+</code></pre>
+<h2 id="get-region-from-a-netcdf-grid-file">Get region from a netCDF grid file</h2>
+<pre><code>gmt grdinfo grid_file -I-
+</code></pre>
+<h2 id="color-palette">Color palette</h2>
+<pre><code>gmt colorbar -DJMR -By+l"meters" -B1000 # if you set -Ccpt previously you don't have to set it here
+</code></pre>
 <h2 id="earth-relief-grids">Earth Relief Grids</h2>
 <p>GMT6 global earth relief grids
 <a href="https://docs.generic-mapping-tools.org/latest/datasets/remote-data.html#global-earth-relief-grids">page</a>.</p>
@@ -201,6 +237,17 @@ With grids 03s and 01s, only the tiles inside the region are donwloaded.</p>
 <pre><code>$ gmt clear data
 </code></pre>
 <p>All global grids are gridline-registered except the 15s that is pixel-registered (check!!)</p>
+<h2 id="ilumination-for-earth-relief-grids">Ilumination for Earth Relief Grids</h2>
+<pre><code>$ gmt grdimage grid_file -I+nt.4 -Ccpt_file
+</code></pre>
+<h2 id="options-for-grdcontour">Options for <code>grdcontour</code></h2>
+<p>Plot contours only larger that 100 km</p>
+<pre><code>- Q100k
+</code></pre>
+<p>Set contour interval </p>
+<pre><code> -C1000  -Wcthinnest,blue                             # contours without annotations
+ -A1000  -Wathin,black                                # contours with annotations
+</code></pre>
 <h2 id="file-formats">File Formats</h2>
 <p>GMT6 file formats <a href="http://gmt.soest.hawaii.edu/doc/latest/GMT_Docs.html#app-file-formats">page</a>.</p>
 <h3 id="grid-files">Grid files</h3>
@@ -238,17 +285,18 @@ With grids 03s and 01s, only the tiles inside the region are donwloaded.</p>
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../gmt5/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../pygmt/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../gmt5/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../pygmt/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>

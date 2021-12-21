@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -93,6 +92,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#command-line-shortcuts">Command-line shortcuts</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#arguments">Arguments</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#pwd">pwd</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#type">type</a>
@@ -109,6 +110,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#eval">eval</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xdg-opeon">xdg-opeon</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#tar">tar</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#rsync">rsync</a>
@@ -123,25 +126,9 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#tr">tr</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nl">nl</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#csplit">csplit</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed">ed</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#grep-awk">grep-awk</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#camel-case-and-underscore">camel case and underscore</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ssh-related-commands">ssh-related commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#terminal-multiplexers">Terminal multiplexers</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#miscellaneous-commands">Miscellaneous commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#od-octal-dum">od          : octal dum</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#download-videos">Download videos</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#unix-options">Unix options</a>
     </li>
     </ul>
                     </li>
@@ -194,6 +181,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -235,6 +223,11 @@
 <p><code>Alt  + D</code>      -&gt; to end of word<br>
 <code>Ctrl + K</code>      -&gt; to end of line<br></p>
 <p>(Alt shortcuts do not work on iTerm2)</p>
+<p>open long and complicated Linux or Unix commands in a text editor. Press:</p>
+<p><code>Ctrl + x</code> <code>Ctrl + e</code></p>
+<h2 id="arguments">Arguments</h2>
+<p><code>!^</code> is the first argument of the previous command
+<code>!$</code> is the last argument of the previous command</p>
 <h2 id="pwd">pwd</h2>
 <pre><code>$ pwd -L        # logical (e.g. soft link)
 $ pwd -P        # physical
@@ -249,13 +242,12 @@ $ type -a ls
 ls is aliased to `ls -GFh'
 ls is /bin/ls
 </code></pre>
-
 <h2 id="which">which</h2>
 <h2 id="compgen">compgen</h2>
 <pre><code>$ compgen -c   # lists all available command, aliases, ...
 </code></pre>
 <h2 id="stat">stat</h2>
-<pre><code class="console">$ stat -x gmt.conf
+<pre><code class="language-console">$ stat -x gmt.conf
   File: &quot;gmt.conf&quot;
   Size: 3192         FileType: Regular File
   Mode: (0644/-rw-r--r--)         Uid: (  501/ antonio)  Gid: (   20/   staff)
@@ -264,14 +256,12 @@ Access: Thu Sep 15 10:12:53 2016
 Modify: Mon Jun  8 14:45:18 2015
 Change: Mon Jun  8 14:45:18 2015
 </code></pre>
-
 <h2 id="file">file</h2>
-<pre><code class="console">$ file gmt.conf
+<pre><code class="language-console">$ file gmt.conf
 gmt.conf: ASCII text
 $ file -b gmt.conf
 ASCII text
 </code></pre>
-
 <h2 id="ls">ls</h2>
 <p>To expand a wildcard whithout doing an "ls"</p>
 <pre><code>$ echo .*
@@ -309,7 +299,8 @@ $ echo SACAUX is \&quot;$SACAUX\&quot;
 $ echo &quot;SACAUX is \&quot;$SACAUX\&quot;&quot;
 SACAUX is &quot;/usr/local/sac/lib/aux&quot;
 </code></pre>
-
+<h2 id="xdg-opeon">xdg-opeon</h2>
+<p><code>xdg-open</code> will open a file from the command line using the application associated with its file extension.</p>
 <h2 id="tar">tar</h2>
 <p>First see structure of tar file with</p>
 <pre><code>$ tar tvzf latest.tar.gz | more
@@ -328,7 +319,6 @@ $ tar xvzf latest.tar.gz -C /directory/ --strip=1 # eliminates first directory f
 -H preserve hard links
 -c compare checksums
 </code></pre>
-
 <p>Reproduce a directory structure but without copying files</p>
 <pre><code>$ rsync -av -f"+ */" -f"- *" "$source" "$target"
 </code></pre>
@@ -418,6 +408,8 @@ $ find * -maxdepth 0 -type d -name "[012]???" -print                      # this
 <h2 id="tr">tr</h2>
 <pre><code>$ tr '\r' '\n' &lt; mac-format-file.txt      # fix carriage return problem for files created with GUI Mac applications
 </code></pre>
+<h2 id="nl">nl</h2>
+<p>Numbers lines in a text file</p>
 <h2 id="csplit">csplit</h2>
 <p>splits file in parts using matching patterns</p>
 <pre><code>$ csplit -k -s -n 4 $QAFI '/^&gt;/' '/^&gt;/' "{1000}"
@@ -426,7 +418,12 @@ $ find * -maxdepth 0 -type d -name "[012]???" -print                      # this
 -n : number of digits in output xx* files
 -s : do not output to stdout the number of lines of each file
 </code></pre>
-
+<h1 id="human-readable-path">Human readable path:</h1>
+<pre><code>$ echo "${PATH//:/$'\n'}"
+</code></pre>
+<p>In order to write this as an alias, replace <code>'</code> with <code>'"'"'</code>:</p>
+<pre><code>alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
+</code></pre>
 <h2 id="ed">ed</h2>
 <p>Addresses
 i       : line i
@@ -477,6 +474,7 @@ $ ssh-keygen -b 4096 -t rsa
 </ol>
 <h2 id="miscellaneous-commands">Miscellaneous commands</h2>
 <p>seq         : generates sequence of numbers</p>
+<p>rev         : reverses lines of a file (or stdin)</p>
 <p>feh         : view image files</p>
 <pre><code>          feh -F -Y -z -D 3.5 *.jpg
 
@@ -496,7 +494,7 @@ $ ssh-keygen -b 4096 -t rsa
 <p>Here is how to create a slideshow from images (1.jpg,2.jpg..,8.jpg) with FFmpeg on your Linux or Unix box:</p>
 <p>$ ffmpeg -y -r 1/3 -framerate 1 -i %1d.jpg  -c:v libx264 -vf fps=5 -pix_fmt yuv420p out.mp4</p>
 <h2 id="od-octal-dum">od          : octal dum</h2>
-<pre><code class="console">$ od -f pm.0         # outputs number of a binary file interpreted as floats (e.g. PStomo model file)
+<pre><code class="language-console">$ od -f pm.0         # outputs number of a binary file interpreted as floats (e.g. PStomo model file)
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 *
 0006740     5.080000e+00    5.080000e+00    5.080000e+00    5.080000e+00
@@ -521,9 +519,8 @@ $ ssh-keygen -b 4096 -t rsa
 *
 0230500
 </code></pre>
-
 <p>Repeated lines are indicated by '*'</p>
-<pre><code class="console">$ od -f -v pm.0    # outputs all lines included repeated ones
+<pre><code class="language-console">$ od -f -v pm.0    # outputs all lines included repeated ones
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 0000020     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 0000040     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
@@ -531,9 +528,8 @@ $ ssh-keygen -b 4096 -t rsa
 0000100     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 ...
 </code></pre>
-
 <p>In Linux version -w controls the number of bytes per line in output</p>
-<pre><code class="console">$ god -f -v -w4 pm.0
+<pre><code class="language-console">$ god -f -v -w4 pm.0
 0000000            4.72
 0000004            4.72
 0000010            4.72
@@ -542,9 +538,8 @@ $ ssh-keygen -b 4096 -t rsa
 0000024            4.72
 0000030            4.72
 </code></pre>
-
 <p>Option address=none does not print the address:</p>
-<pre><code class="console">$ god -f -v -w4 -An pm.0
+<pre><code class="language-console">$ god -f -v -w4 -An pm.0
 
         5.106375
         5.106778
@@ -552,7 +547,6 @@ $ ssh-keygen -b 4096 -t rsa
        5.1090393
        5.1125073
 </code></pre>
-
 <h2 id="download-videos">Download videos</h2>
 <p>Twitter videos can be downloaded <a href="http://twittervideodownloader.com">here</a>
 and <a href="https://twsaver.com/twitter.php">here</a>.</p>
@@ -626,17 +620,18 @@ and <a href="https://twsaver.com/twitter.php">here</a>.</p>
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../admin/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../dotfiles/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../admin/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dotfiles/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>

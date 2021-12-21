@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -90,6 +89,8 @@
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Admin</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#ssh-keys">SSH keys</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#disable-suspend-and-hibernation">Disable suspend and hibernation</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#mysql">MySQL</a>
     </li>
@@ -150,6 +151,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -174,7 +176,7 @@ $ sudo adduser --home /data9/INPUT input (non-standard home directory)
 </code></pre>
 <h2 id="ssh-keys">SSH keys</h2>
 <p>Install a public key to login remotely</p>
-<pre><code class="console">$ ssh-keygen -b 4096 -t rsa
+<pre><code class="language-console">$ ssh-keygen -b 4096 -t rsa
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/antonio/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -196,8 +198,7 @@ The key's randomart image is:
 |      .. ...oo   |
 +----[SHA256]-----+
 </code></pre>
-
-<pre><code class="console">$ ssh-copy-id antonio@edge3.ictja.csic.es
+<pre><code class="language-console">$ ssh-copy-id antonio@edge3.ictja.csic.es
 /opt/local/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/Users/antonio/.ssh/id_rsa.pub&quot;
 The authenticity of host 'edge3.ictja.csic.es (193.144.102.105)' can't be established.
 ECDSA key fingerprint is SHA256:eMm9bMReccDbOesNDlt9Lf6VMYuv1XlccefWC8zynaA.
@@ -211,7 +212,30 @@ Number of key(s) added:        1
 Now try logging into the machine, with:   &quot;ssh 'antonio@edge3.ictja.csic.es'&quot;
 and check to make sure that only the key(s) you wanted were added.
 </code></pre>
+<h2 id="disable-suspend-and-hibernation">Disable suspend and hibernation</h2>
+<p>Instructions in this <a href="https://www.tecmint.com/disable-suspend-and-hibernation-in-linux/">link</a>.</p>
+<pre><code>$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 
+Created symlink /etc/systemd/system/sleep.target → /dev/null.
+Created symlink /etc/systemd/system/suspend.target → /dev/null.
+Created symlink /etc/systemd/system/hibernate.target → /dev/null.
+Created symlink /etc/systemd/system/hybrid-sleep.target → /dev/null.
+</code></pre>
+<p>Verify changes:</p>
+<pre><code>$ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.target
+</code></pre>
+<p>and reboot (or $ sudo systemctl restart systemd-logind.service)</p>
+<p>Re-enable suspend and hibernation:</p>
+<pre><code>$ sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+Removed /etc/systemd/system/sleep.target.
+Removed /etc/systemd/system/suspend.target.
+Removed /etc/systemd/system/hibernate.target.
+Removed /etc/systemd/system/hybrid-sleep.target.
+</code></pre>
+<p>Verify:</p>
+<pre><code>$ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.target
+</code></pre>
 <h2 id="mysql">MySQL</h2>
 <p>Install MySQL from command line (not tested)</p>
 <pre><code>$ sudo apt-get -y install mysql-server mysql-client
@@ -229,7 +253,6 @@ dig &gt; nslookup
 mtr &gt; ping+traceroute
 collectl &gt; sar
 </code></pre>
-
 <h2 id="update-gcc">Update GCC</h2>
 <p>Default version of gcc/g++ in xlr8 (Ubuntu 14.04 LTS) is 5.4.0</p>
 <p>Need at least version 7 to compile Mirmex</p>
@@ -238,7 +261,7 @@ collectl &gt; sar
 $ sudo apt-get update
 </code></pre>
 <p>(still gives an error about Google Earth, but the rest seems to work fine)</p>
-<pre><code class="console">$ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+<pre><code class="language-console">$ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 
 $ sudo apt-get update
 
@@ -248,11 +271,9 @@ $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 \
  --slave /usr/bin/g++ g++ /usr/bin/g++-7 \
  --slave /usr/bin/gcov gcov /usr/bin/gcov-7
 </code></pre>
-
 <p>(Modified from https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/):</p>
-<pre><code class="console">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
+<pre><code class="language-console">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
 </code></pre>
-
 <p>WARNING!!!: gfortran not updated to version 7!!!</p>
               
             </div>
@@ -287,17 +308,18 @@ $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 \
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../../tools/vim/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../commands/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../tools/vim/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../commands/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>

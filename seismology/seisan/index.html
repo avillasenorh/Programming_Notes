@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../../css/theme.css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,9 +25,8 @@
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
         <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -150,6 +149,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -172,7 +172,6 @@ WAV     Waveform data
 
 WOR
 </code></pre>
-
 <h2 id="seisan-installation-on-linux">SEISAN installation on Linux</h2>
 <p>SEISAN 10.5 Installation on xlr8 (Ubuntu 16.04 LTS)</p>
 <ol>
@@ -180,7 +179,6 @@ WOR
 </ol>
 <pre><code>$ source .bashrc # for changes to take place
 </code></pre>
-
 <ol>
 <li>Compile libraries</li>
 </ol>
@@ -189,7 +187,6 @@ $ cd LIB
 $ make clean
 $ make all &gt; make.log 2&gt;&amp;1
 </code></pre>
-
 <ol>
 <li>Compile programs</li>
 </ol>
@@ -197,7 +194,6 @@ $ make all &gt; make.log 2&gt;&amp;1
 $ make clean
 $ make all &gt; make.log 2&gt;&amp;1
 </code></pre>
-
 <ol>
 <li>Re-create IASP91 tables</li>
 </ol>
@@ -206,13 +202,11 @@ $ remodl
 $ setbrn
 $ cp IASP91_linux.* ../DAT/.
 </code></pre>
-
 <ol>
 <li>Run test events</li>
 </ol>
 <pre><code>$ eev 199606 
 </code></pre>
-
 <h2 id="installation-of-seisan-100-in-linux">Installation of SEISAN 10.0 in Linux</h2>
 <ol>
 <li>Edit /data/seismo/COM/SEISAN.csh</li>
@@ -228,7 +222,6 @@ comment path (add $SEISAN_TOP/PRO in .cshrc)</p>
 <pre><code>fc_gfortran  = gfortran -g -c -I../INC -fdollar-ok -fno-automatic -o $@
 #fc_gfortran  = gfortran -g -c -I../INC -fdollar-ok -fbounds-check -fno-automatic -o $@
 </code></pre>
-
 <p>% make clean</p>
 <ol>
 <li>Go to $SEISAN_TOP/PRO and edit Makefile</li>
@@ -237,7 +230,6 @@ comment path (add $SEISAN_TOP/PRO in .cshrc)</p>
 <pre><code>fc_gfortran = gfortran -g -I../INC -fdollar-ok -fno-automatic -o $@
 #fc_gfortran = gfortran -g -I../INC -fdollar-ok -fbounds-check -fno-automatic -o $@
 </code></pre>
-
 <p>Change INSTALL_PRO_PATH (needed?)
 INSTALL_PRO_PATH = /data/seismo/PRO</p>
 <p>% make clean
@@ -275,7 +267,6 @@ INSTALL_PRO_PATH = /data/seismo/PRO</p>
   D1043048.01N 5039.30E 852
   D1073045.66N 5041.85E 827
 </code></pre>
-
 <ol>
 <li>Edit configuration files STATION0.HYP, SEISAN.DEF, MULPLT.DEF</li>
 </ol>
@@ -297,17 +288,14 @@ ARC_CHAN                                D029 HHEDD
 ...
 ARC_DURATION                            300.0
 </code></pre>
-
 <p>Set cursor to cross-hair:</p>
 <pre><code>CURSOR             0: default, 1: cross 2.
 </code></pre>
-
 <p>Set map default dimensions and plot stations</p>
 <pre><code>MAP_LAT_BORDER     dist from center       2.0
 MAP_LON_BORDER          &quot;                 2.0
 EPIMAP_STATIONS    plot stations        1.
 </code></pre>
-
 <p>3.3. MULPLT.DEF</p>
 <p>Set keys for assigning weights (depends on keyboard!!!)</p>
 <pre><code>PHASE WEIGHT KEY                        =         0
@@ -316,21 +304,18 @@ PHASE WEIGHT KEY                        &quot;         2
 PHASE WEIGHT KEY                        %         3
 PHASE WEIGHT KEY                        $         4
 </code></pre>
-
 <p>(weight 3 assigned pressing SHIFT + 5 !!!)</p>
 <p>Sort seismograms by distance:</p>
 <pre><code>NSORT_DISTANCE     0: no sort, min ph.  1.
 </code></pre>
-
 <p>Change number of channels per screen when doing manual picking</p>
 <pre><code>NCHAN PER SCREEN   # chan pr screen     3.
 </code></pre>
-
 <ol>
 <li>Visually inspect continuous data</li>
 </ol>
 <p>First un-comment <code>NCHAN PER SCREEN</code> in <code>MULPLT.DEF</code></p>
-<pre><code class="console">$ mulplt
+<pre><code class="language-console">$ mulplt
   Filename, number, filenr.lis (all)
   Continuous SEISAN data base: cont
   Large SEED volume: conts
@@ -381,7 +366,6 @@ y
   Continue plot(y/n=default)
 y
 </code></pre>
-
 <p>Other parameters</p>
 <pre><code>GMAP_ICON_MSIZE                         3.0 (so events with M=0 are visible)
 </code></pre>
@@ -418,17 +402,18 @@ y
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../data_requests/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../obspy/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../data_requests/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../obspy/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
     <script src="../../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../../search/main.js" defer></script>
