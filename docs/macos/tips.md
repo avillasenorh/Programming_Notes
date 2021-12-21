@@ -20,6 +20,16 @@ Change the Default Screen Shot Image Type:
     defaults write com.apple.screencapture type jpg && killall SystemUIServer
     defaults write com.apple.screencapture type png && killall SystemUIServer
 
+## Shortcuts
+
+Alternative shortcuts for copy, paste, etc:
+
+    Cut = Ctrl+X = Shift+Delete
+    Copy = Ctrl+C = Ctrl+Insert
+    Paste = Ctrl+V = Shift+Insert
+    Undo = Ctrl+Z = Alt+Backspace
+
+
 ## Safari
 
 Save Web Pages as PDF files (Mac, iPad and iPhone)

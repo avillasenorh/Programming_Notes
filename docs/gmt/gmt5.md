@@ -36,10 +36,14 @@ Values of `width` can be: `thinnest` (0.25p), `thinner` (0.5p), `thin` (0.75p), 
 - `color` can be specified with name or R/G/B
 
 - `style`:
-    - `dotted` or `.`
-    - `dashed` or `-`
-    - `.-`
+    - `dott[ed]` or `.`
+    - `dash[ed]` or `-`
+    - `dotdash` or `.-`
+    - `dashdot` or `-.`
     - `string:offset` (e.g. `4_8_5_8:2p`)
+
+
+For more complex line styles we can also used the annotated line symbol `-Sq`
 
 ## pstext format
 

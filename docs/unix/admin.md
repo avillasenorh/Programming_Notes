@@ -68,6 +68,40 @@ Now try logging into the machine, with:   "ssh 'antonio@edge3.ictja.csic.es'"
 and check to make sure that only the key(s) you wanted were added.
 ```
 
+## Disable suspend and hibernation
+
+Instructions in this [link](https://www.tecmint.com/disable-suspend-and-hibernation-in-linux/).
+
+```
+$ sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+Created symlink /etc/systemd/system/sleep.target → /dev/null.
+Created symlink /etc/systemd/system/suspend.target → /dev/null.
+Created symlink /etc/systemd/system/hibernate.target → /dev/null.
+Created symlink /etc/systemd/system/hybrid-sleep.target → /dev/null.
+```
+
+Verify changes:
+
+    $ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+and reboot (or $ sudo systemctl restart systemd-logind.service)
+
+Re-enable suspend and hibernation:
+
+```
+$ sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+Removed /etc/systemd/system/sleep.target.
+Removed /etc/systemd/system/suspend.target.
+Removed /etc/systemd/system/hibernate.target.
+Removed /etc/systemd/system/hybrid-sleep.target.
+```
+
+Verify:
+
+    $ sudo systemctl status sleep.target suspend.target hibernate.target hybrid-sleep.target
+
 ## MySQL
 
 Install MySQL from command line (not tested)

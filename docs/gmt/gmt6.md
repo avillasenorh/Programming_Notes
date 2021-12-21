@@ -1,6 +1,5 @@
 #GMT6
 
-
 ## Differences to previous versions
 
 - Modern mode
@@ -24,6 +23,36 @@ Set map frame to plain
 
     MAP_FRAME_TYPE                 = plain
 
+## subplots
+
+```
+gmt set GMT_COMPATIBILITY 6
+gmt set FORMAT_GEO_MAP ddd.x
+
+plot_size="?"
+
+gmt begin location ps
+
+   gmt subplot begin 3x1 -Ff16c/25c -A
+
+      gmt coast -JM${plot_size} -R... -Bx... -By... -BWeSn -Df ...
+
+      gmt coast -JM${plot_size} -R... -Bx... -By... -BWeSn -Df ... -c
+
+      gmt coast -JM${plot_size} -R... -Bx... -By... -BWeSn -Df ... -c
+
+   gmt subplot end
+
+gmt end show
+```
+
+## Get region from a netCDF grid file
+
+    gmt grdinfo grid_file -I-
+
+## Color palette
+
+    gmt colorbar -DJMR -By+l"meters" -B1000 # if you set -Ccpt previously you don't have to set it here
 
 ## Earth Relief Grids
 
@@ -53,6 +82,21 @@ To delete all the data in `~/.gmt/server`:
     $ gmt clear data
 
 All global grids are gridline-registered except the 15s that is pixel-registered (check!!)
+
+## Ilumination for Earth Relief Grids
+
+    $ gmt grdimage grid_file -I+nt.4 -Ccpt_file
+
+## Options for `grdcontour`
+
+Plot contours only larger that 100 km
+
+    - Q100k
+
+Set contour interval 
+
+     -C1000  -Wcthinnest,blue                             # contours without annotations
+     -A1000  -Wathin,black                                # contours with annotations
 
 ## File Formats
 

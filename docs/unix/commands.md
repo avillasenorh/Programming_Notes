@@ -48,6 +48,14 @@ Delete:
 
 (Alt shortcuts do not work on iTerm2)
 
+open long and complicated Linux or Unix commands in a text editor. Press:
+
+`Ctrl + x` `Ctrl + e`
+
+## Arguments
+
+`!^` is the first argument of the previous command
+`!$` is the last argument of the previous command
 
 ## pwd
 
@@ -94,7 +102,6 @@ gmt.conf: ASCII text
 $ file -b gmt.conf
 ASCII text
 ```
-
 
 ## ls
 
@@ -148,6 +155,10 @@ $ echo SACAUX is \"$SACAUX\"
 $ echo "SACAUX is \"$SACAUX\""
 SACAUX is "/usr/local/sac/lib/aux"
 ```
+
+## xdg-opeon
+
+`xdg-open` will open a file from the command line using the application associated with its file extension.
 
 ## tar
 
@@ -272,7 +283,6 @@ meaning no ./ is present to need to be stripped.
     $ find TargetDirectory/ -mindepth 2 -type f -exec mv -i '{}' TargetDirectory/ ';'
 
 
-
 ## cut
 
     $ echo a:b:c | cut -d: -f1
@@ -280,6 +290,10 @@ meaning no ./ is present to need to be stripped.
 ## tr
 
     $ tr '\r' '\n' < mac-format-file.txt      # fix carriage return problem for files created with GUI Mac applications 
+
+## nl
+
+Numbers lines in a text file
 
 ## csplit 
 
@@ -292,6 +306,14 @@ splits file in parts using matching patterns
 -n : number of digits in output xx* files
 -s : do not output to stdout the number of lines of each file
 ```
+
+# Human readable path:
+
+    $ echo "${PATH//:/$'\n'}"
+
+In order to write this as an alias, replace `'` with `'"'"'`:
+
+    alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
 
 ## ed
 
@@ -359,6 +381,7 @@ Keep your terminal sessions alive and well under `Linux/*BSD/macOS` and Unix-lik
 
 seq         : generates sequence of numbers
 
+rev         : reverses lines of a file (or stdin)
 
 feh         : view image files
 
