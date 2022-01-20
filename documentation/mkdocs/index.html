@@ -50,7 +50,9 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">MkDocs</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-using-pipx">Installation using pipx</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation-using-conda">Installation using conda</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a>
     </li>
@@ -164,11 +166,25 @@
 documents to generate the web pages. It is ideal for documenting the use of sofware packages,
 tutorials, and notes like these. Unlike other documentation packages (to my understanding), it
 does not extract information from the source code files.</p>
-<h2 id="installation">Installation</h2>
+<h2 id="installation-using-pipx">Installation using <code>pipx</code></h2>
+<p>The task of creating and activating an environment to install a Python app can be simplified using
+<code>pipx</code>. This tool installs and runs Python applications from isolated environments. Once installed,
+these applications can be run from the command line without the need to activate the environment.
+The virtual environments are usually in <code>~/.local/pipx/venvs</code> and the applications are soft links
+in <code>~/.local/bin</code>. This last directory must be included in the <code>$PATH</code> environmental variable.</p>
+<p>The applications are installed using the command <code>pipx install</code>:</p>
+<pre><code>$ pipx install mkdocs
+</code></pre>
+<p>Sometimes the applications require additional packages (e.g. to add some functionalities). It is 
+possible to install additional packages in an existing <code>pipx</code> application using <code>pipx runpip</code>.
+To install the <code>python-markdown-math</code> package that adds</p>
+<pre><code>$ pipx runpip mkdocs install python-markdown-math
+</code></pre>
+<h2 id="installation-using-conda">Installation using <code>conda</code></h2>
 <pre><code>$ conda create -n mkdocs python=3.8
 $ source activate mkdocs
 $ pip install mkdocs
-
+$ pip install python-markdown-math
 
 $ mkdocs --version
 mkdocs, version 1.1.2 from /Users/antonio/opt/anaconda3/envs/mkdocs/lib/python3.8/site-packages/mkdocs (Python 3.8)
@@ -274,8 +290,10 @@ $ mkdocs gh-deploy
 </code></pre>
 <p>Creates web site: https://avillasenorh.github.io/PStomo_documentation/</p>
 <h2 id="add-math-equations-to-mkdocs">Add math equations to mkdocs</h2>
-<p>$ pip install python-markdown-math</p>
-<p>Edit mkdocs.yml:</p>
+<p>To add the capability of displaying mathematical equations, the <code>python-markdown-math</code>
+package is required.</p>
+<p>The file <code>mkdocs.yml</code> must be edited so it can use the Markdownn extensions from this
+package. This is done adding the following lines:</p>
 <pre><code>site_name: My Docs
 
 extra_javascript:
