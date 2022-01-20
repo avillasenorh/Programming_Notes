@@ -5,12 +5,30 @@ documents to generate the web pages. It is ideal for documenting the use of sofw
 tutorials, and notes like these. Unlike other documentation packages (to my understanding), it
 does not extract information from the source code files.
 
-## Installation
+## Installation using `pipx`
+
+The task of creating and activating an environment to install a Python app can be simplified using
+`pipx`. This tool installs and runs Python applications from isolated environments. Once installed,
+these applications can be run from the command line without the need to activate the environment.
+The virtual environments are usually in `~/.local/pipx/venvs` and the applications are soft links
+in `~/.local/bin`. This last directory must be included in the `$PATH` environmental variable.
+
+The applications are installed using the command `pipx install`:
+
+    $ pipx install mkdocs
+
+Sometimes the applications require additional packages (e.g. to add some functionalities). It is 
+possible to install additional packages in an existing `pipx` application using `pipx runpip`.
+To install the `python-markdown-math` package that adds
+
+    $ pipx runpip mkdocs install python-markdown-math
+
+## Installation using `conda`
 
     $ conda create -n mkdocs python=3.8
     $ source activate mkdocs
     $ pip install mkdocs
-
+    $ pip install python-markdown-math
 
     $ mkdocs --version
     mkdocs, version 1.1.2 from /Users/antonio/opt/anaconda3/envs/mkdocs/lib/python3.8/site-packages/mkdocs (Python 3.8)
@@ -144,9 +162,11 @@ Creates web site: https://avillasenorh.github.io/PStomo_documentation/
 
 ## Add math equations to mkdocs
 
-$ pip install python-markdown-math
+To add the capability of displaying mathematical equations, the `python-markdown-math`
+package is required.
 
-Edit mkdocs.yml:
+The file `mkdocs.yml` must be edited so it can use the Markdownn extensions from this
+package. This is done adding the following lines:
 
 ```
 site_name: My Docs
