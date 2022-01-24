@@ -4,6 +4,7 @@ nav:
 
     - Documentation:
         - MkDocs: 'documentation/mkdocs.md'
+        - Sphinx: 'documentation/sphinx.md'
         - Doxygen: 'documentation/doxygen.md'
     - GMT:
         - GMT5: 'gmt/gmt5.md'
