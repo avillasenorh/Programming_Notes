@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>vim - Programming and Software Notes</title>
+  <title>Sphinx - Programming and Software Notes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "vim";
-    var mkdocs_page_input_path = "tools/vim.md";
+    var mkdocs_page_name = "Sphinx";
+    var mkdocs_page_input_path = "documentation/sphinx.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -47,12 +47,16 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <p class="caption"><span class="caption-text">Documentation</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../mkdocs/">MkDocs</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/sphinx/">Sphinx</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Sphinx</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation-using-pipx">Installation using pipx</a>
+    </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../doxygen/">Doxygen</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">GMT</span></p>
@@ -74,18 +78,16 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Tools</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../cmake/">CMake</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../tmux/">tmux</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">vim</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Unix</span></p>
@@ -131,11 +133,11 @@
     
       
         
-          <li>Tools &raquo;</li>
+          <li>Documentation &raquo;</li>
         
       
     
-    <li>vim</li>
+    <li>Sphinx</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -147,52 +149,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="vim">Vim</h1>
-<p>Use vim to edit files over the network using ssh on a Linux/Unix/OSX/BSD:</p>
-<pre><code>$ vim scp://user@server//home/user/file
+                <h1 id="sphinx">Sphinx</h1>
+<p><code>Sphinx</code> is a Python package to generate documentation of software projects.
+By default it uses <code>rst</code> format but now it can also use <code>Markdown</code>.
+does not extract information from the source code files.</p>
+<h2 id="installation-using-pipx">Installation using <code>pipx</code></h2>
+<pre><code>$ pipx install sphinx  # check
 </code></pre>
-<p>Vim as IDE</p>
-<pre><code>$ cp /usr/share/vim/vim73/vimrc_example.vim ~/.vimrc
-</code></pre>
-<p>The important commands in <code>.vimrc</code> for syntax are:</p>
-<pre><code>set nocompatible
-syntax on
-</code></pre>
-<p>In order to recognize <code>.f</code> and <code>.f90</code></p>
-<pre><code>$ vi /usr/share/vim/vim73/ftplugin/fortran.vim (insert these commands):
-</code></pre>
-<pre><code>let s:extfname = expand(&quot;%:e&quot;)
-if s:extfname ==? &quot;f90&quot;
-    let fortran_free_source=1
-    unlet! fortran_fixed_source
-else
-    let fortran_fixed_source=1
-    unlet! fortran_free_source
-endif
-</code></pre>
-<pre><code>$ vi ~/.vimrc
-</code></pre>
-<p>move the block of text with “syntax on”:
-after the block of text with the instruction “filetype plugin indent on”</p>
-<pre><code class="language-console">&quot; Switch syntax highlighting on, when the terminal has colors
-&quot; Also switch on highlighting the last used search pattern.
-if &amp;t_Co &gt; 2 || has(&quot;gui_running&quot;)
-  syntax on
-  set hlsearch
-endif
-
-set shiftwidth=4
-set tabstop=4
-</code></pre>
-<p>Other vim tips:</p>
-<p><code>:r !pwd</code> (or another command, such as "date" or "ls -1"</p>
-<p>Make a list of numbers in vim:</p>
-<pre><code>:put=range(1,5)
-:put=range(1,10,2)
-</code></pre>
-<p>See vim help:</p>
-<pre><code>:help :put
-:help range()
+<p>Sometimes the applications require additional packages (e.g. to add some functionalities). It is 
+possible to install additional packages in an existing <code>pipx</code> application using <code>pipx runpip</code>.
+To install the <code>myst-parser</code> package that adds capability to use <code>Markdown</code> documents:</p>
+<pre><code>$ pipx runpip sphinx install myst-parser
 </code></pre>
               
             </div>
@@ -201,10 +168,10 @@ set tabstop=4
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../unix/admin/" class="btn btn-neutral float-right" title="Admin">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../doxygen/" class="btn btn-neutral float-right" title="Doxygen">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../tmux/" class="btn btn-neutral" title="tmux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../mkdocs/" class="btn btn-neutral" title="MkDocs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -230,10 +197,10 @@ set tabstop=4
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../tmux/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../mkdocs/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../unix/admin/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../doxygen/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
