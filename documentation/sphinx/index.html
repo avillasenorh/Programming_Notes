@@ -161,6 +161,24 @@ possible to install additional packages in an existing <code>pipx</code> applica
 To install the <code>myst-parser</code> package that adds capability to use <code>Markdown</code> documents:</p>
 <pre><code>$ pipx runpip sphinx install myst-parser
 </code></pre>
+<p>Another useful package is the <strong>Read the Docs</strong> theme:</p>
+<pre><code>$ pipx runpip sphinx install sphinx_rtd_theme
+</code></pre>
+<p>To use Markdown and Read the Docs theme:</p>
+<pre><code class="language-python">import sphinx_rtd_theme
+
+...
+
+extensions = [
+    &quot;myst_parser&quot;,
+    &quot;sphinx_rtd_theme&quot;,
+]
+
+...
+
+html_theme = 'sphinx_rtd_theme'
+
+</code></pre>
               
             </div>
           </div>
