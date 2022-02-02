@@ -15,3 +15,25 @@ To install the `myst-parser` package that adds capability to use `Markdown` docu
 
     $ pipx runpip sphinx install myst-parser
 
+Another useful package is the **Read the Docs** theme:
+
+    $ pipx runpip sphinx install sphinx_rtd_theme
+
+
+To use Markdown and Read the Docs theme:
+
+```python
+import sphinx_rtd_theme
+
+...
+
+extensions = [
+    "myst_parser",
+    "sphinx_rtd_theme",
+]
+
+...
+
+html_theme = 'sphinx_rtd_theme'
+
+```
