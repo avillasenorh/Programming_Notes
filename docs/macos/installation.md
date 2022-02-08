@@ -91,6 +91,14 @@ Additional Applications in MacBook Air
 - Simple Comic
 - VLC
 
+Devel apps:
+
+- Docker
+- VirtualBox
+- Vagrant
+- GRASS
+- QGIS
+
 Other software
 
 - XQuartz
@@ -114,8 +122,10 @@ Seismology
 
 - SAC
 - SEISAN
+- CPS
+- rdseed
 - mstools
-- ObsPy
+- ObsPy / pyrocko
 
 ## Install XQuartz
 
