@@ -54,6 +54,14 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#installation-using-pipx">Installation using pipx</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inserting-figures">Inserting figures</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#download">Download</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#some-roles">Some roles</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#code-blocks">Code blocks</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../doxygen/">Doxygen</a>
@@ -156,13 +164,15 @@ does not extract information from the source code files.</p>
 <h2 id="installation-using-pipx">Installation using <code>pipx</code></h2>
 <pre><code>$ pipx install sphinx  # check
 </code></pre>
-<p>Sometimes the applications require additional packages (e.g. to add some functionalities). It is 
+<p>Sometimes the applications installed with <code>pipx</code> require additional packages (e.g. to add
+some functionalities, such as additional themes, ...). It is 
 possible to install additional packages in an existing <code>pipx</code> application using <code>pipx runpip</code>.
 To install the <code>myst-parser</code> package that adds capability to use <code>Markdown</code> documents:</p>
 <pre><code>$ pipx runpip sphinx install myst-parser
 </code></pre>
-<p>Another useful package is the <strong>Read the Docs</strong> theme:</p>
+<p>Other useful packages art the <strong>Read the Docs</strong> and <strong>Furo</strong> themes:</p>
 <pre><code>$ pipx runpip sphinx install sphinx_rtd_theme
+$ pipx runpip sphinx install furo
 </code></pre>
 <p>To use Markdown and Read the Docs theme:</p>
 <pre><code class="language-python">import sphinx_rtd_theme
@@ -173,11 +183,81 @@ extensions = [
     &quot;myst_parser&quot;,
     &quot;sphinx_rtd_theme&quot;,
 ]
-
 ...
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = &quot;sphinx_rtd_theme&quot;
 
+</code></pre>
+<p>To use the Furo theme simply:</p>
+<pre><code class="language-python">html_theme = &quot;furo&quot;
+</code></pre>
+<h2 id="inserting-figures">Inserting figures</h2>
+<p>Local and remote figures can be inserted using standard Markdown syntax:</p>
+<pre><code class="language-markdown">![remote logo here](https://..../logo.png)
+
+![local logo here](logo.png)
+</code></pre>
+<p>Myst-Sphinx also allows more options but first you need to add and extension in <code>conf.py</code>:</p>
+<pre><code class="language-python">myst_enable_extensions = [
+    &quot;colon_fence&quot;,
+]
+</code></pre>
+<p>You can use rest:</p>
+<pre><code>```{image} logo.png
+:alt: local logo here
+:class: bg-primary
+:width: 200px
+:align: center
+```
+</code></pre>
+<p>You can also use HTML:</p>
+<pre><code>:::{figure-md} logo-target
+:class: myclass
+
+&lt;img src=&quot;logo.png&quot; alt=&quot;local logo here&quot; class=&quot;bg-primary&quot; width=&quot;300px&quot;&gt;
+
+Here Python logo
+:::
+</code></pre>
+<h2 id="download">Download</h2>
+<p>You can download the file <code>logo.png</code> for offline use.</p>
+<pre><code>{download}`logo.png`
+
+{download}`the logo &lt;logo.png&gt;`
+</code></pre>
+<p>Normal markdown link <a href="linked_document">text</a></p>
+<p>this <a href="linked_document"></a> gets the text from the linked document title</p>
+<h2 id="some-roles">Some roles</h2>
+<p>Define role somewhere in your documents as:</p>
+<pre><code>(investors)=
+</code></pre>
+<p>Then use this to refer to</p>
+<pre><code>{ref}`investors`
+</code></pre>
+<p>This might work to change your linked text:</p>
+<pre><code>{ref}`another text &lt;investors&gt;`
+</code></pre>
+<h2 id="code-blocks">Code blocks</h2>
+<p>Normal markdown:</p>
+<pre><code>```python
+print(&quot;hola&quot;)
+```
+</code></pre>
+<p>myst</p>
+<pre><code>```{code-block} python
+:linenos:
+print(&quot;hola&quot;)
+```
+</code></pre>
+<p>Code from file:</p>
+<p>This includes the entire file:</p>
+<pre><code>```{literalinclude} my_file.py
+```
+</code></pre>
+<p>For more options:</p>
+<pre><code>```{literalinclude} my_file.py
+:emphasize-lines: 2-3
+```
 </code></pre>
               
             </div>

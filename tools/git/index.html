@@ -81,6 +81,26 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Git</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#initialization">Initialization</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#global-gitignore-in-addition-to-gitignore-in-each-repository">Global .gitignore (in addition to .gitignore in each repository)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#save-password-for-github">Save password for GitHub</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configure-bitbucket">Configure BitBucket</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-a-repository-with-existing-source-code-in-a-new-repository-directory">Create a repository with existing source code in a new repository directory</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-a-repository-with-existing-source-code-in-existing-source-directory">Create a repository with existing source code in existing source directory</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installationconfiguration-2015-02-20">Installation/configuration 2015-02-20</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installationconfiguration-2014-12-23">Installation/configuration 2014-12-23</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#macbook-air">MacBook Air</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gitgithub-old-installation">Git/GitHub (old installation)</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../tmux/">tmux</a>
@@ -149,18 +169,26 @@
               
                 <h1 id="git">Git</h1>
 <p>Includes <code>git</code>, <code>GitHub</code>, <code>GitLab</code>, and <code>BitBucket</code>.</p>
-<h1 id="initialization">Initialization</h1>
-<blockquote>
-<p>git config --global user.name "Antonio Villasenor"
-git config --global user.email "antonio@ictja.csic.es"
-git config --global color.ui true</p>
-</blockquote>
-<h1 id="global-gitignore-in-addition-to-gitignore-in-each-repository">Global .gitignore (in addition to .gitignore in each repository)</h1>
-<p>% vi ~/.gitignore</p>
-<p>% git config --global core.excludesfile ~/.gitignore</p>
-<h1 id="configure-bitbucket">Configure BitBucket</h1>
-<p>Generate SSH key
-$ ssh-keygen
+<h2 id="initialization">Initialization</h2>
+<pre><code>$ git config --global user.name "Antonio Villasenor"
+$ git config --global user.email "antonio.villasenor@csic.es"
+$ git config --global color.ui true
+</code></pre>
+<h2 id="global-gitignore-in-addition-to-gitignore-in-each-repository">Global .gitignore (in addition to .gitignore in each repository)</h2>
+<pre><code class="language-bash">$ vi ~/.gitignore
+$ git config --global core.excludesfile ~/.gitignore
+</code></pre>
+<h2 id="save-password-for-github">Save password for GitHub</h2>
+<pre><code class="language-bash">$ git config --global credential.helper store
+</code></pre>
+<p>After entering for the first time GitHub username and password,
+this creates a <code>.git-credentials</code> file with this contents:</p>
+<pre><code>https://avillasenorh:personal_access_token@github.com
+</code></pre>
+<h2 id="configure-bitbucket">Configure BitBucket</h2>
+<p>This is now outdated:</p>
+<p>Generate SSH key</p>
+<pre><code>$ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/antonio/.ssh/id_rsa):
 Created directory '/Users/antonio/.ssh'.
@@ -174,10 +202,12 @@ The key's randomart image is:
 +---[RSA 2048]----+
 ...
 +----[SHA256]-----+
+
 $ ls ~/.ssh
-id_rsa      id_rsa.pub</p>
+id_rsa      id_rsa.pub
+</code></pre>
 <p>Preferences &gt; BitBucket settings &gt; SSH keys &gt; Add Key</p>
-<h1 id="create-a-repository-with-existing-source-code-in-a-new-repository-directory">Create a repository with existing source code in a new repository directory</h1>
+<h2 id="create-a-repository-with-existing-source-code-in-a-new-repository-directory">Create a repository with existing source code in a new repository directory</h2>
 <ul>
 <li>
 <p>Go to GitHub web page and create the repository with a README.md and a .gitignore</p>
@@ -186,35 +216,38 @@ id_rsa      id_rsa.pub</p>
 <p>Go to ~/devel and clone the repository</p>
 </li>
 </ul>
-<p>% cd ~/devel
-% git clone https://github.com/avillasenorh/repository</p>
+<pre><code>$ cd ~/devel
+$ git clone https://github.com/avillasenorh/repository
+</code></pre>
 <p>This will create a directory called “repository” with README.md, .gitignore, and .git directory</p>
 <ul>
 <li>Copy source code to repository directory</li>
 </ul>
-<p>% cd repository
-% cp -r source_directory/* .</p>
-<p>% git add -A
-% git status
-% git commit -m “Initial commit of source code”         # local commit
-% git push                                              # send to remote repository (GitHub or Bitbucket)</p>
-<h1 id="create-a-repository-with-existing-source-code-in-existing-source-directory">Create a repository with existing source code in existing source directory</h1>
+<pre><code>$ cd repository
+$ cp -r source_directory/* .
+
+$ git add -A
+$ git status
+$ git commit -m “Initial commit of source code”         # local commit
+$ git push                                              # send to remote repository (GitHub or Bitbucket)
+</code></pre>
+<h2 id="create-a-repository-with-existing-source-code-in-existing-source-directory">Create a repository with existing source code in existing source directory</h2>
 <p>create a directory called first_repo and make it a repository</p>
 <p>to send it to GitHub:</p>
-<p>$ git remote add origin https://github.com/gforsyth/first_repo.git
-$ git push -u origin master</p>
-<h1 id="installationconfiguration-2015-02-20">Installation/configuration 2015-02-20</h1>
+<pre><code>$ git remote add origin https://github.com/gforsyth/first_repo.git
+$ git push -u origin master
+</code></pre>
+<h2 id="installationconfiguration-2015-02-20">Installation/configuration 2015-02-20</h2>
 <p>Install Git
 git-2.2.1-intel-universal-mavericks.dmg
 change path to include /usr/local/git/bin
 change path for applications not from command line:
 % setup git PATH for non-terminal programs.sh
 (creates ~/.MacOSX/environment.plist)</p>
-<blockquote>
-<p>git config --global user.name "Antonio Villasenor"
-git config --global user.email "antonio@ictja.csic.es"
-git config --global color.ui true</p>
-</blockquote>
+<pre><code>$ git config --global user.name &quot;Antonio Villasenor&quot;
+$ git config --global user.email &quot;antonio.villasenor@csic.es&quot;
+$ git config --global color.ui true
+</code></pre>
 <p>Install GitHub
 GitHub for Mac 199.zip (unzip and move GitHub.app to Applications folder)
 Open GitHub and login
@@ -232,22 +265,24 @@ access at the following location:</p>
 <p>Now for example from GitHub application I can clone a repository existing in GitHub to my local disk 
 (in directory ~/devel)</p>
 <p>How to work with Git/GitHub:</p>
-<blockquote>
-<p>git add .
-git commit -m "First commit of let-utils repository"
+<pre><code>$ git add .
+$ git commit -m &quot;First commit of let-utils repository&quot;
 [master (root-commit) 038747f] First commit of let-utils repository
  1 file changed, 177 insertions(+)
- create mode 100644 init1d.c</p>
-</blockquote>
-<p>git clone https://github.com/avillasenorh/github-test.git
-cd github-test/
-cp ~/src/util_LET/init1d.c .</p>
-<p>vi README.md
-git commit
-git add -A
-git commit -m "First commit from local directory"
-git push</p>
-<h1 id="installationconfiguration-2014-12-23">Installation/configuration 2014-12-23</h1>
+ create mode 100644 init1d.c
+
+
+$ git clone https://github.com/avillasenorh/github-test.git
+$ cd github-test/
+$ cp ~/src/util_LET/init1d.c .
+
+$ vi README.md
+$ git commit
+$ git add -A
+$ git commit -m &quot;First commit from local directory&quot;
+$ git push
+</code></pre>
+<h2 id="installationconfiguration-2014-12-23">Installation/configuration 2014-12-23</h2>
 <p>MacBook Pro 15" Retina
 OS X 10.9.5 (Mavericks)</p>
 <p>Old version of Git already available:</p>
@@ -260,21 +295,17 @@ git version 1.9.3 (Apple Git-50)</p>
 <p>Download installer from http://git-scm.com/download/mac
 git-2.2.1-intel-universal-mavericks.dmg</p>
 <p>Add /usr/local/git/bin to $PATH in .cshrc</p>
-<blockquote>
-<p>which git
+<pre><code>$ which git
 /usr/local/git/bin/git
-git --version
-git version 2.2.1</p>
-<p>git config --global user.name "Antonio Villasenor"
-git config --global user.email "antonio@ictja.csic.es"
-git config --global color.ui true</p>
-</blockquote>
+$ git --version
+git version 2.2.1
+
+$ git config --global user.name &quot;Antonio Villasenor&quot;
+$ git config --global user.email &quot;antonio@ictja.csic.es&quot;
+$ git config --global color.ui true
+</code></pre>
 <p>Setup a GitHub account with same email address</p>
-<p>Account:</p>
-<p>avillasenorh + str1...</p>
-<p>2 email addresses: avillasenorh@yahoo.es (used to create account)
-                   antonio@ictja.csic.es (changed to be the primary one)</p>
-<p>ssh-keygen -t rsa -C 'antonio@ictja.csic.es'
+<pre><code>ssh-keygen -t rsa -C 'antonio@ictja.csic.es'
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/antonio/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -286,18 +317,21 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX antonio@ictja.csic.es
 The key's randomart image is:
 +--[ RSA 2048]----+
 |                 |
-+-----------------+</p>
-<blockquote>
-<p>bash
-$ eval "$(ssh-agent -s)"
-Agent pid 35117</p>
-</blockquote>
-<p>$ssh-add ~/.ssh/id_rsa
++-----------------+
+
+
+$ eval &quot;$(ssh-agent -s)&quot;
+Agent pid 35117
+
+$ssh-add ~/.ssh/id_rsa
 Enter passphrase for /Users/antonio/.ssh/id_rsa:
-Identity added: /Users/antonio/.ssh/id_rsa (/Users/antonio/.ssh/id_rsa)</p>
-<p>$ cat ~/.ssh/id_rsa.pub
-ssh-rsa XXXXXXXXXXXXX</p>
-<p>$ cat ~/.ssh/id_rsa.pub | pbcopy</p>
+Identity added: /Users/antonio/.ssh/id_rsa (/Users/antonio/.ssh/id_rsa)
+
+$ cat ~/.ssh/id_rsa.pub
+ssh-rsa XXXXXXXXXXXXX
+
+$ cat ~/.ssh/id_rsa.pub | pbcopy
+</code></pre>
 <p>Now go to GitHub web page and login to your account (avillasenorh)
 Go to Personal Settings page &gt; SSH keys
 Add SSH key
@@ -305,23 +339,17 @@ Enter a title: "Antonio's MacBook Pro"
 Paste clipboard (ssh key copied to clipboard using pbcopy) in "Key"
 Click on "Add key"</p>
 <p>To test that process worked, go back to terminal and type:</p>
-<p>$ ssh -T git@github.com
+<pre><code>$ ssh -T git@github.com
 Warning: Permanently added the RSA host key for IP address '192.30.252.129' to the list of known hosts.
-Hi avillasenorh! You've successfully authenticated, but GitHub does not provide shell access.</p>
-<p>===========================================================================================</p>
-<p>Connecting over HTTPS:</p>
-<p>Cache GitHub password in Git</p>
-<p>===========================================================================================
-GitHub token</p>
-<p>38035823017d17a645c40719317de1f8456d31ed</p>
-<blockquote>
-<p>git add .
-git commit -m "First commit of let-utils repository"
+Hi avillasenorh! You've successfully authenticated, but GitHub does not provide shell access.
+
+$ git add .
+$ git commit -m &quot;First commit of let-utils repository&quot;
 [master (root-commit) 038747f] First commit of let-utils repository
  1 file changed, 177 insertions(+)
- create mode 100644 init1d.c</p>
-</blockquote>
-<p>75  16:14   git clone https://github.com/avillasenorh/github-test.git
+ create mode 100644 init1d.c
+
+    75  16:14   git clone https://github.com/avillasenorh/github-test.git
     76  16:14   ls
     77  16:14   cd github-test/
     78  16:14   ls
@@ -334,10 +362,11 @@ git commit -m "First commit of let-utils repository"
     85  16:15   git add -A
     86  16:15   git commit
     87  16:15   git commit
-    88  16:16   git commit -m "First commit from local directory"
-    89  16:18   git push</p>
-<h1 id="macbook-air">MacBook Air</h1>
-<p>which git
+    88  16:16   git commit -m &quot;First commit from local directory&quot;
+    89  16:18   git push
+</code></pre>
+<h2 id="macbook-air">MacBook Air</h2>
+<pre><code>which git
 /usr/bin/git
 32 pcanto:/Users/antonio &gt; git --version
 git version 1.9.3 (Apple Git-50)
@@ -346,8 +375,8 @@ git version 1.9.3 (Apple Git-50)
 source .cshrc
 35 pcanto:/Users/antonio &gt; git --version
 git version 2.2.1
-36 pcanto:/Users/antonio &gt; git config --global user.name "Antonio Villasenor"
-37 pcanto:/Users/antonio &gt; git config --global user.email "antonio@ictja.csic.es"
+36 pcanto:/Users/antonio &gt; git config --global user.name &quot;Antonio Villasenor&quot;
+37 pcanto:/Users/antonio &gt; git config --global user.email &quot;antonio@ictja.csic.es&quot;
 38 pcanto:/Users/antonio &gt; git config --global color.ui true
 39 pcanto:/Users/antonio &gt; ssh-keygen -t rsa -C 'antonio@ictja.csic.es'
 Generating public/private rsa key pair.
@@ -361,9 +390,11 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX antonio@ictja.csic.es
 The key's randomart image is:
 +--[ RSA 2048]----+
 |                 |
-+-----------------+</p>
-<p>bash
-bash-3.2$ eval "$(ssh-agent -s)"
++-----------------+
+
+
+bash
+bash-3.2$ eval &quot;$(ssh-agent -s)&quot;
 Agent pid 79771
 bash-3.2$ ssh-add ~/.ssh/id_rsa
 Enter passphrase for /Users/antonio/.ssh/id_rsa:
@@ -376,25 +407,26 @@ The authenticity of host 'github.com (192.30.252.130)' can't be established.
 RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'github.com,192.30.252.130' (RSA) to the list of known hosts.
-Hi avillasenorh! You've successfully authenticated, but GitHub does not provide shell access.</p>
-<p>=========================================================================</p>
-<p>OLD INSTALLATION</p>
-<h1 id="gitgithub">Git/GitHub</h1>
+Hi avillasenorh! You've successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+<h2 id="gitgithub-old-installation">Git/GitHub (old installation)</h2>
 <p>https://help.github.com/articles/set-up-git</p>
 <p>Download and Install Git
 git-1.8.1.3-intel-universal-snow-leopard</p>
 <p>Username and email:</p>
-<p>% git config --global user.name avillasenorh
-% git config --global user.email avillasenorh@yahoo.es</p>
+<pre><code>$ git config --global user.name avillasenorh
+$ git config --global user.email avillasenorh@yahoo.es
+</code></pre>
 <p>Password caching:</p>
-<p>% git credential-osxkeychain
+<pre><code>$ git credential-osxkeychain
 git: 'credential-osxkeychain' is not a git command. See 'git --help'.
-% curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
-% chmod u+x git-credential-osxkeychain
-% sudo mv git-credential-osxkeychain /usr/bin
-% git config --global credential.helper osxkeychain
-% git credential-osxkeychain
-Usage: git credential-osxkeychain <get|store|erase></p>
+$ curl -s -O http://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain
+$ chmod u+x git-credential-osxkeychain
+$ sudo mv git-credential-osxkeychain /usr/bin
+$ git config --global credential.helper osxkeychain
+$ git credential-osxkeychain
+Usage: git credential-osxkeychain &lt;get|store|erase&gt;
+</code></pre>
               
             </div>
           </div>
