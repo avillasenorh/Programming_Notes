@@ -54,7 +54,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#installation-using-pipx">Installation using pipx</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#inserting-figures">Inserting figures</a>
+    <li class="toctree-l2"><a class="reference internal" href="#changing-from-restructuredtext-to-markdown">Changing from reStructuredText to Markdown</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#download">Download</a>
     </li>
@@ -116,6 +116,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../macos/installation/">Installation</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../macos/macports/">MacPorts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../macos/python/">Python installation</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../macos/tips/">Tips</a>
                     </li>
@@ -191,9 +193,54 @@ html_theme = &quot;sphinx_rtd_theme&quot;
 <p>To use the Furo theme simply:</p>
 <pre><code class="language-python">html_theme = &quot;furo&quot;
 </code></pre>
-<h2 id="inserting-figures">Inserting figures</h2>
-<p>Local and remote figures can be inserted using standard Markdown syntax:</p>
-<pre><code class="language-markdown">![remote logo here](https://..../logo.png)
+<h2 id="changing-from-restructuredtext-to-markdown">Changing from reStructuredText to Markdown</h2>
+<p>Once added the <code>myst_parser</code> extension in <code>conf.py</code> we can change
+<code>index.rst</code> for <code>index.md</code>.</p>
+<p>An initial file <code>index.rst</code> looks like:</p>
+<pre><code>.. test documentation master file, created by
+   sphinx-quickstart ...
+
+Welcome to test's documentation!
+================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+</code></pre>
+<p>The equivalent Markdown file <code>index.md</code> would be:</p>
+<pre><code>% test documentation master file, created by
+% sphinx-quickstart
+
+# Welcome to test's documentation!
+
+```{toctree}
+:maxdepth: 2
+:caption: &quot;Contents:&quot;
+```
+
+# Indices and tables
+
+- {ref}`genindex`
+- {ref}`modindex`
+- {ref}`search`
+
+</code></pre>
+<pre><code>
+
+
+## Inserting figures
+
+Local and remote figures can be inserted using standard Markdown syntax:
+
+```markdown
+![remote logo here](https://..../logo.png)
 
 ![local logo here](logo.png)
 </code></pre>

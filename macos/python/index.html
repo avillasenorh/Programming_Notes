@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Python installation - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Python installation";
+    var mkdocs_page_input_path = "macos/python.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/sphinx/">Sphinx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/seisan/">SEISAN</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Unix</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">macOS</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../macports/">MacPorts</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Python installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#psf-python">PSF Python</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#upgrade-pippip3">Upgrade pip/pip3</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#install-anaconda">Install Anaconda</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#install-packages-with-pipx">Install packages with pipx</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>macOS &raquo;</li>
+        
+      
+    
+    <li>Python installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="python-installation">Python installation</h2>
+<p><img alt="xkcd Python environment" src="https://imgs.xkcd.com/comics/python_environment.png" /></p>
+<p>Initially an old system version of Python is installed:</p>
+<pre><code>$ /usr/bin/python -V
+Python 2.7.18
+
+$ /usr/bin/python
+
+WARNING: Python 2.7 is not recommended.
+This version is included in macOS for compatibility with legacy software.
+Future versions of macOS will not include Python 2.7.
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.18 (default, Jan  4 2022, 17:47:56)
+[GCC Apple LLVM 13.0.0 (clang-1300.0.29.10) [+internal-os, ptrauth-isa=deployme on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; 
+</code></pre>
+<p>This is in fact a link to:</p>
+<pre><code>/usr/bin/python@ -&gt; ../../System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
+</code></pre>
+<p>As stated in the warning, it is expected that macOS Monterrey Version 12.3 (early 2022)
+will not include this Python 2.7 distribution.</p>
+<p>There is no <code>pip</code> command associated with this version of Python.</p>
+<p>In <code>/usr/bin</code> there is also a newer version of Python:</p>
+<pre><code>$ /usr/bin/python3 -V
+Python 3.8.9
+
+$ /usr/bin/python3
+Python 3.8.9 (default, Oct 26 2021, 07:25:54)
+[Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</code></pre>
+<p>There is a <code>pip3</code> command associated with this version of Python:</p>
+<pre><code>$ /usr/bin/pip3 -V
+pip 20.2.3 from /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/site-packages/pip (python 3.8)
+</code></pre>
+<p>However none of these versions should be used (only used by operating systems) and do not
+install packages!</p>
+<p>Therefore we need to install other distributions of Python.</p>
+<h3 id="psf-python">PSF Python</h3>
+<p>In addition to system python (not used) the first Python distribution to install
+is that of the <a href="https://www.python.org">PSF</a>. For macOS we select a
+macOS 64-bit universal2 installer (<code>.dmg</code> file).</p>
+<p>The installation is simple, but it requires a set of SSL root certificates:</p>
+<p><img alt="install Python certificates" src="../python_certificates.png" /></p>
+<p>When clicking in the <code>Install Certificates</code> icon:</p>
+<pre><code>
+$ ./Install\ Certificates.command
+ -- pip install --upgrade certifi
+Collecting certifi
+  Downloading certifi-2021.10.8-py2.py3-none-any.whl (149 kB)
+     |████████████████████████████████| 149 kB 4.2 MB/s
+Installing collected packages: certifi
+Successfully installed certifi-2021.10.8
+WARNING: You are using pip version 21.2.4; however, version 21.3.1 is available.
+You should consider upgrading via the '/Library/Frameworks/Python.framework/Versions/3.10/bin/python3.10 -m pip install --upgrade pip' command.
+ -- removing any existing file or link
+ -- creating symlink to certifi certificate bundle
+ -- setting permissions
+ -- update complete
+
+</code></pre>
+<p>The PSF installation adds the following lines to your <code>.bash_profile</code>:</p>
+<pre><code># Setting PATH for Python 3.10
+# The original version is saved in .bash_profile.pysave
+PATH=&quot;/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}&quot;
+export PATH
+</code></pre>
+<p>The resulting <code>$PATH</code> variable looks like:</p>
+<pre><code>/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>And now we have:</p>
+<pre><code>$ command -v python3
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3
+
+$ python3
+Python 3.10.1 (v3.10.1:2cd268a3a9, Dec  6 2021, 14:28:59) [Clang 13.0.0 (clang-1300.0.29.3)] on darwin
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</code></pre>
+<p>WARNING: the <code>python</code> command still points to the 2.7 version, so we have to use <code>python3</code></p>
+<h3 id="upgrade-pippip3">Upgrade pip/pip3</h3>
+<p>When installing the SSL root certificates we obtained a warning that
+a newer version of <code>pip</code> is available. To install this new version:</p>
+<pre><code>$ command -v pip3
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
+
+$ command -v python3
+/Library/Frameworks/Python.framework/Versions/3.10/bin/python3
+
+$ pip3 --version
+pip 21.2.4 from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pip (python 3.10)
+
+$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
+pip3     pip3.10
+
+$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
+-rwxrwxr-x  1 root  admin   270B Dec 22 17:48 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3*
+
+$ /Library/Frameworks/Python.framework/Versions/3.10/bin/python3.10 -m pip install --upgrade pip
+Requirement already satisfied: pip in /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages (21.2.4)
+Collecting pip
+  Downloading pip-21.3.1-py3-none-any.whl (1.7 MB)
+     |████████████████████████████████| 1.7 MB 1.8 MB/s
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 21.2.4
+    Uninstalling pip-21.2.4:
+      Successfully uninstalled pip-21.2.4
+Successfully installed pip-21.3.1
+
+$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
+-rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3*
+
+$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip*
+-rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip*
+-rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3*
+-rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3.10*
+
+$ pip3 --version
+pip 21.3.1 from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pip (python 3.10)
+
+$ pip --version
+pip 21.3.1 from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pip (python 3.10)
+</code></pre>
+<p>Now we have:</p>
+<pre><code>$ command -v pip
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip
+
+$ command -v pip3
+/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
+</code></pre>
+<h3 id="install-anaconda">Install Anaconda</h3>
+<p>Adds to <code>.bash_profile</code>:</p>
+<pre><code># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup=&quot;$('/Users/antonio/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)&quot;
+if [ $? -eq 0 ]; then
+    eval &quot;$__conda_setup&quot;
+else
+    if [ -f &quot;/Users/antonio/opt/anaconda3/etc/profile.d/conda.sh&quot; ]; then
+        . &quot;/Users/antonio/opt/anaconda3/etc/profile.d/conda.sh&quot;
+    else
+        export PATH=&quot;/Users/antonio/opt/anaconda3/bin:$PATH&quot;
+    fi
+fi
+unset __conda_setup
+# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
+</code></pre>
+<p>Path now looks like:</p>
+<pre><code>/Users/antonio/opt/anaconda3/bin:/Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>To prevent the activation of the base environment:</p>
+<pre><code>$ conda config --set auto_activate_base false
+</code></pre>
+<p>This creates a file .condarc with the following content:</p>
+<pre><code>auto_activate_base: false
+</code></pre>
+<p>Now, when opening a new shell <code>$PATH</code> is:</p>
+<pre><code>/Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<h3 id="install-packages-with-pipx">Install packages with pipx</h3>
+<pre><code>$ sudo port install pipx
+
+$ pipx install black
+  installed package black 21.12b0, installed using Python 3.9.9
+  These apps are now globally available
+    - black
+    - black-primer
+    - blackd
+⚠️  Note: '/Users/antonio/.local/bin' is not on your PATH environment variable. These apps will not be globally accessible until your PATH is updated. Run
+    `pipx ensurepath` to automatically add it, or manually modify your PATH in your shell's config file (i.e. ~/.bashrc).
+done! ✨ 🌟 ✨
+</code></pre>
+<p>Modify <code>.bashrc</code> to add <code>/Users/antonio/.local/bin</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tips/" class="btn btn-neutral float-right" title="Tips">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../macports/" class="btn btn-neutral" title="MacPorts"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../macports/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../tips/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
