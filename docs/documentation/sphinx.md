@@ -45,6 +45,57 @@ To use the Furo theme simply:
 html_theme = "furo"
 ```
 
+## Changing from reStructuredText to Markdown
+
+Once added the `myst_parser` extension in `conf.py` we can change
+`index.rst` for `index.md`.
+
+An initial file `index.rst` looks like:
+
+```
+.. test documentation master file, created by
+   sphinx-quickstart ...
+
+Welcome to test's documentation!
+================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+```
+
+The equivalent Markdown file `index.md` would be:
+
+````
+% test documentation master file, created by
+% sphinx-quickstart
+
+# Welcome to test's documentation!
+
+```{toctree}
+:maxdepth: 2
+:caption: "Contents:"
+```
+
+# Indices and tables
+
+- {ref}`genindex`
+- {ref}`modindex`
+- {ref}`search`
+
+````
+
+```
+
+
+
 ## Inserting figures
 
 Local and remote figures can be inserted using standard Markdown syntax:

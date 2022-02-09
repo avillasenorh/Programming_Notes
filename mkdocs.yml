@@ -29,6 +29,7 @@ nav:
         - Admin: 'macos/admin.md'
         - Installation: 'macos/installation.md'
         - MacPorts: 'macos/macports.md'
+        - Python installation: 'macos/python.md'
         - Tips: 'macos/tips.md'
 
 extra_javascript:
