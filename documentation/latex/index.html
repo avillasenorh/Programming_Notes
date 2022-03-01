@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>CMake - Programming and Software Notes</title>
+  <title>LaTeX - Programming and Software Notes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "CMake";
-    var mkdocs_page_input_path = "tools/cmake.md";
+    var mkdocs_page_name = "LaTeX";
+    var mkdocs_page_input_path = "documentation/latex.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -47,14 +47,22 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <p class="caption"><span class="caption-text">Documentation</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../mkdocs/">MkDocs</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/sphinx/">Sphinx</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../sphinx/">Sphinx</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../doxygen/">Doxygen</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/latex/">LaTeX</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">LaTeX</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#basic-document-structure">Basic document structure</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#preamble">Preamble</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#citations">Citations</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">GMT</span></p>
@@ -76,18 +84,16 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Tools</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">CMake</a>
-    <ul class="current">
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../git/">Git</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../tmux/">tmux</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../vim/">vim</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Unix</span></p>
@@ -137,11 +143,11 @@
     
       
         
-          <li>Tools &raquo;</li>
+          <li>Documentation &raquo;</li>
         
       
     
-    <li>CMake</li>
+    <li>LaTeX</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -153,152 +159,118 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="cmake">CMake</h1>
-<p>Python: needed for testing (?)
-BLAS and LAPACK
-MPI (OpenMPI)
-Eigen linear algebra template library
-Boost libraries (Filesystem, Python &amp; Test)</p>
-<p>Eigen</p>
-<pre><code>$ cd
-$ cd src
-$ mkdir -p eigen
-$ curl -Ls http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz | tar -xz -C eigen --strip-components=1
-$ CC=gcc FC=gfortran cmake -H. -Bbuild_eigen -DCMAKE_INSTALL_PREFIX="$HOME/src/eigen"
-[lots of warning, errors?]
-</code></pre>
-<p>Get information:</p>
-<pre><code>$ cmake --help
-$ cmake --build . --target help
-$ cmake --system-information [logfile] # lots of output, so better write to a file
-$ cmake --build build_eigen -- install &gt; install.log 2&gt; install.err
-</code></pre>
-<p>Generators:</p>
-<p>Makefiles, Ninja, Visual Studio, ...</p>
-<pre><code>$ cmake --help
-.
-.
-.
-Generators
+                <h1 id="latex">LaTeX</h1>
+<p>LaTeX is a powerful document creation software. It is particularly useful
+for long documents and also for displaying math.</p>
+<p>Documentation software such as <code>Mkdocs</code> and <code>Sphinx</code> accept LaTeX code.</p>
+<h2 id="basic-document-structure">Basic document structure</h2>
+<pre><code class="language-latex">% Preamble
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}                      % not needed in modern LaTeX releases
+\usepackage{authblk}
+\usepackage{graphicx}
+\graphicspath{ {Figures/} }
 
-The following generators are available on this platform:
-  Unix Makefiles               = Generates standard UNIX makefiles.
-  Ninja                        = Generates build.ninja files.
-  Xcode                        = Generate Xcode project files.
-  CodeBlocks - Ninja           = Generates CodeBlocks project files.
-  CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
-  CodeLite - Ninja             = Generates CodeLite project files.
-  CodeLite - Unix Makefiles    = Generates CodeLite project files.
-  Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
-  Sublime Text 2 - Unix Makefiles
-                               = Generates Sublime Text 2 project files.
-  Kate - Ninja                 = Generates Kate project files.
-  Kate - Unix Makefiles        = Generates Kate project files.
-  Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
-  Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
-</code></pre>
-<p>Minimum <code>CMakeLists.txt</code>:</p>
-<pre><code>cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project(test_project LANGUAGES CXX)
-add_executable(hello-world hello-world.cpp)
-</code></pre>
-<p>Commands for "in-source" build:</p>
-<pre><code>$ cmake .
-$ cmake --build .
-</code></pre>
-<p>Commands for "out-of-source" build:</p>
-<pre><code>$ mkdir -p build &amp;&amp; cd build
-$ cmake ..
-$ cmake --build .
-</code></pre>
-<p>[non-standard alternative from "root" directory: $ cmake -H. -Bbuild ]</p>
-<p>Options for "build"</p>
-<pre><code>$ cmake --build . --target help
-The following are some of the valid targets for this Makefile:
-... all (the default if no target is provided)
-... clean
-... depend
-... rebuild_cache
-... edit_cache
-... getjul                      # this is one of the executables defined in CMakeLists.txt
-</code></pre>
-<p>[for more advanced projects, also "test", "install", and "package" ]</p>
-<p>How to invoke explicitly a generator:</p>
-<pre><code>$ cmake -G Ninja ..
-</code></pre>
-<p>Link with a static library:</p>
-<pre><code>add_library(library_name STATIC header_files.hpp source_files.cpp)
-target_link_libraries(executable library_name)
-</code></pre>
-<p>Build directory will contain: lib{library_name}.a</p>
-<p>Possible values:
-STATIC
-SHARED
-OBJECT
-MODULE</p>
-<p>IMPORTED    = a library located outside the project (e.g. FFTW3?)
-INTERFACE
-ALIAS</p>
-<p>Define, set and output variables:</p>
-<pre><code>set(USE_LIBRARY OFF)
-message(STATUS "Compile sources into a library? ${USE_LIBRARY}")
-message("Compile sources into a library? ${USE_LIBRARY}")
-</code></pre>
-<pre><code class="language-console">$ cmake .
-.
-.
-.
--- Detecting CXX compile features
--- Detecting CXX compile features - done
--- Compile sources into a library? OFF
-Compile sources into a library? OFF
--- Configuring done
--- Generating done
-...
-</code></pre>
-<p>Specifying compiler:</p>
-<pre><code>$ cmake -D CMAKE_CXX_COMPILER=clang++ ...   # recommended !!!
-</code></pre>
-<p>or</p>
-<pre><code>$ env CXX=clang++ cmake ...
-</code></pre>
-<p>but also inside <code>CMakeLists.txt</code></p>
-<pre><code>set(CMAKE_CXX_COMPILER "/usr/local/bin/g++")  # before defining project!!!
-</code></pre>
-<p>Build types:</p>
-<p>Debug, Release, RelWithDebInfo, MinSizeRel</p>
-<pre><code>set(CMAKE_BUILD_TYPE Debug)
-</code></pre>
-<p>or</p>
-<pre><code>$ cmake -D CMAKE_BUILD_TYPE=Debug ...
-</code></pre>
-<p>Set compiler and compiler options:</p>
-<p>OPTIONS:</p>
-<pre><code>list(APPEND flags "-fPIC" "-Wall")
-add_library(library_name STATIC header_files.hpp source_files.cpp)
-target_compile_options(library_name PRIVATE ${flags})
-target_compile_options(execuatable_name PRIVATE "-fPIC")
+% Title and author(s)
+\title{Skeleton for LaTeX articles}
+\author[1]{Antonio Villaseñor}
+\author[2,3]{Another Author}
+\affil[1]{Institute of Marine Sciences (ICM), CSIC,
+ Pg. Maritim de la Barceloneta 37-49, E-08003 Barcelona, Spain}
+\affil[2]{Some Institute}
+\affil[3]{Some University}
 
-target_link_libraries(executable_name library_name)
+\date{\today} % write today's date (default)
 
-set_target_properties(animals PROPERTIES CXX_STANDARD 14 CXX_EXTENSIONS OFF CXX_STANDARD_REQUIRED ON POSITION_INDEPENDENT_CODE 1)
+% Body of the document with numbered and un-numbered sections and bibliography
+\begin{document}
+\maketitle
+\newpage
+
+\begin{abstract}
+\end{abstract}
+
+\section{Introduction}
+
+\section{Data}
+
+\section{Methods}
+
+\section{Results}
+
+\section{Discussion}
+
+\section{Conclusions}
+
+\section*{Data and Resources}                    % asterisk disables numbering of this section
+
+\section*{Acknowledgments}
+
+\bibliography{references}                        % generate reference list using file references.bib
+
+\end{document}
 </code></pre>
-<p>also</p>
-<pre><code>set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+<h2 id="preamble">Preamble</h2>
+<p>Sets the type of document (article, book, etc), and all the packages that will be used.</p>
+<p>The first element is the document class. To create the simplest document use for example:</p>
+<pre><code>\documentclass{minimal}
+
+\begin{document}
+
+Minimal document.
+
+\end{document}
 </code></pre>
-<p>Discovering system information:</p>
+<p>Typical packages:</p>
 <ul>
-<li>Compiler ID</li>
-<li>Processor architecture</li>
-<li>
-<p>Processor instruction set</p>
-<p>message(STATUS "Configuring on/for ${CMAKE_SYSTEM_NAME}")  # must be after "project"!!!</p>
-<p>CMAKE_CXX_COMPILER_ID</p>
-<p>find_package(Eigen3 3.3 REQUIRED CONFIG)</p>
-</li>
+<li><code>geometry</code>: set page size and margins</li>
+<li><code>inputenc</code>: allows to use accented characters directly</li>
+<li><code>fontenc</code>: ?</li>
+<li><code>amsmath</code>, <code>amssymb</code>, <code>amsfonts</code>, <code>latexsym</code>: AMS symbols and math</li>
+<li><code>mathptmx</code>: use times as default font, and provide maths support (outdated?)</li>
+<li><code>authblk</code>: handle authors and affiliations</li>
+<li><code>babel</code>: use other languages</li>
+<li><code>lineno</code>: add line numbers</li>
+<li><code>graphicx</code>: handle figures (extended version of <code>graphic</code>)</li>
 </ul>
+<p>Example of a preamble using the above packages:</p>
+<pre><code>\documentclass[a4paper, 12pt]{article}
+\usepackage{amsmath,amssymb,amsfonts,latexsym}
+%\usepackage[utf8]{inputenc}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}               # better than default encoding OT1 (?)
+\usepackage{authblk}
+
+\usepackage{graphicx}
+\graphicspath{ {Figures/} }
+
+\usepackage{lineno}
+\linenumbers
+
+</code></pre>
+<h2 id="citations">Citations</h2>
+<p>The standard LaTeX command <code>\cite</code> does not have enough flexibility and should be avoided.
+Instead use the non-standard commands <code>\citep</code> and <code>\citet</code> provided by the <code>natbib</code> package.</p>
+<p>To use the <code>natbib</code> package, the following line must be added in the preamble:</p>
+<pre><code>\usepackage[round, semicolon, sort&amp;compress, authoryear]{natbib} # round, semicolon, and authoryear are default options
+</code></pre>
+<p>To cite using <strong>textual notation</strong> as in: <em>Allen (1978)</em> use:</p>
+<pre><code>\citet{Allen1978}
+</code></pre>
+<p>To cite using <strong>parenthetical notation</strong> as in: <em>(Allen, 1978)</em> use:</p>
+<pre><code>\citep{Allen1978}
+</code></pre>
+<p>To cite between parenthesis with text <strong>after</strong> citation: <em>(Allen, 1978, p. 100)</em> use:</p>
+<pre><code>\citep[p.~100]{Allen1978}
+</code></pre>
+<p>To cite between parenthesis with text <strong>before</strong> citation: <em>(e.g., Allen, 1978)</em> use:</p>
+<pre><code>\citep[e.g.,][]{Allen1978}
+</code></pre>
+<p>To cite between parenthesis with text <strong>before and after</strong> citation: <em>(see Allen, 1978, chap. 2)</em> use:</p>
+<pre><code>\citep[see][chap.~2]{Allen1978}
+</code></pre>
+<p>Commands <code>\citep*{many_authors}</code> and <code>\citet*{many_authors}</code> lists all the authors instead
+of the abbreviated list. E.g., <em>(Johnson, Lewis, and Watson, 1990)</em>.</p>
               
             </div>
           </div>
@@ -306,10 +278,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../gmt/gmt5/" class="btn btn-neutral float-right" title="GMT5">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../docker/" class="btn btn-neutral" title="Docker"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../doxygen/" class="btn btn-neutral" title="Doxygen"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -335,10 +307,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../docker/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../doxygen/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../git/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../gmt/gmt5/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

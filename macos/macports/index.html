@@ -54,6 +54,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/latex/">LaTeX</a>
+                    </li>
                 </ul>
                 <p class="caption"><span class="caption-text">GMT</span></p>
                 <ul>
@@ -99,17 +101,27 @@
                 </ul>
                 <p class="caption"><span class="caption-text">macOS</span></p>
                 <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../monterrey/">Monterrey installation</a>
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">MacPorts</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#system-tools">System tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#development">Development</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#packages">Packages</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../python/">Python installation</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
                     </li>
                 </ul>
       </div>
@@ -151,209 +163,83 @@
               
                 <h1 id="macports">MacPorts</h1>
 <p>https://www.macports.org</p>
-<pre><code>$ sudo port [-v] selfupdate [verbose]
-$ sudo port upgrade outdated
-$ sudo port rev-upgrade [if something goes wrong]
+<pre><code>$ sudo port [-v] selfupdate       # -v for verbose
+$ sudo port upgrade outdated      # this can take a long time
+$ sudo port rev-upgrade           # if something goes wrong
 </code></pre>
 <p>Other macports commands:</p>
 <pre><code>$ port version
 $ port installed
 $ port search --name --glob "gmt*"
-$ port search --name --line --glob "gmt*" [better output]
+$ port search --name --line --glob "gmt*" # produces better output
 
 $ port info gmt5
 </code></pre>
-<h1 id="installed-ports">Installed ports:</h1>
+<h2 id="system-tools">System tools</h2>
 <ul>
-<li>a2ps</li>
-<li>coreutils</li>
-<li>feh</li>
-<li>ffmepg</li>
-<li>gmt6 (gdal, gshhg-gmt, netcdf)</li>
-<li>gv</li>
-<li>GraphicsMagick</li>
-<li>htop</li>
-<li>inetutils</li>
-<li>openmpi</li>
-<li>openssh</li>
-<li>tmux</li>
-<li>wget</li>
+<li><code>wget</code></li>
+<li><code>curl</code></li>
+<li><code>htop</code></li>
+<li><code>tree</code></li>
+<li><code>exa</code>: a modern replacement for <code>ls</code></li>
+<li><code>bat</code>: a <code>cat</code> clone written in <code>Rust</code></li>
+<li><code>openssh</code></li>
+<li><code>coreutils</code></li>
+<li><code>inetutils</code>: ftp, telnet</li>
+<li><code>tmux</code></li>
+<li>a more modern <code>bash</code>: currently 5.1.16 (versus 3.2 system <code>bash</code>)</li>
 </ul>
-<pre><code class="language-console">$ sudo port install gv
-$ sudo port install wget
-$ sudo port install curl
-$ sudo port install coreutils
-
-[ Installation instructions for GMT 6:
-https://github.com/GenericMappingTools/gmt/blob/master/INSTALL.md ]
-
-$ sudo port install gdal +hdf5 +netcdf +openjpeg  [ + indicates a variant ]
-$ sudo port install gmt6 [ +fftw3 +openmp ]
-
-$ sudo port install ImageMagick
-$ sudo port install GraphicsMagick [ same as graphicsmagick? ]
-$ sudo port install ffmpeg
-
-$ sudo port install a2ps
-$ sudo port install feh
-
-$ sudo port install openfortivpn
-$ sudo port install openssh +ssh-copy-id
-$ sudo port install inetutils (ftp, telnet)
-
-$ sudo port install tmux
-$ sudo port install htop
-
-$ sudo port install cmake
-
-[ openmpi ?]
-
-To install camfort (finally did not work)
-
-$ sudo port install gsl
-$ sudo port install z3
-$ sudo port install flint
-$ sudo port install cabal
+<pre><code>$ sudo port install openssh +ssh-copy-id
 </code></pre>
-<pre><code>gv:
+<h2 id="development">Development</h2>
+<p>Some of the tools install (multiple versions of) programming languages,
+such as <code>C/C++</code>, <code>Python</code>, <code>Perl</code>, <code>Rust</code>, etc.</p>
+<p>Normally those installations are only used by MacPorts to build some of its
+applications and packages. However they can also be used for development.
+For example, to make the <code>MacPort</code>'s Python the default Python:</p>
+<pre><code>python39 has the following notes:
+ To make this the default Python or Python 3 (i.e., the version run by the 'python' or 'python3' commands), run one or both of:
 
-  libidn has the following notes:
-    Please be aware that GNU libidn2 is the successor of GNU libidn. It comes with IDNA 2008
-    and TR46 implementations and also provides a compatibility layer for GNU libidn.
-
-openssh:
-
-  openssh has the following notes:
-    Apple's keychain integration and launchd changes are now included by default, not just with the gsskex variant.
-    The parameters were changed from -m/-M to -A/-K in accordance with Apple's changes, because upstream started using the former switches themselves recently.
-
-    A startup item has been generated that will aid in starting openssh with launchd. It is disabled by default. Execute the following command to start it, and to cause it to launch at startup:
-
-        sudo port load openssh
-
-
-wget:
-
-  libpsl has the following notes:
-    libpsl API documentation is provided by the port 'libpsl-docs'.
-  wget has the following notes:
-    To customize wget, you can copy /opt/local/etc/wgetrc.sample to /opt/local/etc/wgetrc and then make changes.
-
-gdal:
-
-  bash-completion has the following notes:
-    To use bash_completion, add the following lines at the end of your .bash_profile:
-      if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
-          . /opt/local/etc/profile.d/bash_completion.sh
-      fi
-
-    The port bash-completion &gt;=2.0 requires bash &gt;=4.1; please make sure
-    you are using /opt/local/bin/bash by changing the preferences of your
-    terminal accordingly. If your version of bash is too old, the script
-    above will not modify your shell environment and no extended completion
-    will be available.
-  hdf5 has the following notes:
-    Mac users may need to set the environment variable &quot;HDF5_USE_FILE_LOCKING&quot; to the five-character string &quot;FALSE&quot; when accessing network mounted files.  This is an application run-time setting, not a configure or build
-    setting.  Otherwise errors such as &quot;unable to open file&quot; or &quot;HDF5 error&quot; may be  encountered.
-  netcdf has the following notes:
-    As of version 4.2 c++ and fortran interfaces are separate ports, netcdf-cxx and netcdf-fortran, respectively.
-
-coreutils:
-
-  coreutils has the following notes:
-    The tools provided by GNU coreutils are prefixed with the character 'g' by default to distinguish them from the BSD commands.
-    For example, cp becomes gcp and ls becomes gls.
-
-    If you want to use the GNU tools by default, add this directory to the front of your PATH environment variable:
-        /opt/local/libexec/gnubin/
-
-ImageMagick:
-
-  python37 has the following notes:
-    To make this the default Python or Python 3 (i.e., the version run by the 'python' or 'python3' commands), run one or both of:
-
-        sudo port select --set python python37
-        sudo port select --set python3 python37
-
-
-ffmpeg:
-
-  ffmpeg has the following notes:
-    *******
-    ******* This build of ffmpeg includes GPLed code and
-    ******* is therefore licensed under GPL v2 or later.
-    *******
-    ******* The following modules are GPLed:
-    *******
-    *******      postproc
-    *******      libx264
-    *******      libx265
-    *******      libxvid
-    *******
-    ******* To include all nonfree, GPLed and LGPL code use variant +nonfree.
-    ******* To remove nonfree and GPLed code leaving only LGPL code remove the
-    ******* +gpl2 variant.
-    *******
-  python27 has the following notes:
-    To make this the default Python or Python 2 (i.e., the version run by the 'python' or 'python2' commands), run one or both of:
-
-        sudo port select --set python python27
-        sudo port select --set python2 python27
-
-openssh:
-
-  openssh has the following notes:
-    Apple's keychain integration and launchd changes are now included by default, not just with the gsskex variant.
-    The parameters were changed from -m/-M to -A/-K in accordance with Apple's changes, because upstream started using the former switches themselves
-    recently.
-
-    A startup item has been generated that will aid in starting openssh with launchd. It is disabled by default. Execute the following command to start it,
-    and to cause it to launch at startup:
-
-        sudo port load openssh
-
-inetutils:
-
-  inetutils has the following notes:
-    All clients are now installed with the &quot;g&quot; prefix.
-
-tmux:
-
-    If you want integration with system pasteboard consider installing port tmux-pasteboard as well
-
-openmpi:
-
----&gt;  Some of the ports you installed have notes:
-  openmpi-default has the following notes:
+      sudo port select --set python python39
+      sudo port select --set python3 python39
+</code></pre>
+<p>In addition to those languages, the following development tools can
+also be installed:</p>
+<ul>
+<li><code>cmake</code></li>
+<li><code>gsl</code>: GNU Scientific Library</li>
+<li>[<code>graphviz</code>]: graph visualization software</li>
+<li>[<code>gnuplot</code>]: command-line graphing utility</li>
+<li><code>gh</code>: GitHub command-line tools</li>
+<li><code>pipx</code></li>
+<li><code>openmpi</code></li>
+</ul>
+<pre><code>  openmpi-default has the following notes:
     The mpicc wrapper (and friends) are installed as:
-
       /opt/local/bin/mpicc-openmpi-mp (likewise mpicxx, ...)
 
-    To make openmpi-default's wrappers the default (what you get when
-    you execute 'mpicc' etc.) please run:
-
+    To make openmpi-default's wrappers the default (what you get when you execute 'mpicc' etc.) please run:
       sudo port select --set mpi openmpi-mp-fortran
 
-OpenCoarrays:
-
-failed!!
-
-$ sudo port clean OpenCoarrays
-
-$ sudo port install graphviz
-
-$ sudo port install openmpi
-
----&gt;  Some of the ports you installed have notes:
-  openmpi-default has the following notes:
-    The mpicc wrapper (and friends) are installed as:
-
-      /opt/local/bin/mpicc-openmpi-mp (likewise mpicxx, ...)
-
-    To make openmpi-default's wrappers the default (what you get when
-    you execute 'mpicc' etc.) please run:
-
-      sudo port select --set mpi openmpi-mp-fortran
+</code></pre>
+<p>Some packages install versions of Python. To make those versions the default Python/Python3:</p>
+<h2 id="utilities">Utilities</h2>
+<ul>
+<li><code>a2ps</code></li>
+<li><code>gv</code></li>
+<li><code>ffmpeg</code></li>
+<li><code>graphicsmagick</code></li>
+<li>[<code>feh</code> not installed in Monterrey; gives error]</li>
+<li><code>latexdiff</code></li>
+</ul>
+<pre><code>sudo port install ffmpeg +libgfortran3 +openmpi
+</code></pre>
+<h2 id="packages">Packages</h2>
+<ul>
+<li><code>gmt6</code></li>
+</ul>
+<pre><code>$ sudo port install gdal +hdf5 +netcdf +openjpeg
+$ sudo port install gmt6 +fftw3
 </code></pre>
               
             </div>
@@ -365,7 +251,7 @@ $ sudo port install openmpi
         <a href="../python/" class="btn btn-neutral float-right" title="Python installation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../monterrey/" class="btn btn-neutral" title="Monterrey installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -391,7 +277,7 @@ $ sudo port install openmpi
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../monterrey/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../python/" style="color: #fcfcfc">Next &raquo;</a></span>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Monterrey installation - Programming and Software Notes</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Monterrey installation";
+    var mkdocs_page_input_path = "macos/monterrey.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Programming and Software Notes</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/sphinx/">Sphinx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/latex/">LaTeX</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">GMT</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Seismology</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/seisan/">SEISAN</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Tools</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Unix</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">macOS</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Monterrey installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-go-to-app-store-to-get-installer">1. Go to App Store to get installer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-format-pen-drive-for-installation">2. Format pen drive for installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-make-the-pen-drive-bootable">3. Make the pen drive bootable</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-allow-booting-from-an-external-disk">4. Allow booting from an external disk</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-install-development-tools">5. Install development tools</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bash">bash</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#xcode">XCode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#xquartz">XQuartz</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gcc-c-and-fortran-compilers">GCC C and Fortran compilers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-dotfiles">Setup dotfiles</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#macports">Macports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../macports/">MacPorts</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../python/">Python installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Programming and Software Notes</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>macOS &raquo;</li>
+        
+      
+    
+    <li>Monterrey installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="fresh-macos-monterrey-installation">Fresh macOS Monterrey installation</h2>
+<h3 id="1-go-to-app-store-to-get-installer">1. Go to App Store to get installer</h3>
+<p>Once the download has completed it will ask you to install the update.
+Do not press continue, instead quit the program.</p>
+<h3 id="2-format-pen-drive-for-installation">2. Format pen drive for installation</h3>
+<p>Open the application <strong>Disk Utility</strong></p>
+<p>Select <code>View &gt; Show all devices</code>. This makes available the <code>GUID partition</code> option.</p>
+<p>Select the first option for disk format. <strong>WARNING</strong>: do not use APFS (some tutorials are wrong).</p>
+<p>Call the new partition on the pen drive <code>Untitled</code>. Later it will be latter renamed to
+"Install macOS Monterrey".</p>
+<h3 id="3-make-the-pen-drive-bootable">3. Make the pen drive bootable</h3>
+<p>Enter the following command:</p>
+<pre><code>$ sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled
+Ready to start.
+To continue we need to erase the volume at /Volumes/Untitled.
+If you wish to continue type (Y) then press return: Y
+Erasing disk: 0%... 10%... 20%... 30%... 100%
+Making disk bootable...
+Copying to disk: 0%... 10%... 20%... 30%... 40%... 50%... 60%... 70%... 80%... 90%... 100%
+Install media now available at &quot;/Volumes/Install macOS Monterey&quot;
+</code></pre>
+<h3 id="4-allow-booting-from-an-external-disk">4. Allow booting from an external disk</h3>
+<p>Reboot the computer in <em>recovery mode</em> by pressing <code>cmd + R</code>.
+This might ask you to enter the password a couple of times.</p>
+<p>Go to <code>Utilities &gt; Startup security utility</code> and select
+<code>Allow booting from external of removable media</code>.</p>
+<p>Insert the pen drive in the computer and reboot again to <em>Startup Manager</em> by pressing
+the <code>opt</code> key, and select the <code>Install macOS Monterrey</code> drive.</p>
+<p>For a fresh installation you need to go first to <code>Disk Utility</code> and erase the disk.
+If not it simply upgrades the operating system.</p>
+<p>After erasing the disk select <code>Install macOS Monterrey</code> (<strong>WARNING</strong>: and additional update might be
+required in order to use the bootable external disk).</p>
+<p>Once the installation process has started, accept the terms and select <code>Install in Macintosh HD</code>.</p>
+<h3 id="5-install-development-tools">5. Install development tools</h3>
+<h4 id="bash"><code>bash</code></h4>
+<p>Because of license issues, in the latest versions of macOS the default shell is <code>zsh</code> instead of <code>bash</code>.
+To change the default shell to <code>bash</code> and silence the deprecation warning open a terminal and type:</p>
+<pre><code>$ chsh -s /bin/bash
+$ export BASH_SILENCE_DEPRECATION_WARNING=1
+</code></pre>
+<p>Initially (before creating/modifying the <code>.bash_profile</code> and <code>.bashrc</code> files)
+the <code>$PATH</code> environmental variable is set to:</p>
+<pre><code>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+</code></pre>
+<p>Because of those license issues, the version of <code>bash</code> provided in <code>/bin/bash</code>
+is very old (3.2, from 2007!)</p>
+<pre><code>$ echo $BASH_VERSION
+3.2.57(1)-release
+
+$ /bin/bash --version
+GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+</code></pre>
+<p>Once you install Macports and a few packages, a newer version of <code>bash</code> will be available in 
+<code>/opt/local/bin/bash</code>:</p>
+<pre><code>$ /opt/local/bin/bash --version
+GNU bash, version 5.1.16(1)-release (x86_64-apple-darwin21.1.0)
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+</code></pre>
+<p>To make this <code>bash</code> the default, add <code>/opt/local/bin/bash</code> to the <code>/etc/shells</code> file:</p>
+<pre><code>$ sudo vi /etc/shells
+
+$ cat /etc/shells
+# List of acceptable shells for chpass(1).
+# Ftpd will not allow users to connect who are not using
+# one of these shells.
+
+/bin/bash
+/opt/local/bin/bash
+/bin/csh
+/bin/dash
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+</code></pre>
+<p>and then:</p>
+<pre><code>$ chsh -s /opt/local/bin/bash
+</code></pre>
+<p>To use this shell in shell scripts, replace the common shebang <code>#!/bin/bash</code> for:</p>
+<pre><code>#!/usr/bin/env bash
+</code></pre>
+<h4 id="xcode">XCode</h4>
+<p>Go to App Store and install <strong>XCode</strong>. Once it is installed, open it and it will install the
+<strong>Command line tools</strong>. If the tools are not installed automatically it can be done from the command line:</p>
+<pre><code>$ xcode-select --install         # agree to license
+$ gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/4.2.1
+Apple clang version 13.0.0 (clang-1300.0.29.30)
+Target: x86_64-apple-darwin21.3.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+</code></pre>
+<p>After the installation of <strong>XCode</strong>, the <code>$PATH</code> variable is expanded to:</p>
+<pre><code>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+</code></pre>
+<h4 id="xquartz">XQuartz</h4>
+<p>Then install <a href="https://www.xquartz.org">XQuartz</a> for X Window support. After the
+installation of <strong>XQuartz</strong> the <code>$PATH</code> variable is expanded to:</p>
+<pre><code>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<h4 id="gcc-c-and-fortran-compilers">GCC C and Fortran compilers</h4>
+<p>Install <code>gcc</code> and <code>gfortran</code> compilers from the <a href="http://hpc.sourceforge.net">HPC Mac OS X</a>
+web page. Download the appropriate <code>.tar.gz</code> file (as of January 2022, the version for Monterrey
+was <code>gcc-11.2-bin.tar.gz</code>). To install it, simply type:</p>
+<pre><code>$ sudo tar xvf gcc-11.2-bin.tar -C /.
+
+$ gcc --version
+gcc (GCC) 11.2.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+$ gfortran --version
+GNU Fortran (GCC) 11.2.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre>
+<h4 id="setup-dotfiles">Setup dotfiles</h4>
+<p>At this point it is convenient to setup the <code>.bash_profile</code> and <code>.bashrc</code> files.
+Initially <code>.bash_profile</code> contains simply:</p>
+<pre><code>#
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+</code></pre>
+<p><strong>Important</strong>: unlike in Linux, in macOS all the new terminals are login terminals, so they 
+all run <code>.bash_profile</code>.</p>
+<h4 id="macports">Macports</h4>
+<p>Now we can install the <a href="https://www.macports.org">Macports</a> package manager. Download the
+corresponding <code>pkg</code> file and run the installation.</p>
+<p>This adds the following lines to the <code>.bash_profile</code> file:</p>
+<pre><code># MacPorts Installer addition on 2021-12-22_at_17:39:58: adding an appropriate PATH variable for use with MacPorts.
+export PATH=&quot;/opt/local/bin:/opt/local/sbin:$PATH&quot;
+# Finished adapting your PATH environment variable for use with MacPorts.
+</code></pre>
+<p>These lines could be removed and added to the <code>$PATH</code> declaration in <code>.bashrc</code>.</p>
+<h4 id="python">Python</h4>
+<p>See specific section.</p>
+<p>Installing the PSF Python adds the following lines to <code>.bash_profile</code>:</p>
+<pre><code># Setting PATH for Python 3.10
+# The original version is saved in .bash_profile.pysave
+PATH=&quot;/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}&quot;
+export PATH
+</code></pre>
+<p>The resulting <code>$PATH</code> looks like:</p>
+<pre><code>/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>Installing the Anaconda Python distribution adds the following lines to <code>.bash_profile</code></p>
+<pre><code># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup=&quot;$('/Users/antonio/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)&quot;
+if [ $? -eq 0 ]; then
+    eval &quot;$__conda_setup&quot;
+else
+    if [ -f &quot;/Users/antonio/opt/anaconda3/etc/profile.d/conda.sh&quot; ]; then
+        . &quot;/Users/antonio/opt/anaconda3/etc/profile.d/conda.sh&quot;
+    else
+        export PATH=&quot;/Users/antonio/opt/anaconda3/bin:$PATH&quot;
+    fi
+fi
+unset __conda_setup
+# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
+</code></pre>
+<p>And sets the <code>$PATH</code> variable to:</p>
+<pre><code>/Users/antonio/opt/anaconda3/bin:/Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>However, this initializes the <strong>conda</strong> <code>base</code> environment for each new shell opened. To prevent this:</p>
+<pre><code>$ conda config --set auto_activate_base false
+</code></pre>
+<p>This creates a file <code>.condarc</code> with the following content:</p>
+<pre><code>auto_activate_base: false
+</code></pre>
+<p>Now when opening a new shell the <strong>conda</strong> <code>base</code> environment is not activated, and the
+<code>$PATH</code> variable is set to:</p>
+<pre><code>/Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>This means that the PSF Python takes preference over the Anaconda Python. To change this,
+simply activate a <strong>conda</strong> environment:</p>
+<pre><code>$ conda activate         # activates the base environment
+$ conda activate seismo  # activates the "seismo" environment
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../macports/" class="btn btn-neutral float-right" title="MacPorts">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../unix/installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../unix/installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../macports/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
