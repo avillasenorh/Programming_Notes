@@ -6,6 +6,7 @@ nav:
         - MkDocs: 'documentation/mkdocs.md'
         - Sphinx: 'documentation/sphinx.md'
         - Doxygen: 'documentation/doxygen.md'
+        - LaTeX: 'documentation/latex.md'
     - GMT:
         - GMT5: 'gmt/gmt5.md'
         - GMT6: 'gmt/gmt6.md'
@@ -26,11 +27,12 @@ nav:
         - Dotfiles: 'unix/dotfiles.md'
         - Installation: 'unix/installation.md'
     - macOS:
-        - Admin: 'macos/admin.md'
-        - Installation: 'macos/installation.md'
+        - Monterrey installation: 'macos/monterrey.md'
         - MacPorts: 'macos/macports.md'
         - Python installation: 'macos/python.md'
         - Tips: 'macos/tips.md'
+        - Installation: 'macos/installation.md'
+        - Admin: 'macos/admin.md'
 
 extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
