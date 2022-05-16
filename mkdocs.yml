@@ -15,6 +15,8 @@ nav:
         - Data requests: 'seismology/data_requests.md'
         - SEISAN: 'seismology/seisan.md'
         - ObsPy: 'seismology/obspy.md'
+    - Programming:
+        - CUDA: 'programming/cuda.md'
     - Tools:
         - Docker: 'tools/docker.md'
         - CMake: 'tools/cmake.md'

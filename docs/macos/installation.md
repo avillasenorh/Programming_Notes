@@ -115,6 +115,7 @@ Other software
 	+ inetutils (ftp, telnet)
 	+ openssh
 	+ ffmepg
+    + parallel
 	[+ libgfortran3 ]
 	[+ openmpi ]
 

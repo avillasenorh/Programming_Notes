@@ -1,5 +1,80 @@
 # Dotfiles
 
+## .bash_aliases
+
+Aliases can be included in the `.bashrc` file or better in a separate file commonly 
+named `.bash_aliases`. This file is executed from `.bashrc`:
+
+```bash
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+```
+
+Typical aliases for **ls** and **grep**:
+
+```bash
+# some ls aliases
+alias ls='ls -GFh'
+alias la='ls -A'
+alias ll='ls -alF'
+alias lh='ls -alt | head -20'
+alias l='ls -CF'
+
+# some grep aliases
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+```
+
+Some utilities:
+
+```bash
+alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
+```
+
+Alias with common options for commands:
+
+```bash
+alias feh='feh -F -Y -z -Z -D 5.0'
+alias gvl='/opt/local/bin/gv --orientation=landscape'
+alias sac='$SACHOME/bin/sac $SACAUX/macros/init.m'
+```
+
+Specific aliases for macOS:
+
+```bash
+alias te='open -a textedit'
+```
+
+## .vimrc
+
+```
+set nocompatible
+syntax on
+"syntax files are located in /usr/share/vim/vim82/syntax
+let g:markdown_fenced_languages = ['bash', 'c', 'cpp', 'fortran', 'python']
+
+"set number
+"set cursorline
+set cursorcolumn
+set ruler
+
+set expandtab
+set tabstop=4 shiftwidth=4
+set autoindent
+
+autocmd BufNewFile *.sh 0r ~/skeletons/bash.sh
+"autocmd BufNewFile *.awk 0r ~/skeletons/template.awk
+"autocmd BufNewFile readme.md 0r ~/skeletons/readme.md
+"autocmd BufNewFile *.gmt6 0r ~/skeletons/gmt6.sh
+```
+
 ## Login shell
 
 1. run `/etc/profile` (not run in an interactive shell)
@@ -59,6 +134,7 @@ if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
 ```
+
 
 ## Not a login shell
 
@@ -121,7 +197,6 @@ In OS X /etc/bash.bashrc does not exist
     $ shopt (lists shell options)
 
 an important one is "huponexit" (background jobs continue to run when closing shell)
-
 
 
 
