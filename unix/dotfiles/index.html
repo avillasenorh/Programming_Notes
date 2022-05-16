@@ -75,6 +75,11 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">Programming</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../programming/cuda/">CUDA</a>
+                    </li>
+                </ul>
                 <p class="caption"><span class="caption-text">Tools</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
@@ -96,6 +101,10 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Dotfiles</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#bash_aliases">.bash_aliases</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vimrc">.vimrc</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#login-shell">Login shell</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#not-a-login-shell">Not a login shell</a>
@@ -164,6 +173,62 @@
             <div class="section">
               
                 <h1 id="dotfiles">Dotfiles</h1>
+<h2 id="bash_aliases">.bash_aliases</h2>
+<p>Aliases can be included in the <code>.bashrc</code> file or better in a separate file commonly 
+named <code>.bash_aliases</code>. This file is executed from <code>.bashrc</code>:</p>
+<pre><code class="language-bash"># Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+</code></pre>
+<p>Typical aliases for <strong>ls</strong> and <strong>grep</strong>:</p>
+<pre><code class="language-bash"># some ls aliases
+alias ls='ls -GFh'
+alias la='ls -A'
+alias ll='ls -alF'
+alias lh='ls -alt | head -20'
+alias l='ls -CF'
+
+# some grep aliases
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+</code></pre>
+<p>Some utilities:</p>
+<pre><code class="language-bash">alias human_path='echo &quot;${PATH//:/$'&quot;'&quot;'\n'&quot;'&quot;'}&quot;'
+</code></pre>
+<p>Alias with common options for commands:</p>
+<pre><code class="language-bash">alias feh='feh -F -Y -z -Z -D 5.0'
+alias gvl='/opt/local/bin/gv --orientation=landscape'
+alias sac='$SACHOME/bin/sac $SACAUX/macros/init.m'
+</code></pre>
+<p>Specific aliases for macOS:</p>
+<pre><code class="language-bash">alias te='open -a textedit'
+</code></pre>
+<h2 id="vimrc">.vimrc</h2>
+<pre><code>set nocompatible
+syntax on
+&quot;syntax files are located in /usr/share/vim/vim82/syntax
+let g:markdown_fenced_languages = ['bash', 'c', 'cpp', 'fortran', 'python']
+
+&quot;set number
+&quot;set cursorline
+set cursorcolumn
+set ruler
+
+set expandtab
+set tabstop=4 shiftwidth=4
+set autoindent
+
+autocmd BufNewFile *.sh 0r ~/skeletons/bash.sh
+&quot;autocmd BufNewFile *.awk 0r ~/skeletons/template.awk
+&quot;autocmd BufNewFile readme.md 0r ~/skeletons/readme.md
+&quot;autocmd BufNewFile *.gmt6 0r ~/skeletons/gmt6.sh
+</code></pre>
 <h2 id="login-shell">Login shell</h2>
 <ol>
 <li>run <code>/etc/profile</code> (not run in an interactive shell)</li>

@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Sphinx - Programming and Software Notes</title>
+  <title>CUDA - Programming and Software Notes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Sphinx";
-    var mkdocs_page_input_path = "documentation/sphinx.md";
+    var mkdocs_page_name = "CUDA";
+    var mkdocs_page_input_path = "programming/cuda.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -47,26 +47,14 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <p class="caption"><span class="caption-text">Documentation</span></p>
-                <ul class="current">
-                    <li class="toctree-l1"><a class="reference internal" href="../mkdocs/">MkDocs</a>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Sphinx</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#installation-using-pipx">Installation using pipx</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#changing-from-restructuredtext-to-markdown">Changing from reStructuredText to Markdown</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#download">Download</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#some-roles">Some roles</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#code-blocks">Code blocks</a>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/sphinx/">Sphinx</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../doxygen/">Doxygen</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../latex/">LaTeX</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../documentation/latex/">LaTeX</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">GMT</span></p>
@@ -88,8 +76,16 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Programming</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../programming/cuda/">CUDA</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">CUDA</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#cuda-python-with-numba">CUDA Python with Numba</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#cpu-optimization-in-numba">CPU optimization in Numba</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Tools</span></p>
@@ -152,11 +148,11 @@
     
       
         
-          <li>Documentation &raquo;</li>
+          <li>Programming &raquo;</li>
         
       
     
-    <li>Sphinx</li>
+    <li>CUDA</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -168,152 +164,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="sphinx">Sphinx</h1>
-<p><code>Sphinx</code> is a Python package to generate documentation of software projects.
-By default it uses <code>rst</code> format but now it can also use <code>Markdown</code>.
-does not extract information from the source code files.</p>
-<h2 id="installation-using-pipx">Installation using <code>pipx</code></h2>
-<pre><code>$ pipx install sphinx  # check
-</code></pre>
-<p>Sometimes the applications installed with <code>pipx</code> require additional packages (e.g. to add
-some functionalities, such as additional themes, ...). It is 
-possible to install additional packages in an existing <code>pipx</code> application using <code>pipx runpip</code>.
-To install the <code>myst-parser</code> package that adds capability to use <code>Markdown</code> documents:</p>
-<pre><code>$ pipx runpip sphinx install myst-parser
-</code></pre>
-<p>Other useful packages art the <strong>Read the Docs</strong> and <strong>Furo</strong> themes:</p>
-<pre><code>$ pipx runpip sphinx install sphinx_rtd_theme
-$ pipx runpip sphinx install furo
-</code></pre>
-<p>To use Markdown and Read the Docs theme:</p>
-<pre><code class="language-python">import sphinx_rtd_theme
+                <h1 id="cuda">CUDA</h1>
+<h2 id="cuda-python-with-numba">CUDA Python with <code>Numba</code></h2>
+<p><code>Numba</code> can compile for the CPU and GPU using function decorators.</p>
+<p>For example the the <code>@jit</code> decorator acts on a function <code>add</code> by doing
+<code>add = jit(add)</code>.</p>
+<p>Not all operation/features of Python available in <code>Numba</code>. For example:</p>
+<ul>
+<li>dictionaries</li>
+<li><code>Numpy</code> functions (use <code>math.</code> functions instead)</li>
+</ul>
+<h3 id="cpu-optimization-in-numba">CPU optimization in Numba</h3>
+<p>This is accomplished with the <code>@jit</code> decorator:</p>
+<pre><code class="language-python">from numba import jit
+import math
 
-...
-
-extensions = [
-    &quot;myst_parser&quot;,
-    &quot;sphinx_rtd_theme&quot;,
-]
-...
-
-html_theme = &quot;sphinx_rtd_theme&quot;
-
-</code></pre>
-<p>To use the Furo theme simply:</p>
-<pre><code class="language-python">html_theme = &quot;furo&quot;
-</code></pre>
-<h2 id="changing-from-restructuredtext-to-markdown">Changing from reStructuredText to Markdown</h2>
-<p>Once added the <code>myst_parser</code> extension in <code>conf.py</code> we can change
-<code>index.rst</code> for <code>index.md</code>.</p>
-<p>An initial file <code>index.rst</code> looks like:</p>
-<pre><code>.. test documentation master file, created by
-   sphinx-quickstart ...
-
-Welcome to test's documentation!
-================================
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-</code></pre>
-<p>The equivalent Markdown file <code>index.md</code> would be:</p>
-<pre><code>% test documentation master file, created by
-% sphinx-quickstart
-
-# Welcome to test's documentation!
-
-```{toctree}
-:maxdepth: 2
-:caption: &quot;Contents:&quot;
-```
-
-# Indices and tables
-
-- {ref}`genindex`
-- {ref}`modindex`
-- {ref}`search`
-
-</code></pre>
-<pre><code>
-
-
-## Inserting figures
-
-Local and remote figures can be inserted using standard Markdown syntax:
-
-```markdown
-![remote logo here](https://..../logo.png)
-
-![local logo here](logo.png)
-</code></pre>
-<p>Myst-Sphinx also allows more options but first you need to add and extension in <code>conf.py</code>:</p>
-<pre><code class="language-python">myst_enable_extensions = [
-    &quot;colon_fence&quot;,
-]
-</code></pre>
-<p>You can use rest:</p>
-<pre><code>```{image} logo.png
-:alt: local logo here
-:class: bg-primary
-:width: 200px
-:align: center
-```
-</code></pre>
-<p>You can also use HTML:</p>
-<pre><code>:::{figure-md} logo-target
-:class: myclass
-
-&lt;img src=&quot;logo.png&quot; alt=&quot;local logo here&quot; class=&quot;bg-primary&quot; width=&quot;300px&quot;&gt;
-
-Here Python logo
-:::
-</code></pre>
-<h2 id="download">Download</h2>
-<p>You can download the file <code>logo.png</code> for offline use.</p>
-<pre><code>{download}`logo.png`
-
-{download}`the logo &lt;logo.png&gt;`
-</code></pre>
-<p>Normal markdown link <a href="linked_document">text</a></p>
-<p>this <a href="linked_document"></a> gets the text from the linked document title</p>
-<h2 id="some-roles">Some roles</h2>
-<p>Define role somewhere in your documents as:</p>
-<pre><code>(investors)=
-</code></pre>
-<p>Then use this to refer to</p>
-<pre><code>{ref}`investors`
-</code></pre>
-<p>This might work to change your linked text:</p>
-<pre><code>{ref}`another text &lt;investors&gt;`
-</code></pre>
-<h2 id="code-blocks">Code blocks</h2>
-<p>Normal markdown:</p>
-<pre><code>```python
-print(&quot;hola&quot;)
-```
-</code></pre>
-<p>myst</p>
-<pre><code>```{code-block} python
-:linenos:
-print(&quot;hola&quot;)
-```
-</code></pre>
-<p>Code from file:</p>
-<p>This includes the entire file:</p>
-<pre><code>```{literalinclude} my_file.py
-```
-</code></pre>
-<p>For more options:</p>
-<pre><code>```{literalinclude} my_file.py
-:emphasize-lines: 2-3
-```
+@jit
+def hypot(x, y):
+    # Implementation from https://en.wikipedia.org/wiki/Hypot
+    x = abs(x);
+    y = abs(y);
+    t = min(x, y);
+    x = max(x, y);
+    t = t / x;
+    return x * math.sqrt(1+t*t)
 </code></pre>
               
             </div>
@@ -322,10 +196,10 @@ print(&quot;hola&quot;)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../doxygen/" class="btn btn-neutral float-right" title="Doxygen">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../tools/docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../mkdocs/" class="btn btn-neutral" title="MkDocs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../seismology/obspy/" class="btn btn-neutral" title="ObsPy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -351,10 +225,10 @@ print(&quot;hola&quot;)
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../mkdocs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../seismology/obspy/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../doxygen/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../tools/docker/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
