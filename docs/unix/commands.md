@@ -8,13 +8,11 @@ UNIX tips and commands
 - Never use awk if you can do it with sed;
 - Never use sed if you can do it with grep.“
 
-    $ man hier (Unix directory structure)
 
-    $ compgen -b 
-
-Lists built-in commands. See also:
-
-    $ man builtin
+    $ man hier      # describes Unix directory structure
+    $ man builtin   # describes built-in commands
+    $ compgen -b    # list built-in commands
+    $ compgen -c    # list available commands and aliases
 
 ## Command-line shortcuts
 
@@ -90,10 +88,6 @@ ls is /bin/ls
 ```
 
 ## which
-
-## compgen
-
-    $ compgen -c   # lists all available command, aliases, ...
 
 ## stat
 
@@ -419,7 +413,7 @@ feh         : view image files
 
 ```
 
-### ffmpeg
+## ffmpeg
 
 Here is how to create a slideshow from images (1.jpg,2.jpg..,8.jpg) with FFmpeg on your Linux or Unix box:
 
@@ -428,8 +422,11 @@ Here is how to create a slideshow from images (1.jpg,2.jpg..,8.jpg) with FFmpeg 
 
 ## od: octal dump
 
+To output the contents of a binary file interpreted as floats (e.g. PStomo model file).
+Repeated lines are indicated by an asterisk `*`.
+
 ```console
-$ od -f pm.0         # outputs number of a binary file interpreted as floats (e.g. PStomo model file)
+$ od -f pm.0
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 *
 0006740     5.080000e+00    5.080000e+00    5.080000e+00    5.080000e+00
@@ -455,10 +452,10 @@ $ od -f pm.0         # outputs number of a binary file interpreted as floats (e.
 0230500
 ```
 
-Repeated lines are indicated by an asterisk `*`.
+To output all lines included repeated ones:
 
 ```console
-$ od -f -v pm.0    # outputs all lines included repeated ones
+$ od -f -v pm.0
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 0000020     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 0000040     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
