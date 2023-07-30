@@ -323,22 +323,25 @@ In order to write this as an alias, replace `'` with `'"'"'`:
 
 ## ed
 
-Addresses
-i       : line i
-$       : last line
-1,$ = % : all lines in file
-i,j     : lines i through j
-.       : current line
+Addresses:
 
-Commands
+    i       : line i
+    $       : last line
+    1,$ = % : all lines in file
+    i,j     : lines i through j
+    .       : current line
 
-:0r $HOME/data             : read file in at top of current file
-:g/Name:/s/tom/Tom/        : substitute tom for Tom in lines that match /Name:/
-:1,10s/yes/no/g            : Substitute on first 10 lines
-:%s/[Hh]ello/Hi/gc         : Confirm global substitutions
-:s/Fortran/\U&/ 3          : Confirm global substitutions Uppercase “Fortran” on next 3 lines
+Commands:
 
+    :0r $HOME/data             : read file in at top of current file
+    :g/Name:/s/tom/Tom/        : substitute tom for Tom in lines that match /Name:/
+    :1,10s/yes/no/g            : Substitute on first 10 lines
+    :%s/[Hh]ello/Hi/gc         : Confirm global substitutions
+    :s/Fortran/\U&/ 3          : Confirm global substitutions Uppercase “Fortran” on next 3 lines
 
+Example of multiple `ed` commands:
+
+```
 ed map.sh << EOF
 g/^ps/s//gmt &/p
 g/10 0 1 LB/s///p
@@ -347,22 +350,21 @@ s:G0/0/0:G255 -F+f10p,Helvetica+jLB:p
 w
 q
 EOF
+```
 
 ## grep-awk
 
 Use `pgrep` instead of `grep`
 
-Equivalent `grep´ and `awk` commands for pattern matching:
+Equivalent `grep` and `awk` commands for pattern matching:
 
     $ grep a input | grep b | grep -v c | grep d
-    $awk '/a/ && /b/ && !/c/ && /d/' input
+    $ awk '/a/ && /b/ && !/c/ && /d/' input
 
 
 Print every 10th line from a file:
 
     $ awk '!(NR % 10)' file
-
-
 
 ## camel case and underscore
 
