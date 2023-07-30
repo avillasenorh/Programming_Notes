@@ -107,6 +107,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#prompt">Prompt</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#human-readable-path">Human readable path:</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#pwd">pwd</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#type">type</a>
@@ -142,6 +144,28 @@
     <li class="toctree-l2"><a class="reference internal" href="#nl">nl</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#csplit">csplit</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ed">ed</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#grep-awk">grep-awk</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#camel-case-and-underscore">camel case and underscore</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ssh-related-commands">ssh-related commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#terminal-multiplexers">Terminal multiplexers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#miscellaneous-commands">Miscellaneous commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ffmpeg">ffmpeg</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#od-octal-dump">od: octal dump</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#download-videos">Download videos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unix-options">Unix options</a>
     </li>
     </ul>
                     </li>
@@ -248,6 +272,12 @@
 <h2 id="prompt">Prompt</h2>
 <p>Show terminal colors:</p>
 <pre><code>$ printf "\e[%dm%d dark\e[0m \e[%d;1m%d bold\e[0m\n" {30..37}{,,,}
+</code></pre>
+<h2 id="human-readable-path">Human readable path:</h2>
+<pre><code>$ echo "${PATH//:/$'\n'}"
+</code></pre>
+<p>In order to write this as an alias, replace <code>'</code> with <code>'"'"'</code>:</p>
+<pre><code>alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
 </code></pre>
 <h2 id="pwd">pwd</h2>
 <pre><code>$ pwd -L        # logical (e.g. soft link)
@@ -438,12 +468,6 @@ $ find * -maxdepth 0 -type d -name "[012]???" -print                      # this
 <pre><code>-k : do not remove output files if an error occurs
 -n : number of digits in output xx* files
 -s : do not output to stdout the number of lines of each file
-</code></pre>
-<h1 id="human-readable-path">Human readable path:</h1>
-<pre><code>$ echo "${PATH//:/$'\n'}"
-</code></pre>
-<p>In order to write this as an alias, replace <code>'</code> with <code>'"'"'</code>:</p>
-<pre><code>alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
 </code></pre>
 <h2 id="ed">ed</h2>
 <p>Addresses:</p>
