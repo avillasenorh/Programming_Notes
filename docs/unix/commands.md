@@ -63,6 +63,14 @@ Show terminal colors:
 
     $ printf "\e[%dm%d dark\e[0m \e[%d;1m%d bold\e[0m\n" {30..37}{,,,}
 
+## Human readable path:
+
+    $ echo "${PATH//:/$'\n'}"
+
+In order to write this as an alias, replace `'` with `'"'"'`:
+
+    alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
+
 ## pwd
 
     $ pwd -L		# logical (e.g. soft link)
@@ -312,14 +320,6 @@ splits file in parts using matching patterns
 -n : number of digits in output xx* files
 -s : do not output to stdout the number of lines of each file
 ```
-
-# Human readable path:
-
-    $ echo "${PATH//:/$'\n'}"
-
-In order to write this as an alias, replace `'` with `'"'"'`:
-
-    alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
 
 ## ed
 
