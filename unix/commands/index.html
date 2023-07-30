@@ -115,8 +115,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#which">which</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#compgen">compgen</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#stat">stat</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#file">file</a>
@@ -156,10 +154,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#terminal-multiplexers">Terminal multiplexers</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#miscellaneous-commands">Miscellaneous commands</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#ffmpeg">ffmpeg</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#ffmpeg">ffmpeg</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#od-octal-dump">od: octal dump</a>
     </li>
@@ -234,13 +230,12 @@
 <li>Never use awk if you can do it with sed;</li>
 <li>
 <p>Never use sed if you can do it with grep.“</p>
-<p>$ man hier (Unix directory structure)</p>
-<p>$ compgen -b </p>
+<p>$ man hier      # describes Unix directory structure
+$ man builtin   # describes built-in commands
+$ compgen -b    # list built-in commands
+$ compgen -c    # list available commands and aliases</p>
 </li>
 </ul>
-<p>Lists built-in commands. See also:</p>
-<pre><code>$ man builtin
-</code></pre>
 <h2 id="command-line-shortcuts">Command-line shortcuts</h2>
 <p><code>Ctrl-u</code> to delete current command,<br>
 <code>Ctrl-l</code> to "clear" output<br>
@@ -294,9 +289,6 @@ ls is aliased to `ls -GFh'
 ls is /bin/ls
 </code></pre>
 <h2 id="which">which</h2>
-<h2 id="compgen">compgen</h2>
-<pre><code>$ compgen -c   # lists all available command, aliases, ...
-</code></pre>
 <h2 id="stat">stat</h2>
 <pre><code class="language-console">$ stat -x gmt.conf
   File: &quot;gmt.conf&quot;
@@ -548,12 +540,14 @@ feh         : view image files
                         n = next image
 
 </code></pre>
-<h3 id="ffmpeg">ffmpeg</h3>
+<h2 id="ffmpeg">ffmpeg</h2>
 <p>Here is how to create a slideshow from images (1.jpg,2.jpg..,8.jpg) with FFmpeg on your Linux or Unix box:</p>
 <pre><code>$ ffmpeg -y -r 1/3 -framerate 1 -i %1d.jpg  -c:v libx264 -vf fps=5 -pix_fmt yuv420p out.mp4
 </code></pre>
 <h2 id="od-octal-dump">od: octal dump</h2>
-<pre><code class="language-console">$ od -f pm.0         # outputs number of a binary file interpreted as floats (e.g. PStomo model file)
+<p>To output the contents of a binary file interpreted as floats (e.g. PStomo model file).
+Repeated lines are indicated by an asterisk <code>*</code>.</p>
+<pre><code class="language-console">$ od -f pm.0
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 *
 0006740     5.080000e+00    5.080000e+00    5.080000e+00    5.080000e+00
@@ -578,8 +572,8 @@ feh         : view image files
 *
 0230500
 </code></pre>
-<p>Repeated lines are indicated by an asterisk <code>*</code>.</p>
-<pre><code class="language-console">$ od -f -v pm.0    # outputs all lines included repeated ones
+<p>To output all lines included repeated ones:</p>
+<pre><code class="language-console">$ od -f -v pm.0
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 0000020     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 0000040     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
