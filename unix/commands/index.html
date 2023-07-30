@@ -88,6 +88,8 @@
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
                     </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../tools/parallel/">Parallel</a>
+                    </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
@@ -102,6 +104,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#command-line-shortcuts">Command-line shortcuts</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#arguments">Arguments</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prompt">Prompt</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#pwd">pwd</a>
     </li>
@@ -241,6 +245,10 @@
 <h2 id="arguments">Arguments</h2>
 <p><code>!^</code> is the first argument of the previous command
 <code>!$</code> is the last argument of the previous command</p>
+<h2 id="prompt">Prompt</h2>
+<p>Show terminal colors:</p>
+<pre><code>$ printf "\e[%dm%d dark\e[0m \e[%d;1m%d bold\e[0m\n" {30..37}{,,,}
+</code></pre>
 <h2 id="pwd">pwd</h2>
 <pre><code>$ pwd -L        # logical (e.g. soft link)
 $ pwd -P        # physical
@@ -459,9 +467,14 @@ w
 q
 EOF</p>
 <h2 id="grep-awk">grep-awk</h2>
-<p>grep a input | grep b | grep -v c | grep d
-awk '/a/ &amp;&amp; /b/ &amp;&amp; !/c/ &amp;&amp; /d/' input</p>
 <p>Use <code>pgrep</code> instead of <code>grep</code></p>
+<p>Equivalent <code>grep´ and</code>awk` commands for pattern matching:</p>
+<pre><code>$ grep a input | grep b | grep -v c | grep d
+$awk '/a/ &amp;&amp; /b/ &amp;&amp; !/c/ &amp;&amp; /d/' input
+</code></pre>
+<p>Print every 10th line from a file:</p>
+<pre><code>$ awk '!(NR % 10)' file
+</code></pre>
 <h2 id="camel-case-and-underscore">camel case and underscore</h2>
 <pre><code>$ echo "hello_world" | sed -r 's/([a-z]+)_([a-z])([a-z]+)/\1\U\2\L\3/'
 $ echo thisIsATest | sed -r 's/([A-Z])/_\L\1/g'
@@ -486,27 +499,32 @@ $ ssh-keygen -b 4096 -t rsa
 <li>mtm</li>
 </ol>
 <h2 id="miscellaneous-commands">Miscellaneous commands</h2>
-<p>seq         : generates sequence of numbers</p>
-<p>rev         : reverses lines of a file (or stdin)</p>
-<p>feh         : view image files</p>
-<pre><code>          feh -F -Y -z -D 3.5 *.jpg
+<pre><code>seq         : generates sequence of numbers
 
-          feh 
-          -F full screen
-          -Y hide pointer
-          -z randomize
-          -D seconds
+rev         : reverses lines of a file (or stdin)
 
-          commands: ctrl + delete (fn + ctrl + backspace) = deletes file from disk
+feh         : view image files
 
-                    h = pause/continue
-                    p = previous image
-                    n = next image
+              feh -F -Y -z -D 3.5 *.jpg
+
+              feh 
+              -F full screen
+              -Y hide pointer
+              -z randomize
+              -D seconds
+
+              commands: ctrl + delete (fn + ctrl + backspace) = deletes file from disk
+
+                        h = pause/continue
+                        p = previous image
+                        n = next image
+
 </code></pre>
-<p>ffmpeg</p>
+<h3 id="ffmpeg">ffmpeg</h3>
 <p>Here is how to create a slideshow from images (1.jpg,2.jpg..,8.jpg) with FFmpeg on your Linux or Unix box:</p>
-<p>$ ffmpeg -y -r 1/3 -framerate 1 -i %1d.jpg  -c:v libx264 -vf fps=5 -pix_fmt yuv420p out.mp4</p>
-<h2 id="od-octal-dum">od          : octal dum</h2>
+<pre><code>$ ffmpeg -y -r 1/3 -framerate 1 -i %1d.jpg  -c:v libx264 -vf fps=5 -pix_fmt yuv420p out.mp4
+</code></pre>
+<h2 id="od-octal-dump">od: octal dump</h2>
 <pre><code class="language-console">$ od -f pm.0         # outputs number of a binary file interpreted as floats (e.g. PStomo model file)
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 *
@@ -532,7 +550,7 @@ $ ssh-keygen -b 4096 -t rsa
 *
 0230500
 </code></pre>
-<p>Repeated lines are indicated by '*'</p>
+<p>Repeated lines are indicated by an asterisk <code>*</code>.</p>
 <pre><code class="language-console">$ od -f -v pm.0    # outputs all lines included repeated ones
 0000000     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
 0000020     4.720000e+00    4.720000e+00    4.720000e+00    4.720000e+00
