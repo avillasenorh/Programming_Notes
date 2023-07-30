@@ -446,31 +446,35 @@ $ find * -maxdepth 0 -type d -name "[012]???" -print                      # this
 <pre><code>alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
 </code></pre>
 <h2 id="ed">ed</h2>
-<p>Addresses
-i       : line i
+<p>Addresses:</p>
+<pre><code>i       : line i
 $       : last line
 1,$ = % : all lines in file
 i,j     : lines i through j
-.       : current line</p>
-<p>Commands</p>
-<p>:0r $HOME/data             : read file in at top of current file
+.       : current line
+</code></pre>
+<p>Commands:</p>
+<pre><code>:0r $HOME/data             : read file in at top of current file
 :g/Name:/s/tom/Tom/        : substitute tom for Tom in lines that match /Name:/
 :1,10s/yes/no/g            : Substitute on first 10 lines
 :%s/[Hh]ello/Hi/gc         : Confirm global substitutions
-:s/Fortran/\U&amp;/ 3          : Confirm global substitutions Uppercase “Fortran” on next 3 lines</p>
-<p>ed map.sh &lt;&lt; EOF
+:s/Fortran/\U&amp;/ 3          : Confirm global substitutions Uppercase “Fortran” on next 3 lines
+</code></pre>
+<p>Example of multiple <code>ed</code> commands:</p>
+<pre><code>ed map.sh &lt;&lt; EOF
 g/^ps/s//gmt &amp;/p
 g/10 0 1 LB/s///p
 /pstext/
 s:G0/0/0:G255 -F+f10p,Helvetica+jLB:p
 w
 q
-EOF</p>
+EOF
+</code></pre>
 <h2 id="grep-awk">grep-awk</h2>
 <p>Use <code>pgrep</code> instead of <code>grep</code></p>
-<p>Equivalent <code>grep´ and</code>awk` commands for pattern matching:</p>
+<p>Equivalent <code>grep</code> and <code>awk</code> commands for pattern matching:</p>
 <pre><code>$ grep a input | grep b | grep -v c | grep d
-$awk '/a/ &amp;&amp; /b/ &amp;&amp; !/c/ &amp;&amp; /d/' input
+$ awk '/a/ &amp;&amp; /b/ &amp;&amp; !/c/ &amp;&amp; /d/' input
 </code></pre>
 <p>Print every 10th line from a file:</p>
 <pre><code>$ awk '!(NR % 10)' file
