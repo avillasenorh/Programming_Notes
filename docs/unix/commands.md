@@ -57,6 +57,12 @@ open long and complicated Linux or Unix commands in a text editor. Press:
 `!^` is the first argument of the previous command
 `!$` is the last argument of the previous command
 
+## Prompt
+
+Show terminal colors:
+
+    $ printf "\e[%dm%d dark\e[0m \e[%d;1m%d bold\e[0m\n" {30..37}{,,,}
+
 ## pwd
 
     $ pwd -L		# logical (e.g. soft link)
@@ -344,10 +350,19 @@ EOF
 
 ## grep-awk
 
-grep a input | grep b | grep -v c | grep d
-awk '/a/ && /b/ && !/c/ && /d/' input
-
 Use `pgrep` instead of `grep`
+
+Equivalent `grep´ and `awk` commands for pattern matching:
+
+    $ grep a input | grep b | grep -v c | grep d
+    $awk '/a/ && /b/ && !/c/ && /d/' input
+
+
+Print every 10th line from a file:
+
+    $ awk '!(NR % 10)' file
+
+
 
 ## camel case and underscore
 
@@ -379,6 +394,7 @@ Keep your terminal sessions alive and well under `Linux/*BSD/macOS` and Unix-lik
 
 ## Miscellaneous commands
 
+```
 seq         : generates sequence of numbers
 
 rev         : reverses lines of a file (or stdin)
@@ -399,14 +415,16 @@ feh         : view image files
                         p = previous image
                         n = next image
 
-ffmpeg
+```
+
+### ffmpeg
 
 Here is how to create a slideshow from images (1.jpg,2.jpg..,8.jpg) with FFmpeg on your Linux or Unix box:
 
-$ ffmpeg -y -r 1/3 -framerate 1 -i %1d.jpg  -c:v libx264 -vf fps=5 -pix_fmt yuv420p out.mp4
+    $ ffmpeg -y -r 1/3 -framerate 1 -i %1d.jpg  -c:v libx264 -vf fps=5 -pix_fmt yuv420p out.mp4
 
 
-## od          : octal dum
+## od: octal dump
 
 ```console
 $ od -f pm.0         # outputs number of a binary file interpreted as floats (e.g. PStomo model file)
@@ -435,7 +453,7 @@ $ od -f pm.0         # outputs number of a binary file interpreted as floats (e.
 0230500
 ```
 
-Repeated lines are indicated by '*'
+Repeated lines are indicated by an asterisk `*`.
 
 ```console
 $ od -f -v pm.0    # outputs all lines included repeated ones

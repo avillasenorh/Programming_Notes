@@ -21,6 +21,7 @@ nav:
         - Docker: 'tools/docker.md'
         - CMake: 'tools/cmake.md'
         - Git: 'tools/git.md'
+        - Parallel: 'tools/parallel.md'
         - tmux: 'tools/tmux.md'
         - vim: 'tools/vim.md'
     - Unix:
