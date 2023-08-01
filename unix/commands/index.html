@@ -109,6 +109,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#human-readable-path">Human readable path:</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#history">history</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#pwd">pwd</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#type">type</a>
@@ -273,6 +275,10 @@ $ compgen -c    # list available commands and aliases</p>
 </code></pre>
 <p>In order to write this as an alias, replace <code>'</code> with <code>'"'"'</code>:</p>
 <pre><code>alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
+</code></pre>
+<h2 id="history">history</h2>
+<p>Clear your <code>bash</code> history:</p>
+<pre><code>$ history -c &amp;&amp; history -w
 </code></pre>
 <h2 id="pwd">pwd</h2>
 <pre><code>$ pwd -L        # logical (e.g. soft link)
