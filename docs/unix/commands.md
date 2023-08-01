@@ -69,6 +69,12 @@ In order to write this as an alias, replace `'` with `'"'"'`:
 
     alias human_path='echo "${PATH//:/$'"'"'\n'"'"'}"'
 
+## history
+
+Clear your `bash` history:
+
+    $ history -c && history -w
+
 ## pwd
 
     $ pwd -L		# logical (e.g. soft link)
