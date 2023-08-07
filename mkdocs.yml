@@ -30,7 +30,7 @@ nav:
         - Dotfiles: 'unix/dotfiles.md'
         - Installation: 'unix/installation.md'
     - macOS:
-        - Monterrey installation: 'macos/monterrey.md'
+        - Ventura installation: 'macos/ventura.md'
         - MacPorts: 'macos/macports.md'
         - Python installation: 'macos/python.md'
         - Tips: 'macos/tips.md'

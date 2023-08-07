@@ -1,4 +1,4 @@
-## Fresh macOS Monterrey installation
+## Fresh macOS Ventura installation
 
 ### 1. Go to App Store to get installer
 
@@ -14,21 +14,24 @@ Select `View > Show all devices`. This makes available the `GUID partition` opti
 Select the first option for disk format. **WARNING**: do not use APFS (some tutorials are wrong).
 
 Call the new partition on the pen drive `Untitled`. Later it will be latter renamed to
-"Install macOS Monterrey".
+"Install macOS Venture".
 
 ### 3. Make the pen drive bootable
 
 Enter the following command:
 
 ```
-$ sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled
+$ sudo /Applications/Install\ macOS\ Ventura.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled
+Password:
 Ready to start.
 To continue we need to erase the volume at /Volumes/Untitled.
 If you wish to continue type (Y) then press return: Y
 Erasing disk: 0%... 10%... 20%... 30%... 100%
+Copying essential files...
+Copying the macOS RecoveryOS...
 Making disk bootable...
 Copying to disk: 0%... 10%... 20%... 30%... 40%... 50%... 60%... 70%... 80%... 90%... 100%
-Install media now available at "/Volumes/Install macOS Monterey"
+Install media now available at "/Volumes/Install macOS Ventura"
 ```
 
 ### 4. Allow booting from an external disk
