@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Monterrey installation - Programming and Software Notes</title>
+  <title>Ventura installation - Programming and Software Notes</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Monterrey installation";
-    var mkdocs_page_input_path = "macos/monterrey.md";
+    var mkdocs_page_name = "Ventura installation";
+    var mkdocs_page_input_path = "macos/ventura.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -108,7 +108,7 @@
                 </ul>
                 <p class="caption"><span class="caption-text">macOS</span></p>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Monterrey installation</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Ventura installation</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#1-go-to-app-store-to-get-installer">1. Go to App Store to get installer</a>
     </li>
@@ -174,7 +174,7 @@
         
       
     
-    <li>Monterrey installation</li>
+    <li>Ventura installation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -186,7 +186,7 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="fresh-macos-monterrey-installation">Fresh macOS Monterrey installation</h2>
+                <h2 id="fresh-macos-ventura-installation">Fresh macOS Ventura installation</h2>
 <h3 id="1-go-to-app-store-to-get-installer">1. Go to App Store to get installer</h3>
 <p>Once the download has completed it will ask you to install the update.
 Do not press continue, instead quit the program.</p>
@@ -195,17 +195,20 @@ Do not press continue, instead quit the program.</p>
 <p>Select <code>View &gt; Show all devices</code>. This makes available the <code>GUID partition</code> option.</p>
 <p>Select the first option for disk format. <strong>WARNING</strong>: do not use APFS (some tutorials are wrong).</p>
 <p>Call the new partition on the pen drive <code>Untitled</code>. Later it will be latter renamed to
-"Install macOS Monterrey".</p>
+"Install macOS Venture".</p>
 <h3 id="3-make-the-pen-drive-bootable">3. Make the pen drive bootable</h3>
 <p>Enter the following command:</p>
-<pre><code>$ sudo /Applications/Install\ macOS\ Monterey.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled
+<pre><code>$ sudo /Applications/Install\ macOS\ Ventura.app/Contents/Resources/createinstallmedia --volume /Volumes/Untitled
+Password:
 Ready to start.
 To continue we need to erase the volume at /Volumes/Untitled.
 If you wish to continue type (Y) then press return: Y
 Erasing disk: 0%... 10%... 20%... 30%... 100%
+Copying essential files...
+Copying the macOS RecoveryOS...
 Making disk bootable...
 Copying to disk: 0%... 10%... 20%... 30%... 40%... 50%... 60%... 70%... 80%... 90%... 100%
-Install media now available at &quot;/Volumes/Install macOS Monterey&quot;
+Install media now available at &quot;/Volumes/Install macOS Ventura&quot;
 </code></pre>
 <h3 id="4-allow-booting-from-an-external-disk">4. Allow booting from an external disk</h3>
 <p>Reboot the computer in <em>recovery mode</em> by pressing <code>cmd + R</code>.
