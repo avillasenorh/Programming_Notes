@@ -132,6 +132,10 @@ List all directories starting with an uppercase letter:
 
     $ ls -1d [[:upper:]]*
 
+List only subdirectories:
+
+    $ \ls -d */
+
 To rename all `*.bak` to `*.txt` on a Linux/Unix/OSX (bash shell)
 
     $ for j in *.bak; do mv -v -- "$j" "${j%.bak}.txt"; done
@@ -153,6 +157,17 @@ Define a variable and run a script.
 The variable is only used inside the script
 
     $ MYVAR=value ./script.sh
+
+## paste
+
+Concatenate files column-wise
+
+```
+paste -d'|' <(seq 3) <(seq 4 5) <(seq 6 8)
+1|4|6
+2|5|7
+3||8
+```
 
 ## eval
 
