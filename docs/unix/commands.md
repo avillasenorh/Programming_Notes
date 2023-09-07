@@ -416,6 +416,10 @@ seq         : generates sequence of numbers
 
 rev         : reverses lines of a file (or stdin)
 
+pr          : convert text files for printing
+
+until       : $ until cd /usr/src/usr.bin/vi ; do sleep 1; done # repeat command until it works
+
 feh         : view image files
 
               feh -F -Y -z -D 3.5 *.jpg
