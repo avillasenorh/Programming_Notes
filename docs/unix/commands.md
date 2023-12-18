@@ -276,25 +276,27 @@ can also use k, M, G
     $ find . -type f -name "*.php" ! -perm 644 -print  # this one too
     $ find . -type f -user iber -print
 
-- Executing commands and actions with find!!!!
+Executing commands and actions with find!!!!
 
     $ find . -type f -name "*.SAC" -exec /bin/rm -f {} \;
 
     $ find . -type f -user root -exec chown iber {} \; # runs a chown command for each file
+
     $ find . -type f -user root -exec chown iber {} \+ # runs a single chown command for all files 
 
     $ find . -type f -name "*.c" -exec cat {} \;>all_c_files.txt # concatenate all C files in a single file (note >, not >> !!)
 
     $ find . -type f -mtime +10 -name "*.txt" -exec cp {} OLD  \;
+
     $ find . -type f -name "*.txt" -exec printf "Text file: %s\n" {} \;
 
     $ find devel/source_path  \( -name ".git" -prune \) -o \( -type f -print\) # ignore directory .git
 
     $ find / -type f -printf '%T+ %p\n' | sort | head -n 1   # Find oldest file in your filesystem
 
--maxdepth 1 : does not go into subdirectories
+Option `-maxdepth 1` indicates not to go into subdirectories
 
-The find action -printf '%P\n' prints the name without the starting directory,
+The find action `-printf '%P\n'` prints the name without the starting directory,
 meaning no ./ is present to need to be stripped.
 
     $ find . -maxdepth 1 -type d -name "[012]???" -printf "%P\n"              # does not work in macOS
@@ -304,10 +306,11 @@ meaning no ./ is present to need to be stripped.
     $ find * -maxdepth 0 -type d -name "[012]???" -print                      # this also works!!!! but maxdepth is 0!!!
 
 
-- Find empty directories and remove then:
+Find empty directories and remove them:
+
     $ find . -type d -empty -delete
 
-- Consolidate ("flatten") all subdirectories in one directory
+Consolidate ("flatten") all subdirectories in one directory
 
     $ find TargetDirectory/ -mindepth 2 -type f -exec mv -i '{}' TargetDirectory/ ';'
 
