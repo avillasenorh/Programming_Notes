@@ -412,21 +412,25 @@ $ find . -type f -size 2k        # Files having size 2 kilobytes
 $ find . -type f -name "*.php" ! -perm 644 -print  # this one too
 $ find . -type f -user iber -print
 </code></pre>
-<ul>
-<li>
 <p>Executing commands and actions with find!!!!</p>
-<p>$ find . -type f -name "*.SAC" -exec /bin/rm -f {} \;</p>
-<p>$ find . -type f -user root -exec chown iber {} \; # runs a chown command for each file
-$ find . -type f -user root -exec chown iber {} + # runs a single chown command for all files </p>
-<p>$ find . -type f -name "*.c" -exec cat {} \;&gt;all_c_files.txt # concatenate all C files in a single file (note &gt;, not &gt;&gt; !!)</p>
-<p>$ find . -type f -mtime +10 -name "<em>.txt" -exec cp {} OLD  \;
-$ find . -type f -name "</em>.txt" -exec printf "Text file: %s\n" {} \;</p>
-<p>$ find devel/source_path  <script type="math/tex"> -name ".git" -prune </script> -o <script type="math/tex"> -type f -print</script> # ignore directory .git</p>
-<p>$ find / -type f -printf '%T+ %p\n' | sort | head -n 1   # Find oldest file in your filesystem</p>
-</li>
-</ul>
-<p>-maxdepth 1 : does not go into subdirectories</p>
-<p>The find action -printf '%P\n' prints the name without the starting directory,
+<pre><code>$ find . -type f -name "*.SAC" -exec /bin/rm -f {} \;
+
+$ find . -type f -user root -exec chown iber {} \; # runs a chown command for each file
+
+$ find . -type f -user root -exec chown iber {} \+ # runs a single chown command for all files
+
+$ find . -type f -name "*.c" -exec cat {} \;&gt;all_c_files.txt # concatenate all C files in a single file (note &gt;, not &gt;&gt; !!)
+
+$ find . -type f -mtime +10 -name "*.txt" -exec cp {} OLD  \;
+
+$ find . -type f -name "*.txt" -exec printf "Text file: %s\n" {} \;
+
+$ find devel/source_path  \( -name ".git" -prune \) -o \( -type f -print\) # ignore directory .git
+
+$ find / -type f -printf '%T+ %p\n' | sort | head -n 1   # Find oldest file in your filesystem
+</code></pre>
+<p>Option <code>-maxdepth 1</code> indicates not to go into subdirectories</p>
+<p>The find action <code>-printf '%P\n'</code> prints the name without the starting directory,
 meaning no ./ is present to need to be stripped.</p>
 <pre><code>$ find . -maxdepth 1 -type d -name "[012]???" -printf "%P\n"              # does not work in macOS
 $ find . -maxdepth 1 -type d -name "[012]???" -print | sed "s|^\./||"     # works everywhere
@@ -434,16 +438,12 @@ $ find . -maxdepth 1 -type d -name "[012]???" -print | cut -c3-
 
 $ find * -maxdepth 0 -type d -name "[012]???" -print                      # this also works!!!! but maxdepth is 0!!!
 </code></pre>
-<ul>
-<li>
-<p>Find empty directories and remove then:
-    $ find . -type d -empty -delete</p>
-</li>
-<li>
+<p>Find empty directories and remove them:</p>
+<pre><code>$ find . -type d -empty -delete
+</code></pre>
 <p>Consolidate ("flatten") all subdirectories in one directory</p>
-<p>$ find TargetDirectory/ -mindepth 2 -type f -exec mv -i '{}' TargetDirectory/ ';'</p>
-</li>
-</ul>
+<pre><code>$ find TargetDirectory/ -mindepth 2 -type f -exec mv -i '{}' TargetDirectory/ ';'
+</code></pre>
 <h2 id="cut">cut</h2>
 <pre><code>$ echo a:b:c | cut -d: -f1
 </code></pre>
