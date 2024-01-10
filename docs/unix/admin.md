@@ -115,6 +115,12 @@ Setup password for mysql root
 
     ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root_password';
 
+## Mount exFAT volumes in Ubuntu Linux
+
+Ubuntu by default is not able to mount disks formatted in exFAT
+
+    $ sudo apt-get install exfat-fuse exfat-utils
+
 ## Better Linux tools for sysadmin
 
 ```
