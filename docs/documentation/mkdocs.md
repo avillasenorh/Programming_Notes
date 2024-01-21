@@ -19,9 +19,13 @@ The applications are installed using the command `pipx install`:
 
 Sometimes the applications require additional packages (e.g. to add some functionalities). It is 
 possible to install additional packages in an existing `pipx` application using `pipx runpip`.
-To install the `python-markdown-math` package that adds
+To install the `python-markdown-math` package that adds math expressions using LaTeX:
 
     $ pipx runpip mkdocs install python-markdown-math
+
+To install the [Material](https://squidfunk.github.io/mkdocs-material/) theme:
+
+    $ pipx runpip mkdocs install mkdocs-material
 
 ## Installation using `conda`
 
@@ -172,11 +176,13 @@ package. This is done adding the following lines:
 site_name: My Docs
 
 extra_javascript:
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
     - mdx_math
 ```
+WARNING: version of `mathjax` changes, so using an older version might be incompatible
+with newer versions of `MkDocs`.
 
 Test web page editing docs/index.md:
 
@@ -202,14 +208,4 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 - MkDocs [GitBook theme](https://gitlab.com/lramage/mkdocs-gitbook-theme)
 - MkDocs [plugins](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Plugins)
 - [mkdocstrings](https://github.com/mkdocstrings/mkdocstrings)
-
-
-
-
- 
-
-
-
-
-
 

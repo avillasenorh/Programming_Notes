@@ -2,7 +2,8 @@
 
 ![xkcd Python environment](https://imgs.xkcd.com/comics/python_environment.png)
 
-Initially an old system version of Python is installed:
+In older versions of the operating system (before Monterrey Version 12.3, early 2022),
+an old system version of Python was installed:
 
 ```
 $ /usr/bin/python -V
@@ -21,54 +22,57 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-This is in fact a link to:
+This was in fact a link to:
 
     /usr/bin/python@ -> ../../System/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7
 
-As stated in the warning, it is expected that macOS Monterrey Version 12.3 (early 2022)
-will not include this Python 2.7 distribution.
+Since this version of Python was only intended for use by the operating system, no `pip` command
+associated with it.
 
-There is no `pip` command associated with this version of Python.
+As stated in the warning, newer versions of macOS do not include this Python 2.7 distribution.
 
-In `/usr/bin` there is also a newer version of Python:
+In `/usr/bin` there is a `python3` command with a newer version of Python:
 
 ```
 $ /usr/bin/python3 -V
-Python 3.8.9
+Python 3.9.6
 
 $ /usr/bin/python3
-Python 3.8.9 (default, Oct 26 2021, 07:25:54)
-[Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Python 3.9.6 (default, Dec  7 2023, 05:42:47)
+[Clang 15.0.0 (clang-1500.1.0.2.5)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-There is a `pip3` command associated with this version of Python:
+In the same location there is a `pip3` command associated with this version of Python:
 
 ```
 $ /usr/bin/pip3 -V
-pip 20.2.3 from /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.8/lib/python3.8/site-packages/pip (python 3.8)
+pip 21.2.4 from /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site-packages/pip (python 3.9)
 ```
 
-However none of these versions should be used (only used by operating systems) and do not
-install packages!
+These pre-installed versions of Python are only intended for use by the operating system,
+so they should not be used (and no packages should be installed using `pip3`).
 
-Therefore we need to install other distributions of Python.
+Therefore, in order to use Python for software developement we need to
+install other distributions of Python.
 
 ### PSF Python
 
-In addition to system python (not used) the first Python distribution to install
-is that of the [PSF](https://www.python.org). For macOS we select a
+In addition to system Python (not to be used) the first Python distribution to install
+is that of the [PSF](https://www.python.org). For macOS we will select the
 macOS 64-bit universal2 installer (`.dmg` file).
 
-The installation is simple, but it requires a set of SSL root certificates:
+The installation is simple, and when completed you should see a window similar
+to this one (depending on the version of Python and of the operating system):
 
 ![install Python certificates](python_certificates.png)
 
-When clicking in the `Install Certificates` icon:
+This window includes a message that indicates that a set of SSL root certificates are required.
+When clicking in the `Install Certificates` icon in a Finder window the following command 
+will run:
 
 ```
-
 $ ./Install\ Certificates.command
  -- pip install --upgrade certifi
 Collecting certifi
@@ -88,93 +92,70 @@ You should consider upgrading via the '/Library/Frameworks/Python.framework/Vers
 The PSF installation adds the following lines to your `.bash_profile`:
 
 ```
-# Setting PATH for Python 3.10
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
+# Setting PATH for Python 3.12
+PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
 export PATH
 ```
 
-The resulting `$PATH` variable looks like:
+The resulting `$PATH` variable will look similar to:
 
 ```
-/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+/Library/Frameworks/Python.framework/Versions/3.12/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 ```
 
 And now we have:
 
 ```
-$ command -v python3
-/Library/Frameworks/Python.framework/Versions/3.10/bin/python3
+$ command -v python
+/Library/Frameworks/Python.framework/Versions/3.12/bin/python
 
-$ python3
-Python 3.10.1 (v3.10.1:2cd268a3a9, Dec  6 2021, 14:28:59) [Clang 13.0.0 (clang-1300.0.29.3)] on darwin
+$ python
+Python 3.12.1 (v3.12.1:2305ca5144, Dec  7 2023, 17:23:38) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-WARNING: the `python` command still points to the 2.7 version, so we have to use `python3`
+In the most recent versions of macOS, after installing the PSF Python,
+the commands `python` and `python3` are aliases to the current version (in this example `python3.12`).
 
-### Upgrade pip/pip3
+### Upgrade `pip`
 
 When installing the SSL root certificates we obtained a warning that
-a newer version of `pip` is available. To install this new version:
-```
-$ command -v pip3
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
-
-$ command -v python3
-/Library/Frameworks/Python.framework/Versions/3.10/bin/python3
-
-$ pip3 --version
-pip 21.2.4 from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pip (python 3.10)
-
-$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
-pip3     pip3.10
-
-$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
--rwxrwxr-x  1 root  admin   270B Dec 22 17:48 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3*
-
-$ /Library/Frameworks/Python.framework/Versions/3.10/bin/python3.10 -m pip install --upgrade pip
-Requirement already satisfied: pip in /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages (21.2.4)
-Collecting pip
-  Downloading pip-21.3.1-py3-none-any.whl (1.7 MB)
-     |████████████████████████████████| 1.7 MB 1.8 MB/s
-Installing collected packages: pip
-  Attempting uninstall: pip
-    Found existing installation: pip 21.2.4
-    Uninstalling pip-21.2.4:
-      Successfully uninstalled pip-21.2.4
-Successfully installed pip-21.3.1
-
-$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
--rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3*
-
-$ ls -l /Library/Frameworks/Python.framework/Versions/3.10/bin/pip*
--rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip*
--rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3*
--rwxr-xr-x  1 antonio  admin   270B Dec 22 18:15 /Library/Frameworks/Python.framework/Versions/3.10/bin/pip3.10*
-
-$ pip3 --version
-pip 21.3.1 from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pip (python 3.10)
-
-$ pip --version
-pip 21.3.1 from /Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/pip (python 3.10)
-```
-
-Now we have:
-
+a newer version of `pip` was available. To install this new version run:
 ```
 $ command -v pip
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip
+/Library/Frameworks/Python.framework/Versions/3.12/bin/pip
 
-$ command -v pip3
-/Library/Frameworks/Python.framework/Versions/3.10/bin/pip3
+$ pip --version
+pip 23.3.1 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pip (python 3.12)
+
+$ $ python -m pip install --upgrade pip
+Requirement already satisfied: pip in /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages (23.3.1)
+Collecting pip
+  Downloading pip-23.3.2-py3-none-any.whl.metadata (3.5 kB)
+Downloading pip-23.3.2-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 4.0 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 23.3.1
+    Uninstalling pip-23.3.1:
+      Successfully uninstalled pip-23.3.1
+Successfully installed pip-23.3.2
+
+$ pip --version
+pip 23.3.2 from /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/pip (python 3.12)
 ```
+
+In the folder where the `python` and `pip` commands are located 
+(`/Library/Frameworks/Python.framework/Versions/3.12/bin`) we can find
+`pip`, `pip3`, and `pip3.12`. All of them are identical Python scripts.
 
 ### Install Anaconda
 
-Adds to `.bash_profile`:
+Download the installer from the [Anaconda](https://www.anaconda.com/download) web site.
+Select the apropriate version: Intel or M1/M2/M3.
 
+After running the installer, the following lines are added to `.bash_profile`:
 
 ```
 # >>> conda initialize >>>
@@ -193,32 +174,61 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-Path now looks like:
+The variable `$PATH` now will look similar to:
 
 ```
 /Users/antonio/opt/anaconda3/bin:/Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
 ```
 
-To prevent the activation of the base environment:
+With this configuration, each new shell or terminal will activate the Anaconda `base` environment.
+To prevent the activation by default, run the following command:
 
     $ conda config --set auto_activate_base false
 
-This creates a file .condarc with the following content:
+This creates a file named `.condarc` in the `$HOME` directory with the following line:
 
     auto_activate_base: false
 
-
-Now, when opening a new shell `$PATH` is:
+Now, when opening a new shell the variable `$PATH` will look similar to:
 
 ```
 /Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
 ```
 
+After making these changes, if you want to activate the `base` environment type:
+
+    $ conda activate [base]
+
+Then the prompt will change to:
+
+    (base) $
+
+Periodically update `conda`:
+
+
 ### Install packages with pipx
 
-```
-$ sudo port install pipx
+For some Python packages we are only interested in the commands that they provide, and
+we do not need to import their packages or modules. In this case, instead of manually creating
+an specific environment for each package and installing it with `pip`, it is possible to
+install it using `pipx`. Under the hood `pipx` creates an environment for each package
+and makes the commands available via soft links.
 
+First verify if `pipx` is already available, for example from a recent PSF Python distribution:
+
+    $ which pipx
+    /Library/Frameworks/Python.framework/Versions/3.12/bin/pipx
+
+If it is not available, it can be installed with `MacPorts`:
+
+    $ sudo port install pipx
+
+Examples of packages that can be installed with `pipx` are:
+
+- `black`: a Python code formatter
+- `MkDocs`: a package for creating documentation
+
+```
 $ pipx install black
   installed package black 21.12b0, installed using Python 3.9.9
   These apps are now globally available
@@ -229,7 +239,16 @@ $ pipx install black
     `pipx ensurepath` to automatically add it, or manually modify your PATH in your shell's config file (i.e. ~/.bashrc).
 done! ✨ 🌟 ✨
 ```
+The commands installed with `pipx` (actually soft links to them) are located in
+`$HOME/.local/bin`. Therefore this directory must be added to the `$PATH` variable
+(e.g. modifying `.bashrc`).
 
-Modify `.bashrc` to add `/Users/antonio/.local/bin`
+Sometimes a package installed with `pipx` might require additional packages to add
+some features or capabilities. These additional packages must be installed in the specific
+environment of the original package. This can be achieved with the `runpip` option.
 
+For example, to add math capabilities and the Material theme to `MkDocs` run:
+
+    $ pipx runpip mkdocs install python-markdown-math
+    $ pipx runpip mkdocs install mkdocs-material
 

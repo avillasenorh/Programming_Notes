@@ -30,6 +30,7 @@ nav:
         - Dotfiles: 'unix/dotfiles.md'
         - Installation: 'unix/installation.md'
     - macOS:
+        - Sonoma installation: 'macos/sonoma.md'
         - Ventura installation: 'macos/ventura.md'
         - MacPorts: 'macos/macports.md'
         - Python installation: 'macos/python.md'
@@ -38,9 +39,10 @@ nav:
         - Admin: 'macos/admin.md'
 
 extra_javascript:
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
+    - attr_list
     - mdx_math
 
 theme: readthedocs
