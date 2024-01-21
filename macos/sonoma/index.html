@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Sonoma installation - Programming and Software Notes</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Sonoma installation";
+        var mkdocs_page_input_path = "macos/sonoma.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Programming and Software Notes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../documentation/mkdocs/">MkDocs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../documentation/sphinx/">Sphinx</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../documentation/doxygen/">Doxygen</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../documentation/latex/">LaTeX</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">GMT</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt5/">GMT5</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gmt/gmt6/">GMT6</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../gmt/pygmt/">pyGMT</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Seismology</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../seismology/data_requests/">Data requests</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../seismology/seisan/">SEISAN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../seismology/obspy/">ObsPy</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Programming</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../programming/cuda/">CUDA</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/docker/">Docker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/cmake/">CMake</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/git/">Git</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/parallel/">Parallel</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/tmux/">tmux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tools/vim/">vim</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Unix</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unix/admin/">Admin</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unix/commands/">Commands</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unix/dotfiles/">Dotfiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../unix/installation/">Installation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">macOS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Sonoma installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-inmediately-after-installation">1. Inmediately after installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#change-setting-for-macos-and-applications">Change setting for macOS and applications</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#install-iterm2">Install iTerm2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set-default-shell-to-bash">Set default shell to bash</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configure-mail-accounts">Configure Mail accounts</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-install-development-packages">2. Install development packages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#xcode">XCode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#xquartz">XQuartz</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gcc-cc-and-fortran-compilers">GCC C/C++ and Fortran compilers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setup-dotfiles">Setup dotfiles</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#macports">MacPorts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#git-and-github">Git and GitHub</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#julia">Julia</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#java">Java</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#virtualization">Virtualization</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-seismological-software">3. Seismological software</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#sac">SAC</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#seisan">SEISAN</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cps">CPS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#obspy">ObsPy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pyrocko">Pyrocko</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#phasenet">PhaseNet</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#irissage-software">IRIS/SAGE Software</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#passcal-passoft-software">PASSCAL PASSOFT Software</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#seismic-unix">Seismic Unix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#educational">Educational</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-geoscience-software">4. Geoscience software</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#gmt">GMT</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#qgis">QGIS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#paraview">Paraview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gplates">GPlates</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-other-software">5. Other software</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rosetta-2">Rosetta 2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dropbox">Dropbox</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#zotero">Zotero</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#microsoft-office">Microsoft Office</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mactex-and-texstudio">MacTeX and TeXstudio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#miscellaneous">Miscellaneous</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ventura/">Ventura installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../macports/">MacPorts</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../python/">Python installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tips/">Tips</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Programming and Software Notes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">macOS</li>
+      <li class="breadcrumb-item active">Sonoma installation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="fresh-macos-sonoma-installation">Fresh macOS Sonoma installation</h2>
+<h3 id="1-inmediately-after-installation">1. Inmediately after installation</h3>
+<p>First check if there are updates for the operating system.</p>
+<p>Remove from Dock unwanted applications.</p>
+<h4 id="change-setting-for-macos-and-applications">Change setting for macOS and applications</h4>
+<ul>
+<li>
+<p>Change System settings</p>
+<ul>
+<li>Dock &gt; Position on screen: Left</li>
+<li>Dock &gt; Minimize windows into application icon</li>
+<li>Mouse &gt; Secondary click (Click on right side)</li>
+<li>General &gt; Language &amp; Region &gt; Number format: change decimal character to "."</li>
+</ul>
+</li>
+<li>
+<p>Change Finder settings</p>
+<ul>
+<li>
+<p>General &gt; New Finder window show: Desktop</p>
+</li>
+<li>
+<p>Sidebar &gt; Show Hard disks (add HDD to sidebar and hide Hard disks again)</p>
+</li>
+<li>Sidebar &gt; Do not show CDs, DVDs, and iPods</li>
+<li>
+<p>Sidebar &gt; Sidebar: remove not used</p>
+</li>
+<li>
+<p>Advanced &gt; Show all filename extensions</p>
+</li>
+<li>Advanced &gt; Do not show warning changing extensions</li>
+<li>Advanced &gt; Keep folders on top when sorting by name</li>
+</ul>
+</li>
+<li>
+<p>Change Safari settings</p>
+<ul>
+<li>General &gt; uncheck "Open safe files after downloading"</li>
+</ul>
+</li>
+<li>
+<p>Change Textedit settings</p>
+<ul>
+<li>TextEdit &gt; Format &gt; Make Plain Text</li>
+</ul>
+</li>
+<li>
+<p>Remove Floating Thumbnail from Screen Shot:</p>
+</li>
+</ul>
+<p>Cmd + Shift + 5 &gt; Options &gt; Show Floating Thumbnail (uncheck)</p>
+<h4 id="install-iterm2">Install iTerm2</h4>
+<p>Dowload and install the <a href="https://iterm2.com">iTerm2</a> app and use it instead of the default terminal</p>
+<p>In Settings &gt; Profiles &gt; Colors, change color preset to <em>Novel</em>. (The file <code>Novel.itermcolors</code>
+can be found in <code>~/Dropbox/Software/macOS/macOS_setup/itermcolors</code>)</p>
+<h4 id="set-default-shell-to-bash">Set default shell to <code>bash</code></h4>
+<p>Because of license issues, in the latest versions of macOS the default shell is <code>zsh</code> instead of <code>bash</code>.
+To change the default shell to <code>bash</code>:</p>
+<pre><code>$ chsh -s /bin/bash
+</code></pre>
+<p>Initially (before creating/modifying the <code>.bash_profile</code> and <code>.bashrc</code> files)
+the <code>$PATH</code> environmental variable is set to:</p>
+<pre><code>/usr/local/bin
+/System/Cryptexes/App/usr/bin
+/usr/bin:/bin:/usr/sbin:/sbin
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin
+/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+</code></pre>
+<p>After removing the <strong>cryptex</strong> directories, the remaining path is:</p>
+<pre><code>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+</code></pre>
+<p>Because of those license issues, the version of <code>bash</code> provided in <code>/bin/bash</code>
+is very old (3.2, from 2007!)</p>
+<pre><code>$ echo $BASH_VERSION
+3.2.57(1)-release
+
+$ /bin/bash --version
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin23)
+Copyright (C) 2007 Free Software Foundation, Inc.
+</code></pre>
+<p>Once you install MacPorts and a few packages, a newer version of <code>bash</code> will be available in 
+<code>/opt/local/bin/bash</code>:</p>
+<h4 id="configure-mail-accounts">Configure Mail accounts</h4>
+<p>Add CSIC, GMail and Yahoo! mail.</p>
+<p>Remove iCloud account to avoid confusion.</p>
+<h3 id="2-install-development-packages">2. Install development packages</h3>
+<h4 id="xcode"><code>XCode</code></h4>
+<p>Go to the App Store and install <strong>XCode</strong>. Once it is installed, open it and it will install the
+<strong>Command line tools</strong>. If the tools are not installed automatically it can be done from the command line:</p>
+<pre><code>$ xcode-select --install         # agree to license
+
+$ cc --version
+Apple clang version 15.0.0 (clang-1500.1.0.2.5)
+Target: arm64-apple-darwin23.1.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+</code></pre>
+<p>NOTE: The following may not apply to Sonoma (macOS 14).</p>
+<p>After the installation of <strong>XCode</strong>, the <code>$PATH</code> variable is expanded to:</p>
+<pre><code>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+</code></pre>
+<p>The last folder contains a single command called <code>rvictl</code> that is installed by <strong>Xcode</strong>.</p>
+<h4 id="xquartz"><code>XQuartz</code></h4>
+<p>Then install <a href="https://www.xquartz.org">XQuartz</a> for X Window support.</p>
+<p>Logout after the installation of <strong>XQuartz</strong> and login again for changes to take place.</p>
+<h4 id="gcc-cc-and-fortran-compilers">GCC C/C++ and Fortran compilers</h4>
+<p>Install <code>gcc</code> and <code>gfortran</code> compilers from the <a href="http://hpc.sourceforge.net">HPC Mac OS X</a>
+web page. Download the appropriate <code>.tar.gz</code> file (as of January 2024, the version for Sonoma
+M1/M2 Apple silicon was included in the compressed tar file <code>gcc-13.2-m1-bin.tar.gz</code>)</p>
+<p>To install it, simply type:</p>
+<pre><code>$ sudo tar xvf gcc-13.2-m1-bin.tar -C /.
+
+$ gcc --version
+gcc (GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+...
+
+$ gfortran --version
+GNU Fortran (GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+...
+</code></pre>
+<h4 id="setup-dotfiles">Setup dotfiles</h4>
+<p>At this point it is convenient to setup the <code>.bash_profile</code> and <code>.bashrc</code> files.
+Initially <code>.bash_profile</code> contains simply:</p>
+<pre><code>#
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
+</code></pre>
+<p><strong>Important</strong>: unlike in Linux, in macOS all the new terminals are login terminals, so they 
+all run <code>.bash_profile</code>.</p>
+<p>Examples of dotfiles can be found in <code>~/Dropbox/Software/macOS/macOS_setup/dotfiles</code>.</p>
+<h4 id="macports"><code>MacPorts</code></h4>
+<p>Now we can install the <a href="https://www.macports.org">MacPorts</a> package manager. Download the
+corresponding <code>pkg</code> file and run the installation.</p>
+<p>This adds the following lines to the <code>.bash_profile</code> file:</p>
+<pre><code># MacPorts Installer addition on 2023-12-04_at_19:25:05: adding an appropriate PATH variable for use with MacPorts.
+export PATH=&quot;/opt/local/bin:/opt/local/sbin:$PATH&quot;
+# Finished adapting your PATH environment variable for use with MacPorts.
+</code></pre>
+<p>These lines could be removed from <code>.bash_profile</code> and added to the <code>$PATH</code> declaration in <code>.bashrc</code>.</p>
+<p>After installation update <code>MacPorts</code>:</p>
+<pre><code>$ sudo port -v selfupdate
+$ sudo port upgrade outdated
+</code></pre>
+<p>Normally after a new installation there is nothing to upgrade, but it is advisable to run
+these two commands periodically.</p>
+<p>Now we can use <code>MacPorts</code> to install a more recent version of <code>bash</code>:</p>
+<pre><code>$ sudo port install bash
+</code></pre>
+<p>We can now change the default outdated <code>bash</code> to the newer version <code>/opt/local/bin/bash</code>.
+To make this new <code>bash</code> the default, add <code>/opt/local/bin/bash</code> to the <code>/etc/shells</code> file:</p>
+<pre><code>$ sudo vi /etc/shells
+
+$ cat /etc/shells
+# List of acceptable shells for chpass(1).
+# Ftpd will not allow users to connect who are not using
+# one of these shells.
+
+/bin/bash
+/opt/local/bin/bash
+/bin/csh
+/bin/dash
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+</code></pre>
+<p>and then:</p>
+<pre><code>$ chsh -s /opt/local/bin/bash
+</code></pre>
+<p>To use this shell in shell scripts, replace the common shebang <code>#!/bin/bash</code> for:</p>
+<pre><code>#!/usr/bin/env bash
+</code></pre>
+<p>Packages to install with MacPorts:</p>
+<ul>
+<li><code>htop</code></li>
+<li><code>tree</code></li>
+<li><code>wget</code></li>
+<li><code>curl</code></li>
+<li><code>coreutils</code>: GNU versions of <code>date</code>, <code>od</code>, ...</li>
+<li><code>inetutils</code>: <code>ftp</code>, <code>telnet</code>, ...</li>
+<li><code>gv</code></li>
+<li><code>a2ps</code></li>
+<li><code>ImageMagick</code></li>
+<li><code>GraphicsMagick</code></li>
+<li><code>feh</code></li>
+<li><code>openssh</code></li>
+<li><code>ffmepg</code></li>
+<li><code>parallel</code></li>
+</ul>
+<h4 id="python">Python</h4>
+<p>See specific section.</p>
+<p>Installing the PSF Python adds the following lines to <code>.bash_profile</code>:</p>
+<pre><code># Setting PATH for Python 3.10
+# The original version is saved in .bash_profile.pysave
+PATH=&quot;/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}&quot;
+export PATH
+</code></pre>
+<p>The resulting <code>$PATH</code> looks like:</p>
+<pre><code>/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>Installing the Anaconda Python distribution adds the following lines to <code>.bash_profile</code></p>
+<pre><code># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup=&quot;$('/Users/antonio/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)&quot;
+if [ $? -eq 0 ]; then
+    eval &quot;$__conda_setup&quot;
+else
+    if [ -f &quot;/Users/antonio/opt/anaconda3/etc/profile.d/conda.sh&quot; ]; then
+        . &quot;/Users/antonio/opt/anaconda3/etc/profile.d/conda.sh&quot;
+    else
+        export PATH=&quot;/Users/antonio/opt/anaconda3/bin:$PATH&quot;
+    fi
+fi
+unset __conda_setup
+# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
+</code></pre>
+<p>And sets the <code>$PATH</code> variable to:</p>
+<pre><code>/Users/antonio/opt/anaconda3/bin:/Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>However, this initializes the <strong>conda</strong> <code>base</code> environment for each new shell opened. To prevent this:</p>
+<pre><code>$ conda config --set auto_activate_base false
+</code></pre>
+<p>This creates a file <code>.condarc</code> with the following content:</p>
+<pre><code>auto_activate_base: false
+</code></pre>
+<p>Now when opening a new shell the <strong>conda</strong> <code>base</code> environment is not activated, and the
+<code>$PATH</code> variable is set to:</p>
+<pre><code>/Users/antonio/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin
+</code></pre>
+<p>This means that the PSF Python takes preference over the Anaconda Python. To change this,
+simply activate a <strong>conda</strong> environment:</p>
+<pre><code>$ conda activate         # activates the base environment
+$ conda activate seismo  # activates the "seismo" environment
+</code></pre>
+<h4 id="git-and-github">Git and GitHub</h4>
+<p>Probably at this point <code>git</code> is already installed by <strong>MacPorts</strong>. If that is not the case
+go to the Git <a href="https://www.git-scm.com">web page</a> and download the installer for macOS.</p>
+<p>To configure Git:</p>
+<pre><code>$ git config --global user.name "Antonio Villasenor"
+$ git config --global user.email "antonio.villasenor@csic.es"
+$ git config --global color.ui true
+</code></pre>
+<p>In order to pull and push repositories from your GitHub account in the past it was necessary
+to set up a private SSH key. Now it is done with personal access tokens that are used as
+passwords.</p>
+<h4 id="julia">Julia</h4>
+<h4 id="java">Java</h4>
+<p>Download a macOS Arm 64 DMG installer of the Java SE (standard edition) Development Kit (JDK).
+For version 21.0 use the following <a href="https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html">download page</a>.</p>
+<h4 id="virtualization">Virtualization</h4>
+<ul>
+<li>Docker</li>
+<li>VirtualBox</li>
+<li>Vagrant</li>
+</ul>
+<h3 id="3-seismological-software">3. Seismological software</h3>
+<h4 id="sac">SAC</h4>
+<p>Obtain the <strong>SAC</strong> distribution from IRIS as a tar file with the codes precompiled for macOS.
+As of 2024-01-20 the latest version of <strong>SAC</strong> is 102.0 provided in the tar file <code>sac-102.0-mac.tar</code>.</p>
+<pre><code>$ cd /usr/local
+$ sudo tar xvf .../sac-102.0-mac.tar
+</code></pre>
+<p>Then define the following variables in <code>.bashrc</code></p>
+<pre><code>export SACHOME=/usr/local/sac
+export SACAUX=$SACHOME/aux
+export SACLIB=$SACHOME/lib/sacio.a
+export SAC_DISPLAY_COPYRIGHT=0
+export SAC_USE_DATABASE=0
+export SAC_PPK_LARGE_CROSSHAIRS=1
+</code></pre>
+<p>And finally add <code>$SACHOME/bin</code> to the <code>PATH</code> variable.</p>
+<h4 id="seisan">SEISAN</h4>
+<p>Download the latest version from the <a href="https://www.seisan.info">SEISAN web site</a>.
+As of 2024-01-20 the latest version of SEISAN is 13.03, but it is not available yet
+for macOS, so we will install the previous version (12.0 from May 2021).</p>
+<p>First create a directory for <strong>SEISAN</strong>. A typical name would be <code>/seismo</code>.
+However the most recent macOS versions do not allow to create a directory directly under the root
+directory, so an alternative can be <code>$HOME/seismo</code>.</p>
+<pre><code>$ cd 
+$ mkdir seismo
+$ cd seismo
+$ tar xvzf .../seisan_v12.0_macosx_64.tar.gz
+$ cd COM
+$ vi SEISAN.bash
+</code></pre>
+<p>Edit <code>SEISAN.bash</code> and modify the following lines:</p>
+<pre><code>export SEISARCH="macosx"              # only needed to recompile SEISAN
+export SEISAN_TOP="${HOME}/seismo"
+</code></pre>
+<p>Edit <code>.bashrc</code> and add the following lines:</p>
+<pre><code>export SEISAN=${HOME}/seismo
+source $SEISAN/COM/SEISAN.bash
+</code></pre>
+<p>You can also here add <code>$SEISAN_TOP/PRO</code> and <code>$SEISAN_TOP</code> to the <code>PATH</code>.
+In this case you can comment the following lines in <code>SEISAN.bash</code>:</p>
+<pre><code>#export PATH="$SEISAN_TOP/PRO:$PATH"
+#export PATH="$SEISAN_TOP/COM:$PATH"
+</code></pre>
+<p>This version of <strong>SEISAN</strong> (12.0) comes precompiled for Macs with Intel processors.
+To recompile it for M1/M2 chips you need first to modify the <code>Makefile</code> files in
+<code>$SEISAN_TOP/LIB</code> and <code>$SEISAN_TOP/PRO</code> and repace the <code>gcc-11</code>compiler for simply <code>gcc</code>.</p>
+<p>In <code>$SEISAN_TOP/LIB</code>:</p>
+<pre><code>#cc_macosx    = gcc-11 -m64 -c -I../INC -I/usr/X11R6/include $(debug_flags) -o $@
+cc_macosx    = gcc -m64 -c -I../INC -I/usr/X11R6/include $(debug_flags) -o $@
+</code></pre>
+<p>In <code>$SEISAN_TOP/PRO</code>:</p>
+<pre><code>#cc_macosx     = gcc-11 -m64 -I../INC $(debug_flags) -o $@
+cc_macosx     = gcc -m64 -I../INC $(debug_flags) -o $@
+</code></pre>
+<p>After these changes type:</p>
+<pre><code>$ cd $SEISAN_TOP/PRO
+$ make clean
+$ make all
+</code></pre>
+<p>This will recompile the <strong>SEISAN</strong> library in <code>$SEISAN_TOP/LIB</code> and all the executables
+in <code>$SEISAN_TOP/PRO</code></p>
+<h4 id="cps">CPS</h4>
+<p>To install Bob Herrmann's Computer Programs in Seismology first you need to get a tar
+file with the latest version. At the time of this writing the most recent version
+was <code>NP330.Oct-26-2023.tgz</code>.</p>
+<p>To compile the codes:</p>
+<pre><code>$ cd 
+$ cd src
+$ tar xvzf .../NP330.*DATE*.tgz
+$ cd PROGRAMS.330
+$ ./Setup OSXM                       # use this option for M1/M2 chips
+$ ./C &gt; compile.log 2&gt;&amp;1 &amp;
+$ tail -f compile.log
+</code></pre>
+<p>The executables will be located in <code>$HOME/src/PROGRAMS.330/bin</code>. You need to add this
+directory to your <code>PATH</code>.</p>
+<h4 id="obspy">ObsPy</h4>
+<p>The easiest way to install <strong>ObsPy</strong> is via Anaconda:</p>
+<pre><code>$ conda create -n obspy python=3.11 obspy cartopy pytest pytest-json
+$ conda activate obspy
+$ (obspy) conda install pytest pytest-json-report   # this is necessary to run the tests
+$ (obspy) obspy-runtests
+</code></pre>
+<h4 id="pyrocko">Pyrocko</h4>
+<pre><code>$ conda create -n pyrocko python=3.11
+$ conda activate pyrocko
+$ (pyrocko) conda install -c pyrocko pyrocko
+</code></pre>
+<h4 id="phasenet">PhaseNet</h4>
+<pre><code>$ git clone https://github.com/AI4EPS/PhaseNet.git
+$ cd PhaseNet
+$ conda env create -f env.yml
+$ conda activate phasenet
+</code></pre>
+<h4 id="irissage-software">IRIS/SAGE Software</h4>
+<p>Compile the library <code>libmseed</code> and associated codes (<code>dataselect</code>, <code>mseed2sac</code>, <code>msi</code>, <code>msmod</code>)</p>
+<p>The miniSEED utilities can be installed by compiling the source code in <code>src/mstools</code></p>
+<pre><code>$ cd
+$ cd src/mstools
+$ mkdir -p ~/bin                      # if it does not exist
+$ mkdir -p ~/man/man1                 # if it does not exist
+$ ./compile_all.sh &gt; compile.log 2&gt;&amp;1
+</code></pre>
+<p>Newer versions of the codes are also available on GitHub</p>
+<pre><code>https://github.com/EarthScope/libmseed
+https://github.com/EarthScope/dataselect
+https://github.com/EarthScope/msi
+https://github.com/EarthScope/msmod
+https://github.com/EarthScope/mseed2sac
+https://github.com/EarthScope/sac2mseed
+
+https://github.com/EarthScope/evalresp
+https://github.com/EarthScope/fdsn-stationxml-convertor
+
+https://github.com/EarthScope/ispaq 
+</code></pre>
+<ul>
+<li><code>evalresp</code></li>
+<li><code>JEvalResp</code></li>
+<li><code>JPlotResp</code></li>
+<li><code>rdseed</code></li>
+<li><code>TauP</code></li>
+</ul>
+<h4 id="passcal-passoft-software">PASSCAL PASSOFT Software</h4>
+<p>PASSCAL PASSOFT <a href="https://www.passcal.nmt.edu/content/software-resources">web page</a>.</p>
+<p>List of PASSOFT applications <a href="https://www.passcal.nmt.edu/content/list-passoft-applications">link</a></p>
+<p>Includes <code>dataselect</code>, <code>msi</code>, and <code>rdseed</code>.</p>
+<p>Installation:</p>
+<pre><code> $ conda create -n passoft3 passoft -c https://onyx.passcal.nmt.edu/passcal -c conda-forge
+ $ conda update passoft -c https://onyx.passcal.nmt.edu/passcal -c conda-forge
+ $ conda activate passoft3
+
+ $ conda create -n viewer viewer -c https://onyx.passcal.nmt.edu/passcal -c conda-forge
+ $ conda activate viewer
+</code></pre>
+<h4 id="seismic-unix">Seismic Unix</h4>
+<p>Download the most recent distribution from the Seismic Unix <a href="https://wiki.seismic-unix.org/start">WIKI</a>.</p>
+<p>Uncompress the tar file in <code>/usr/local/cwp</code>.</p>
+<pre><code>$ cd /usr/local
+$ sudo mkdir cwp
+$ cd cwp
+$ tar xvzf cwp_su_all_4XRXX.tgz
+</code></pre>
+<p>Set the following variable in <code>.bashrc</code>.</p>
+<pre><code>export CWPROOT=/usr/local/cwp
+</code></pre>
+<p>Add <code>$CWPROOT/bin</code> to the <code>PATH</code>.</p>
+<pre><code>$ cd $CWPROOT/src/configs
+$ cp Makefile.config_macos ../Makefile.config
+$ cd ..
+$ make install
+$ make xtinstall
+</code></pre>
+<p>Additional items (not essential for running most of SU)</p>
+<pre><code>$ make xminstall    # for FFTLAB, a fun educational app for exploring the Fourier Transform
+$ make mglinstall   # Open GL applications, Graphics codes that could be built upon.
+$ make finstall     # Fortran codes, modeling and anisotropy codes.
+$ make sfinstall    # SFIO installation for segdread (the SEGD to SU data reader)
+</code></pre>
+<h4 id="educational">Educational</h4>
+<p>jAmaSeis</p>
+<h3 id="4-geoscience-software">4. Geoscience software</h3>
+<h4 id="gmt">GMT</h4>
+<p>GMT6 can be installed with <strong>MacPorts</strong>:</p>
+<pre><code>$ sudo port install gdal +hdf5 +netcdf +openjpeg
+$ sudo port install gmt6 [+fftw3]
+
+$ sudo port install graphicsmagick ffmpeg         # if not installed previously
+</code></pre>
+<p>GMT is installed in <code>/opt/local/lib/gmt6/bin</code>. To use GMT in command line or scripts you
+need to add this directory to your <code>PATH</code>.</p>
+<h4 id="qgis">QGIS</h4>
+<h4 id="paraview">Paraview</h4>
+<h4 id="gplates">GPlates</h4>
+<h3 id="5-other-software">5. Other software</h3>
+<h4 id="rosetta-2">Rosetta 2</h4>
+<p>Rosetta 2 enables a Mac with Apple silicon to use apps built for a Mac with
+an Intel processor <a href="https://support.apple.com/en-us/HT211861">[link]</a>.
+Rosetta 2 is automatically installed the first time that we try to use
+an app that was built only for Mac computers with an Intel processor.</p>
+<h4 id="dropbox">Dropbox</h4>
+<p>First login to your Dropbox account and click on <strong>Install Dropbox app</strong>
+to download the installer. </p>
+<p><img alt="" src="../dropbox.png" style="width:250px" /></p>
+<p>Run the installer and select the folders that you want to synchronize.
+These folders will be created under the directory <code>$HOME/Dropbox</code></p>
+<p>Make soft links to the folders that you want to access in your <code>$HOME</code> directory:</p>
+<pre><code>$ cd
+$ ln -s ~/Dropbox/Projects
+$ ln -s ~/Dropbox/src
+$ ln -s ~/Dropbox/scripts
+$ ln -s ~/Dropbox/data
+</code></pre>
+<p>Finally remove the original <code>Documents</code> folder from the <strong>Finder</strong> sidebar
+and add replace it with <code>~/Dropbox/Documents</code>. Also add to the sidebar commonly
+used folders such as <code>~/Dropbox/Projects</code>, etc.</p>
+<h4 id="zotero">Zotero</h4>
+<p>Download the appropriate installer from the <a href="https://www.zotero.org">Zotero web page</a>.</p>
+<p>By default, Zotero stores its files in <code>$HOME/Zotero</code>. If you want to change this location
+to for example <code>$HOME/Documents/Zotero</code>, go to <strong>Preferences &gt; Advanced &gt; Files and Folders</strong>
+and change the directory where the Zotero files are stored:</p>
+<p><img alt="Change Zotero directory" src="../zotero_directory.png" /></p>
+<p>To synchronize your Zotero library between computers, you need to create a Zotero
+account and enable syncing.
+Go to <strong>Preferences &gt; Sync</strong> and enter username and password of your Zotero account
+and click on <strong>Set Up Syncing</strong>.</p>
+<p><img alt="" src="../zotero_sync1.png" /></p>
+<p>After that some additional options will appear.
+<strong>Uncheck</strong> the two boxes in the <strong>File Syncing</strong> section.</p>
+<p><img alt="" src="../zotero_sync2.png" /></p>
+<p>The synchronization of a large PDF collection requires a paid Zotero subscription.
+However, the synchronization can be done with other shared folders such as Dropbox.</p>
+<p>In your first installation of Zotero, store the PDFs in a shared Dropbox
+location instead of the Zotero folder:</p>
+<ol>
+<li>Quit Dropbox</li>
+<li>Go to local Zotero directory (e.g. <code>$HOME/Documents/Zotero</code>) </li>
+<li>Copy the <code>storage</code> folder to <code>$HOME/Dropbox/Zotero/storage</code></li>
+<li>Rename directory <code>storage</code> to <code>storage_old</code></li>
+<li>Make a soft link of Dropox storage directory <code>$HOME/Dropbox/Zotero/storage</code> 
+   to the current directory</li>
+<li>Restart Zotero</li>
+</ol>
+<p>The commands to enter in the terminal are:</p>
+<pre><code>$ cd
+$ mkdir -p ~/Dropbox/Zotero
+$ cd Documents/Zotero
+$ cp -r storage ~/Dropbox/Zotero/.
+$ mv storage storage_old
+$ ln -s ~/Dropbox/Zotero/storage
+</code></pre>
+<p>If you already have a shared Zotero Dropbox folder, you can access it
+and synchronize it from other computers.</p>
+<ol>
+<li>Install Zotero and optionally change the Zotero folder to <code>$HOME/Documents/Zotero</code></li>
+<li>Login to your Zotero account, uncheck the <strong>File Syncing</strong> options and wait for the
+   synchronization of all papers (this synchronizes only the metadata, not the PDFs)</li>
+<li>Quit Zotero</li>
+<li>Go to local Zotero directory (e.g. <code>$HOME/Documents/Zotero</code>) </li>
+<li>Rename directory <code>storage</code> to <code>storage_old</code></li>
+<li>Make a soft link of Dropox storage directory <code>$HOME/Dropbox/Zotero/storage</code> 
+   to the current directory</li>
+<li>Restart Zotero</li>
+</ol>
+<p>The commands to enter in the terminal are:</p>
+<pre><code>$ cd
+$ cd Documents/Zotero
+$ mv storage storage_old
+$ ln -s ~/Dropbox/Zotero/storage
+</code></pre>
+<h4 id="microsoft-office">Microsoft Office</h4>
+<p>Log in to <strong>Microsoft 365</strong> account to download installer.</p>
+<p>Remove unwanted applications (e.g. Outlook, OneNote) just after installation.</p>
+<h4 id="mactex-and-texstudio">MacTeX and TeXstudio</h4>
+<p>To install LaTeX in a Mac, the best alternative is to install the <a href="https://www.tug.org/mactex/">MacTeX</a>
+distribution. Download and run the <code>pkg</code> installer (it is a large download).</p>
+<p>Once you have installed MacTeX you can also install the <a href="https://www.texstudio.org">TeXstudio</a>
+integrated writing environment for creating LaTeX documents. Download the <code>dmg</code> installer,
+open it and copy the app to the <code>Applications</code> folder.</p>
+<h4 id="miscellaneous">Miscellaneous</h4>
+<p>The following apps can be installed from the App Store:</p>
+<ul>
+<li><strong>The Unarchiver</strong>: open compressed files</li>
+<li><strong>Pocket</strong>: save web articles to read later</li>
+<li><strong>Simple Comic</strong>: comic reader for <code>cbz</code> and <code>cbr</code> formats</li>
+</ul>
+<p>The following apps can be installed by downloading the installer from the developer's web page:</p>
+<ul>
+<li><strong>Adobe Acrobat Reader</strong>: for reading and digitally sign PDF documents</li>
+<li><strong>Brave</strong>: web browser</li>
+<li><strong>Firefox</strong>: web browser</li>
+<li><strong>Tor</strong>: web browser</li>
+<li><strong>Google Earth Pro</strong>: map and satellite imagery viewer (<a href="https://www.google.com/earth/about/versions/">download</a>)</li>
+<li><strong>Spotify</strong>: listen to music and podcasts</li>
+<li><strong>qBittorrent</strong>: download torrent files</li>
+<li><strong>VLC</strong>: video and music player</li>
+<li>
+<p><strong>zoom</strong>: video conference tool</p>
+</li>
+<li>
+<p><strong>DjView</strong>: visualize scanned documents in <code>djvu</code> format (<a href="https://djvu.sourceforge.net/djview4.html">link</a>)</p>
+</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../unix/installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ventura/" class="btn btn-neutral float-right" title="Ventura installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../unix/installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ventura/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
     <title>MkDocs - Programming and Software Notes</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -34,7 +33,7 @@
           <a href="../.." class="icon icon-home"> Programming and Software Notes
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -120,6 +119,8 @@
               </ul>
               <p class="caption"><span class="caption-text">macOS</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../macos/sonoma/">Sonoma installation</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../macos/ventura/">Ventura installation</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../macos/macports/">MacPorts</a>
@@ -146,14 +147,14 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Documentation &raquo;</li><li>MkDocs</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Documentation</li>
+      <li class="breadcrumb-item active">MkDocs</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
   <hr/>
 </div>
-
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
@@ -173,8 +174,11 @@ in <code>~/.local/bin</code>. This last directory must be included in the <code>
 </code></pre>
 <p>Sometimes the applications require additional packages (e.g. to add some functionalities). It is 
 possible to install additional packages in an existing <code>pipx</code> application using <code>pipx runpip</code>.
-To install the <code>python-markdown-math</code> package that adds</p>
+To install the <code>python-markdown-math</code> package that adds math expressions using LaTeX:</p>
 <pre><code>$ pipx runpip mkdocs install python-markdown-math
+</code></pre>
+<p>To install the <a href="https://squidfunk.github.io/mkdocs-material/">Material</a> theme:</p>
+<pre><code>$ pipx runpip mkdocs install mkdocs-material
 </code></pre>
 <h2 id="installation-using-conda">Installation using <code>conda</code></h2>
 <pre><code>$ conda create -n mkdocs python=3.8
@@ -293,11 +297,13 @@ package. This is done adding the following lines:</p>
 <pre><code>site_name: My Docs
 
 extra_javascript:
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
     - mdx_math
 </code></pre>
+<p>WARNING: version of <code>mathjax</code> changes, so using an older version might be incompatible
+with newer versions of <code>MkDocs</code>.</p>
 <p>Test web page editing docs/index.md:</p>
 <pre><code># MathJax Test Page
 
@@ -352,15 +358,16 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
     
   </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
