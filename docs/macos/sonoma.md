@@ -566,7 +566,7 @@ an app that was built only for Mac computers with an Intel processor.
 First login to your Dropbox account and click on **Install Dropbox app**
 to download the installer. 
 
-![](dropbox.png){: style="width:250px"}
+![](dropbox.png){ width="250" style="display: block; margin: 0 auto" }
 
 Run the installer and select the folders that you want to synchronize.
 These folders will be created under the directory `$HOME/Dropbox`
