@@ -477,6 +477,35 @@ https://github.com/EarthScope/ispaq
 - `TauP`
 
 
+#### NonLinLoc
+
+    $ git clone https://github.com/alomax/NonLinLoc.git
+    $ cd NonLinLoc/src
+    $ /bin/rm -rf bin
+    $ mkdir bin
+    $ rm CMakeCache.txt
+    $ cmake .
+    $ make > make.log 2>&1
+
+If compilation of `sphfd_SWR_NLL` fails, comment the following lines in `CMakeLists.txt`
+
+    # --------------------------------------------------------------------------
+    # sphfd_SWR_NLL
+    #
+    #add_executable(sphfd_SWR_NLL sphfd_SWR_NLL.c)
+    #target_link_libraries(sphfd_SWR_NLL GRID_LIB_OBJS m)
+    #target_compile_options(sphfd_SWR_NLL PRIVATE "-w")
+
+And recompile:
+
+    $ /bin/rm -rf bin
+    $ mkdir bin
+    $ rm CMakeCache.txt
+    $ cmake .
+    $ make > make.log 2>&1
+
+
+
 #### PASSCAL PASSOFT Software
 
 PASSCAL PASSOFT [web page](https://www.passcal.nmt.edu/content/software-resources).

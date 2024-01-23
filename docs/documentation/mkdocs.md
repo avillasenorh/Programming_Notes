@@ -18,7 +18,7 @@ The applications are installed using the command `pipx install`:
     $ pipx install mkdocs
 
 Sometimes the applications require additional packages (e.g. to add some functionalities). It is 
-possible to install additional packages in an existing `pipx` application using `pipx runpip`.
+possible to install additional packages in an existing `pipx` application virtural environment using `pipx runpip`.
 To install the `python-markdown-math` package that adds math expressions using LaTeX:
 
     $ pipx runpip mkdocs install python-markdown-math
@@ -33,6 +33,7 @@ To install the [Material](https://squidfunk.github.io/mkdocs-material/) theme:
     $ source activate mkdocs
     $ pip install mkdocs
     $ pip install python-markdown-math
+    $ pip install mkdocs-material
 
     $ mkdocs --version
     mkdocs, version 1.1.2 from /Users/antonio/opt/anaconda3/envs/mkdocs/lib/python3.8/site-packages/mkdocs (Python 3.8)
@@ -53,7 +54,7 @@ creates a directory called `mkdocs_test` with the following files:
     docs/
     docs/index.md
 
-To create documetation files in a directory already exists:
+To create documetation files in an existing directory:
 
     $ cd my_project
     $ mkdocs new .
@@ -61,8 +62,9 @@ To create documetation files in a directory already exists:
     INFO    -  Writing initial docs: ./docs/index.md
 
 
-Originally the 
-mkdocs.yml:
+Originally the `mkdocs.yml` file contains only the following line:
+
+    site_name: My Docs
 
 Initially the `docs/index.md` file contains the following:
 ```
@@ -90,21 +92,25 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     $ mkdocs serve &
     $ open http://127.0.0.1:8000/
 
-This allows to preview web page as you work on it (web page is automatically refreshed)
+This allows to preview web page as you work on it (the web page is automatically refreshed)
 
 When done, to generate the web site:
 
     $ mkdocs build  
 
-Creates directory "site" whith index.html, css, ...
+This creates a directory named `site` that contains many other directories and
+files such as `index.html`, `css/`, ...
 
     $ mkdocs build --clean  # removes unused files
 
-If you don't want to keep it in git, edit .gitignore and add:
+If you don't want to keep it in **git**, edit `.gitignore` and add:
 
-site/
+    site/
 
-Documentation web page can be deployed to GitHub!!!
+Documentation web page can be deployed to GitHub pages. You have to go to
+the top directory of the repository (where `mkdocs.yml` is located) and type:
+
+    $ mkdocs gh-deploy
 
 ## Editing basic files and adding pages
 
@@ -160,11 +166,10 @@ Generate site
 
     $ mkdocs gh-deploy
 
-Creates web site: https://avillasenorh.github.io/PStomo_documentation/
+Creates web site: [https://avillasenorh.github.io/PStomo_documentation/](https://avillasenorh.github.io/PStomo_documentation/)
 
 
-
-## Add math equations to mkdocs
+## Add math equations to MkDocs
 
 To add the capability of displaying mathematical equations, the `python-markdown-math`
 package is required.
@@ -182,7 +187,7 @@ markdown_extensions:
     - mdx_math
 ```
 WARNING: version of `mathjax` changes, so using an older version might be incompatible
-with newer versions of `MkDocs`.
+with newer versions of MkDocs.
 
 Test web page editing docs/index.md:
 
