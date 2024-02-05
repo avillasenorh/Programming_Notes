@@ -315,6 +315,10 @@ passwords.
 Download a macOS Arm 64 DMG installer of the Java SE (standard edition) Development Kit (JDK).
 For version 21.0 use the following [download page](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html).
 
+#### IDEs
+
+- VS Code
+
 #### Virtualization
 
 - Docker
@@ -476,6 +480,19 @@ https://github.com/EarthScope/ispaq
 - `rdseed`
 - `TauP`
 
+#####  stationxml-seed-converter
+
+Go to the [GitHub](https://github.com/iris-edu/stationxml-seed-converter) repository of the
+project, and click in **Releases** go get the Java `jar` file with the latest version.
+
+Copy the `jar` file (e.g. `stationxml-seed-converter-2.1.3.jar`) in a directory
+such as `$HOME/bin`, and for convenience define the following alias:
+
+    alias stationxml-seed-converter='java -cp ~/bin -Xmx512m -jar ~/bin/stationxml-seed-converter-2.1.3.jar --verbose'
+
+Then to run the program:
+
+    $ stationxml-seed-converter --input xml_file --output dlsv_file
 
 #### NonLinLoc
 
@@ -574,7 +591,10 @@ GMT6 can be installed with **MacPorts**:
 GMT is installed in `/opt/local/lib/gmt6/bin`. To use GMT in command line or scripts you
 need to add this directory to your `PATH`.
 
-#### QGIS
+#### GIS
+
+- QGIS
+- Grass
 
 
 #### Paraview
@@ -706,10 +726,17 @@ The following apps can be installed by downloading the installer from the develo
 - **Brave**: web browser
 - **Firefox**: web browser
 - **Tor**: web browser
+- **DjView**: visualize scanned documents in `djvu` format ([link](https://djvu.sourceforge.net/djview4.html))
 - **Google Earth Pro**: map and satellite imagery viewer ([download](https://www.google.com/earth/about/versions/))
 - **Spotify**: listen to music and podcasts
 - **qBittorrent**: download torrent files
 - **VLC**: video and music player
 - **zoom**: video conference tool
 
-- **DjView**: visualize scanned documents in `djvu` format ([link](https://djvu.sourceforge.net/djview4.html))
+
+- **CorelDRAD**
+- **FortiClient**
+- **OpenVPN**
+- **Google Docs, Sheets, Slides**: simply open browser
+
+- **AutoFirma**
