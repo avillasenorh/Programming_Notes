@@ -575,7 +575,7 @@ Additional items (not essential for running most of SU)
 
 #### Educational
 
-jAmaSeis
+- jAmaSeis [link](https://www.iris.edu/hq/inclass/software-web-app/jamaseis)
 
 ### 4. Geoscience software
 
