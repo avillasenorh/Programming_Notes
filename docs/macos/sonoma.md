@@ -229,7 +229,7 @@ Packages to install with MacPorts:
 - `ImageMagick`
 - `GraphicsMagick`
 - `feh`
-- `openssh`
+- `openssh +ssh-copy-id`
 - `ffmepg`
 - `parallel`
 
