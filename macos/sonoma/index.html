@@ -1129,6 +1129,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDEs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#virtualization" class="md-nav__link">
     <span class="md-ellipsis">
       Virtualization
@@ -1213,6 +1222,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="IRIS/SAGE Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stationxml-seed-converter" class="md-nav__link">
+    <span class="md-ellipsis">
+      stationxml-seed-converter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1276,9 +1300,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#qgis" class="md-nav__link">
+  <a href="#gis" class="md-nav__link">
     <span class="md-ellipsis">
-      QGIS
+      GIS
     </span>
   </a>
   
@@ -1700,6 +1724,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ides" class="md-nav__link">
+    <span class="md-ellipsis">
+      IDEs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#virtualization" class="md-nav__link">
     <span class="md-ellipsis">
       Virtualization
@@ -1784,6 +1817,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="IRIS/SAGE Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stationxml-seed-converter" class="md-nav__link">
+    <span class="md-ellipsis">
+      stationxml-seed-converter
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1847,9 +1895,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#qgis" class="md-nav__link">
+  <a href="#gis" class="md-nav__link">
     <span class="md-ellipsis">
-      QGIS
+      GIS
     </span>
   </a>
   
@@ -2223,6 +2271,10 @@ passwords.</p>
 <h4 id="java">Java</h4>
 <p>Download a macOS Arm 64 DMG installer of the Java SE (standard edition) Development Kit (JDK).
 For version 21.0 use the following <a href="https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html">download page</a>.</p>
+<h4 id="ides">IDEs</h4>
+<ul>
+<li>VS Code</li>
+</ul>
 <h4 id="virtualization">Virtualization</h4>
 <ul>
 <li>Docker</li>
@@ -2352,6 +2404,16 @@ https://github.com/EarthScope/ispaq
 <li><code>rdseed</code></li>
 <li><code>TauP</code></li>
 </ul>
+<h5 id="stationxml-seed-converter">stationxml-seed-converter</h5>
+<p>Go to the <a href="https://github.com/iris-edu/stationxml-seed-converter">GitHub</a> repository of the
+project, and click in <strong>Releases</strong> go get the Java <code>jar</code> file with the latest version.</p>
+<p>Copy the <code>jar</code> file (e.g. <code>stationxml-seed-converter-2.1.3.jar</code>) in a directory
+such as <code>$HOME/bin</code>, and for convenience define the following alias:</p>
+<pre><code>alias stationxml-seed-converter='java -cp ~/bin -Xmx512m -jar ~/bin/stationxml-seed-converter-2.1.3.jar --verbose'
+</code></pre>
+<p>Then to run the program:</p>
+<pre><code>$ stationxml-seed-converter --input xml_file --output dlsv_file
+</code></pre>
 <h4 id="nonlinloc">NonLinLoc</h4>
 <pre><code>$ git clone https://github.com/alomax/NonLinLoc.git
 $ cd NonLinLoc/src
@@ -2424,7 +2486,11 @@ $ sudo port install graphicsmagick ffmpeg         # if not installed previously
 </code></pre>
 <p>GMT is installed in <code>/opt/local/lib/gmt6/bin</code>. To use GMT in command line or scripts you
 need to add this directory to your <code>PATH</code>.</p>
-<h4 id="qgis">QGIS</h4>
+<h4 id="gis">GIS</h4>
+<ul>
+<li>QGIS</li>
+<li>Grass</li>
+</ul>
 <h4 id="paraview">Paraview</h4>
 <h4 id="gplates">GPlates</h4>
 <h3 id="5-other-software">5. Other software</h3>
@@ -2525,6 +2591,7 @@ open it and copy the app to the <code>Applications</code> folder.</p>
 <li><strong>Brave</strong>: web browser</li>
 <li><strong>Firefox</strong>: web browser</li>
 <li><strong>Tor</strong>: web browser</li>
+<li><strong>DjView</strong>: visualize scanned documents in <code>djvu</code> format (<a href="https://djvu.sourceforge.net/djview4.html">link</a>)</li>
 <li><strong>Google Earth Pro</strong>: map and satellite imagery viewer (<a href="https://www.google.com/earth/about/versions/">download</a>)</li>
 <li><strong>Spotify</strong>: listen to music and podcasts</li>
 <li><strong>qBittorrent</strong>: download torrent files</li>
@@ -2533,7 +2600,15 @@ open it and copy the app to the <code>Applications</code> folder.</p>
 <p><strong>zoom</strong>: video conference tool</p>
 </li>
 <li>
-<p><strong>DjView</strong>: visualize scanned documents in <code>djvu</code> format (<a href="https://djvu.sourceforge.net/djview4.html">link</a>)</p>
+<p><strong>CorelDRAD</strong></p>
+</li>
+<li><strong>FortiClient</strong></li>
+<li><strong>OpenVPN</strong></li>
+<li>
+<p><strong>Google Docs, Sheets, Slides</strong>: simply open browser</p>
+</li>
+<li>
+<p><strong>AutoFirma</strong></p>
 </li>
 </ul>
 
