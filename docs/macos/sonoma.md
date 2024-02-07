@@ -226,6 +226,7 @@ Packages to install with MacPorts:
 - `inetutils`: `ftp`, `telnet`, ...
 - `gv`
 - `a2ps`
+- `dos2unix`
 - `ImageMagick`
 - `GraphicsMagick`
 - `feh`
