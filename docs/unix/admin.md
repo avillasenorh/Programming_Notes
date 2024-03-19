@@ -157,7 +157,7 @@ $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 \
  --slave /usr/bin/gcov gcov /usr/bin/gcov-7
 ```
 
-(Modified from https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/):
+(Modified from this [link](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)):
 
 ```console
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
