@@ -223,6 +223,8 @@ If it is not available, it can be installed with `MacPorts`:
 
     $ sudo port install pipx
 
+You can also check this detailed **Real Python** [tutorial](https://realpython.com/python-pipx/).
+
 Examples of packages that can be installed with `pipx` are:
 
 - `black`: a Python code formatter
