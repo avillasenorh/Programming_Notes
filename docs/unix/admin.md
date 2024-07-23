@@ -1,5 +1,11 @@
 # Admin
 
+When a disk is not responsing properly (usually an unavailable NFS file),
+the `df` commands usually stalls. To find the filesystems that are not 
+responding:
+
+    $ strace /bin/df
+
 Umount a non-responsive NFS file system:
 
     $ sudo umount -f -l /filesystem
