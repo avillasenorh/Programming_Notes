@@ -74,6 +74,24 @@ Now try logging into the machine, with:   "ssh 'antonio@edge3.ictja.csic.es'"
 and check to make sure that only the key(s) you wanted were added.
 ```
 
+## Add LOCALEs
+
+In some new systems sometimes we can get this error when trying to change the LOCALE:
+
+    $ export LC_ALL=en_US.UTF-8
+    -bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+
+This is probably because the intended LOCALE is not installed. To install a LOCALE:
+
+    $ locale -a
+    $ sudo locale-gen en_US.UTF-8
+    $ sudo update-locale
+
+
+Another alternative (not tested):
+
+    $ sudo apt-get install language-pack-ES
+
 ## Disable suspend and hibernation
 
 Instructions in this [link](https://www.tecmint.com/disable-suspend-and-hibernation-in-linux/).
