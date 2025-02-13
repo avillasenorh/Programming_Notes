@@ -8,7 +8,7 @@
     <title>Admin - Programming and Software Notes</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,11 +17,12 @@
         var mkdocs_page_url = null;
       </script>
     
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -33,7 +34,7 @@
           <a href="../.." class="icon icon-home"> Programming and Software Notes
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -94,6 +95,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#ssh-keys">SSH keys</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-locales">Add LOCALEs</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#disable-suspend-and-hibernation">Disable suspend and hibernation</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#mysql">MySQL</a>
@@ -143,18 +146,23 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Unix</li>
-      <li class="breadcrumb-item active">Admin</li>
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Unix &raquo;</li><li>Admin</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
   <hr/>
 </div>
+
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
                 <h1 id="admin">Admin</h1>
+<p>When a disk is not responsing properly (usually an unavailable NFS file),
+the <code>df</code> commands usually stalls. To find the filesystems that are not 
+responding:</p>
+<pre><code>$ strace /bin/df
+</code></pre>
 <p>Umount a non-responsive NFS file system:</p>
 <pre><code>$ sudo umount -f -l /filesystem
 </code></pre>
@@ -210,6 +218,19 @@ Number of key(s) added:        1
 
 Now try logging into the machine, with:   &quot;ssh 'antonio@edge3.ictja.csic.es'&quot;
 and check to make sure that only the key(s) you wanted were added.
+</code></pre>
+<h2 id="add-locales">Add LOCALEs</h2>
+<p>In some new systems sometimes we can get this error when trying to change the LOCALE:</p>
+<pre><code>$ export LC_ALL=en_US.UTF-8
+-bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)
+</code></pre>
+<p>This is probably because the intended LOCALE is not installed. To install a LOCALE:</p>
+<pre><code>$ locale -a
+$ sudo locale-gen en_US.UTF-8
+$ sudo update-locale
+</code></pre>
+<p>Another alternative (not tested):</p>
+<pre><code>$ sudo apt-get install language-pack-ES
 </code></pre>
 <h2 id="disable-suspend-and-hibernation">Disable suspend and hibernation</h2>
 <p>Instructions in this <a href="https://www.tecmint.com/disable-suspend-and-hibernation-in-linux/">link</a>.</p>
@@ -313,16 +334,15 @@ $ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 70 \
     
   </span>
 </div>
-    <script src="../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../..";</script>
-    <script src="../../js/theme_extra.js"></script>
-    <script src="../../js/theme.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-      <script src="../../search/main.js"></script>
-    <script>
-        jQuery(function () {
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
-        });
+        };
     </script>
 
 </body>
