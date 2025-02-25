@@ -74,6 +74,18 @@ Now try logging into the machine, with:   "ssh 'antonio@edge3.ictja.csic.es'"
 and check to make sure that only the key(s) you wanted were added.
 ```
 
+## Problems mounting NFS filesystems
+
+In some new systems when adding NFS filesystemes to `/etc/fstab` you can have some problems.
+
+First that the system is still using the old `/etc/fstab`. To refresh:
+
+    $ sudo systemctl daemon-reload
+
+It is also possible that you need to install the package to handle NFS filesystems:
+
+    $ sudo apt install nfs-common
+
 ## Add LOCALEs
 
 In some new systems sometimes we can get this error when trying to change the LOCALE:
