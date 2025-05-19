@@ -32,7 +32,8 @@ Get IPs and MAC addresses in a local network
 
 ## SSH keys
 
-First make sure that SSH is installed:
+First make sure that SSH is installed (it may not be installed by default with the Desktop version the
+Linux distribution):
 
     $ sudo apt-get install openssh-server
 
